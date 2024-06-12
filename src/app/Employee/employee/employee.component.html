@@ -1,0 +1,80 @@
+<!-- <div class="grid-container">
+    <div class="cards_container">
+        <mat-card class="card_all">
+            <div class="card_inner__content1">
+                <span class="img_container"><img mat-card-image src="./assets/images/total.png" alt=""
+                        class="imgs"></span>
+            </div>
+            <div class="card_inner__content12">
+                <span class="card_content">Total Requests</span>
+            </div>
+            <div class="card_inner__content12">
+                <span class="count card_content">10</span>
+            </div>
+        </mat-card>
+        <mat-card class="card_approved ">
+            <span class="img_container"><img mat-card-image src="./assets/images/approve.png" alt=""
+                    class="imgs"></span>
+            <span class="card_content">Approved</span><span class="count card_content">6</span>
+        </mat-card>
+        <mat-card class="card_reject ">
+            <span class="img_container"><img mat-card-image src="./assets/images/reject.png" alt="" class="imgs"></span>
+            <span class="card_content">Rejected</span><span class="count card_content">3</span>
+        </mat-card>
+        <mat-card class="card_new ">
+            <span class="img_container"><img mat-card-image src="./assets/images/new.png" alt="" class="imgs"></span>
+            <span class="card_content">New</span><span class="count card_content">1</span>
+        </mat-card>
+    </div>
+</div> -->
+<!-- <div class="grid-container">
+  <div class="cards_container">
+      <mat-card class="card-with-icon p-3">
+        <div class="d-flex align-items-center">
+          <mat-icon class="mr-2">star</mat-icon>
+          <div>
+            <h5 class="card-title">Card Title</h5>
+            <p class="card-text">Some number: <span class="badge badge-primary">42</span></p>
+          </div>
+        </div>
+      </mat-card>
+  </div>
+</div> -->
+
+<!-- <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let card of cards">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <mat-icon>{{ card.icon }}</mat-icon>
+          </div>
+          <mat-card-title>{{ card.title }}</mat-card-title>
+          <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ card.number }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let card of cards">
+      <mat-card class="text-center p-3">
+        <span class="container_icon mb-2">
+          <div class="icon-circle d-flex align-items-center justify-content-center">
+            <mat-icon class="icon">work</mat-icon>
+          </div>
+        </span>
+        <div class="card_content">
+          <h3 class="m-0">{{ card.number }}</h3>
+          <p class="m-0">{{ card.title }}</p>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

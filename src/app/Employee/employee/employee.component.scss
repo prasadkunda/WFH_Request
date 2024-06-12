@@ -1,0 +1,157 @@
+// .grid-container{
+//     display: grid;
+//     grid-template-columns: repeat(12,1fr);
+//     padding-top: 30px;
+// .cards_container {
+//     height: 11.25rem;
+//     grid-column: 2/ span 10;
+//     display: flex;
+//         // .card_all {
+//         //     width: 14rem;
+//         //     display: flex;
+//         //     border-radius: 1.5625rem;
+//         //     margin: auto;
+//         //     align-items: flex-start;
+//         //     padding-left: 1rem;
+//         // }
+//         .card_approved {
+//             width: 14rem;
+//             display: flex;
+//             padding-left: 1rem;
+//             border-radius: 1.5625rem;
+//             margin: auto;
+//             align-items: flex-start;
+//         }
+//         .card_reject {
+//             width: 14rem;
+//             display: flex;
+//             padding-left: 1rem;
+//             border-radius: 1.5625rem;
+//             margin: auto;
+//             align-items: flex-start;
+//         }
+//         .card_new {
+//             width: 14rem;
+//             display: flex;
+//             padding-left: 1rem;
+//             border-radius: 1.5625rem;
+//             margin: auto;
+//             align-items: flex-start;
+//         }
+//         .imgs {
+//             width: 1.875rem;
+//             height: 1.875rem;
+//             border-radius: 30%;
+//         }
+//         .card_content {
+//             color: black;
+//             font-size: 16px;
+//             position: relative;
+//             left: 50px;
+//         }
+//         .count {
+//             display: flex;
+//             justify-content: center;
+//             position: relative;
+//             left: 50px;
+//             bottom: 38px;
+//             font-weight: 600;
+//             font-size: x-large;
+//         }
+//         .img_container {
+//             border: 1px solid black;
+//             border-radius: 01rem;
+//             padding: 0.2rem;
+//             position: relative;
+//             top: 25px;
+//         }
+//         .card_all, .card_approved, .card_reject, .card_new {
+//             &.grow {
+//                 transition: all .2s ease-in-out;
+        
+//                 &:hover {
+//                   transform: scale(1.2);
+//                 }
+//             }
+//         }
+//         .card_all {
+//             width: 14rem;
+//             display: grid;
+//             grid-template-columns: repeat(2, 1fr);
+//             border-radius: 1.5625rem;
+//             margin: auto;
+//             align-items: flex-start;
+//             padding-left: 1rem;
+//             .card_inner__content1{
+//                 grid-column: span 1;
+//                 g
+//             }
+//             .card_inner__content2{
+//                 grid-column: span 1;
+//             }
+//             .card_inner__content3{
+//                 grid-column: span 1;
+//             }
+//         }
+       
+// }
+// }
+
+// .grid-container{
+//         display: grid;
+//         grid-template-columns: repeat(12,1fr);
+//         padding-top: 30px;
+
+//         .cards_container {
+//                 height: 11.25rem;
+//                 grid-column: 2/ span 10;
+//             //     display: flex;
+//                         .card-with-icon {
+//                             display: flex;
+//                             align-items: center;
+//                         }
+//                         .mat-icon {
+//                             font-size: 40px;
+//                         }
+//         }
+//     }
+
+// .example-header-image {
+//     background-color: transparent;
+//   }
+
+.container_icon{
+    transform: translateY(35px);
+}
+.icon-circle {
+    width: 3.125rem;
+    height: 3.125rem;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+  }
+  
+  .icon {
+    color: #9c27b0; /* Example color, adjust as needed */
+  }
+  
+  mat-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: gray;
+  }
+
+  .card_content{
+    // display: flex;
+    // position: relative;
+    // bottom: 30px;
+  }
+  
