@@ -8,6 +8,9 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CommonService } from '../../shared/service/common.service';
+import { Observable } from 'rxjs';
+import { error } from 'console';
 
 export interface UserData {
   sl_no : string;
@@ -18,7 +21,11 @@ export interface UserData {
   status:string;
   comments:string;  
 }
-
+export interface cardData{
+  icon: string;
+  title: string;
+  number: number;
+}
 @Component({
   selector: 'app-employee',
   standalone: true,
@@ -27,12 +34,9 @@ export interface UserData {
   styleUrl: './employee.component.scss'
 })
 export class EmployeeComponent {
-  cards = [
-    { icon: 'list_alt', title: 'Total Requests', number: '10' },
-    { icon: 'check_circle_outline', title: 'Approved', number: 6 },
-    { icon: 'highlight_off', title: 'Rejected', number: 3 },
-    { icon: 'library_add', title: 'New', number: 1 }
-  ]; 
+
+  cardDetails !: cardData[];
+  users !: UserData[];
 
   displayedColumns: string[] = ['SL NO', 'Project', 'Requested date', 'Approved Date','Approver','Status','Comments'];
   dataSource: MatTableDataSource<UserData>;
@@ -40,24 +44,17 @@ export class EmployeeComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
-  constructor() {
-    const users = [
-      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'2',project:'IMMIGRATION',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'3',project:'SWA',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'4',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'5',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'6',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
-      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
-      {sl_no:'2',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
-      {sl_no:'3',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
-      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'created',comments:'Health issues'},
-      ];
-      
-
+  constructor(private commonService:CommonService) {
+    this.commonService.getAllRequest().subscribe(res => {
+      if(res && Array.isArray(res)){
+        this.users = res;
+      }
+    });
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource(this.users);
+  }
+  ngOnInit():void {
+    this.getCardDetails();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -71,6 +68,58 @@ export class EmployeeComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  getCardDetails(){
+    this.cardDetails = [];
+    this.commonService.getCardsDetails().subscribe(res => 
+      {
+        try{
+          if(res && Array.isArray(res)){
+            this.cardDetails = res;
+          }else{
+            
+          }
+        }catch{
+          console.error('Unexpected response :', res);
+        }
+        
+      }
+    )
+  }
+
+  // used to get title and index of the card
+  onCardClick(index: number, title: string) {
+    console.log('Card Index:', index);
+    console.log('Card Title:', title);
+    this.dataSource = new MatTableDataSource();
+    let requestObservable;
+    switch(title){
+        case 'Approved' :
+          requestObservable = this.commonService.getApprovedRequest();
+          break;
+          case 'Rejected' :
+            requestObservable = this.commonService.getRejectedRequest();
+            break;
+            case 'New' :
+            requestObservable = this.commonService.getNewRequest();
+            break;
+            default :
+            requestObservable = this.commonService.getAllRequest();
+            break;
+    }
+    this.handleRequest(requestObservable);
+  }
+  handleRequest(requestObservable: Observable<any>){
+    requestObservable.subscribe(res => {
+      try{
+        if(res && Array.isArray(res)){
+          this.dataSource = new MatTableDataSource(res);
+        }
+      }catch {
+        console.error('Error in API Response',res)
+      }
+    })
   }
 }
 

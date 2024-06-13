@@ -20,7 +20,7 @@
        <div class="section_wfh">
         <span class="property_date">Monday, June 10</span>
         <span class="properties_wfh_button">
-          <button mat-flat-button color="warn">Request WFH</button>
+          <button mat-flat-button color="warn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">Request WFH</button>
         </span>
       </div>
   </div>
@@ -28,4 +28,16 @@
   <!-- <div class="footer">
     <span>copy right 2024</span>
   </div> -->
+</div>
+<div class="offcanvas offcanvas-end" id="demo">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">WFH Request</h3>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <p>Some text lorem ipsum.</p>
+    <button class="btn btn-secondary" type="button">A Button</button>
+  </div>
 </div>
