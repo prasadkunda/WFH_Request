@@ -28,7 +28,7 @@ export interface UserData {
 })
 export class EmployeeComponent {
   cards = [
-    { icon: 'list_alt', title: 'Total Requests', number: 10 },
+    { icon: 'list_alt', title: 'Total Requests', number: '10' },
     { icon: 'check_circle_outline', title: 'Approved', number: 6 },
     { icon: 'highlight_off', title: 'Rejected', number: 3 },
     { icon: 'library_add', title: 'New', number: 1 }
@@ -42,8 +42,6 @@ export class EmployeeComponent {
 
 
   constructor() {
-    // Create 100 users
-    // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     const users = [
       {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
       {sl_no:'2',project:'IMMIGRATION',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
@@ -76,18 +74,4 @@ export class EmployeeComponent {
   }
 }
 
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   const name =
-//     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-//     ' ' +
-//     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-//     '.';
 
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-//   };
-// }
