@@ -69,7 +69,7 @@
           <div class="container_icon mb-2 col-md-2">
             <div
               class="col-md-4 icon-circle d-flex align-items-center justify-content-center">
-              <mat-icon class="icon">work</mat-icon>
+              <mat-icon class="icon">{{ card.icon }}</mat-icon>
             </div>
           </div>
           <div class="card_content col-md-8">
@@ -104,16 +104,28 @@
       </ng-container>
   
       <!-- Designation Column -->
-      <ng-container matColumnDef="Designation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Designation </th>
-        <td mat-cell *matCellDef="let row"> {{row.designation}} </td>
+      <ng-container matColumnDef="Requested date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Requested date </th>
+        <td mat-cell *matCellDef="let row"> {{row.requested_date}} </td>
       </ng-container>
   
       <!-- Dates Column -->
-      <ng-container matColumnDef="Dates">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dates </th>
-        <td mat-cell *matCellDef="let row"> {{row.dates}} </td>
+      <ng-container matColumnDef="Approved Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Approved Date </th>
+        <td mat-cell *matCellDef="let row"> {{row.approved_date}} </td>
       </ng-container>
+
+      <!-- Comments Column -->
+      <ng-container matColumnDef="Approver">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Approver </th>
+        <td mat-cell *matCellDef="let row"> {{row.aprover}} </td>
+      </ng-container>
+
+       <!-- Status Column -->
+       <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>  
 
       <!-- Comments Column -->
       <ng-container matColumnDef="Comments">
@@ -121,12 +133,7 @@
         <td mat-cell *matCellDef="let row"> {{row.comments}} </td>
       </ng-container>
 
-      <!-- Status Column -->
-      <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
-      </ng-container>
-  
+     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   

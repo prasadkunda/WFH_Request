@@ -12,45 +12,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 export interface UserData {
   sl_no : string;
   project:any;
-  designation:string;
-  dates:string;
-  comments:string;
+  requested_date:string;
+  approved_date:string;
+  aprover:string;
   status:string;
+  comments:string;  
 }
-
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
-
 
 @Component({
   selector: 'app-employee',
@@ -67,7 +34,7 @@ export class EmployeeComponent {
     { icon: 'library_add', title: 'New', number: 1 }
   ]; 
 
-  displayedColumns: string[] = ['SL NO', 'Project', 'Designation', 'Dates','Comments','Status'];
+  displayedColumns: string[] = ['SL NO', 'Project', 'Requested date', 'Approved Date','Approver','Status','Comments'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -78,17 +45,18 @@ export class EmployeeComponent {
     // Create 100 users
     // const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     const users = [
-      {sl_no:'1',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'2',project:'IMMIGRATION',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'3',project:'SWA',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'4',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'5',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'6',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'approved'},
-      {sl_no:'1',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'rejected'},
-      {sl_no:'2',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'rejected'},
-      {sl_no:'3',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'rejected'},
-      {sl_no:'1',project:'TAX',designation:'teammember',dates:'',comments:'Health issues',status:'created'},
-      ]
+      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'2',project:'IMMIGRATION',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'3',project:'SWA',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'4',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'5',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'6',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'approved',comments:'Health issues'},
+      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
+      {sl_no:'2',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
+      {sl_no:'3',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'rejected',comments:'Health issues'},
+      {sl_no:'1',project:'TAX',requested_date:'',approved_date:'',aprover:'',status:'created',comments:'Health issues'},
+      ];
+      
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
