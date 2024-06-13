@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class EmployeeComponent {
   cards = [
-    { icon: 'home', title: 'Total Requests', number: 10 },
-    { icon: 'star', title: 'Approved', number: 6 },
-    { icon: 'favorite', title: 'Rejected', number: 3 },
-    { icon: 'person', title: 'New', number: 1 }
+    { icon: 'list_alt', title: 'Total Requests', number: 10 },
+    { icon: 'check_circle_outline', title: 'Approved', number: 6 },
+    { icon: 'highlight_off', title: 'Rejected', number: 3 },
+    { icon: 'library_add', title: 'New', number: 1 }
   ];
 }
