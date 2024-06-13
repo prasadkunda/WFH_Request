@@ -120,10 +120,10 @@
 //     background-color: transparent;
 //   }
 
-.container_icon{
-    transform: translateY(35px);
-}
-.icon-circle {
+.container_icon {
+    transform: translateY(4px);
+  }
+  .icon-circle {
     width: 3.125rem;
     height: 3.125rem;
     background-color: #e0e0e0;
@@ -131,7 +131,7 @@
   }
   
   .icon {
-    color: #9c27b0; 
+    color: #9c27b0; /* Example color, adjust as needed */
   }
   
   mat-card {
@@ -139,21 +139,28 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  h3 {
-    font-size: 2rem;
+  .heading {
     font-weight: 500;
+    text-align: start;
+    padding-left: 14px;
   }
   
-  p {
+  .paragraph-text {
     font-size: 1rem;
     color: gray;
+    text-align: start;
+    padding-left: 16px;
   }
-
-  .card_content{
+  
+  .card_content {
+    //transform: translateY(-53px);
     // display: flex;
     // position: relative;
     // bottom: 30px;
+    padding-left: 30px;
+    padding-top: 2px;
   }
+
   table {
     width: 100%;
   }

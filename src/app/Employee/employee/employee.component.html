@@ -65,14 +65,17 @@
   <div class="row">
     <div class="col-md-3" *ngFor="let card of cards">
       <mat-card class="text-center p-3">
-        <span class="container_icon mb-2">
-          <div class="icon-circle d-flex align-items-center justify-content-center">
-            <mat-icon class="icon">{{ card.icon }}</mat-icon>
+        <div class="row">
+          <div class="container_icon mb-2 col-md-2">
+            <div
+              class="col-md-4 icon-circle d-flex align-items-center justify-content-center">
+              <mat-icon class="icon">work</mat-icon>
+            </div>
           </div>
-        </span>
-        <div class="card_content">
-          <h3 class="m-0">{{ card.number }}</h3>
-          <p class="m-0">{{ card.title }}</p>
+          <div class="card_content col-md-8">
+            <h5 class="m-0 heading">{{ card.number }}</h5>
+            <p class="paragraph-text text-muted m-0">{{ card.title }}</p>
+          </div>
         </div>
       </mat-card>
     </div>
