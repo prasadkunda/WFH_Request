@@ -1,90 +1,99 @@
 .main_container {
-    .header{
-        display: flex;
-        background-color: white;
-        justify-content: space-between;
-        align-items: center;
-        .logo {
-            width: 8rem;
-        }
-            .header_title {
-                display: flex;
-                color: white;
-                font-size: 1.5625rem;
-                padding-left: 1.25rem;
-                font-weight: bolder;
-            }
-            .icon{
-                display: flex;
-                justify-content: space-between;  
-                padding-right: 0.625rem;          
-                    .bell-icon{
-                        display: flex;
-                        width: 2.5rem;
-                        color: black;
-                        align-items: center;
-                        &.grow {
-                            transition: all .2s ease-in-out;
-                    
-                            &:hover {
-                              transform: scale(1.5);
-                            }
-                        }
-                    }
-            }
+  .header {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 8rem;
     }
-
-    .employee_details {
+    .header_title {
+      display: flex;
+      color: white;
+      font-size: 1.5625rem;
+      padding-left: 1.25rem;
+      font-weight: bolder;
+    }
+    .icon {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 0.625rem;
+      .bell-icon {
         display: flex;
-        height: 6.25rem;
-        background: linear-gradient(180deg, rgba(55, 81, 162, 1) 0%, rgba(112, 143, 240, 1) 100%);
-        justify-content: space-between;
+        width: 2.5rem;
+        color: black;
         align-items: center;
-        padding-left: 1.25rem;
-        // opacity: 0.9;
-            .section_empdetails {
-                display: flex;
-                flex-direction: column;
-                .employee_name, .employee_id, .employee_designation {
-                    .properties {
-                        color: white;
-                        font-size: 1rem;
-                        font-weight: 600;
-                    }
-                    .properties_header {
-                        color: white;
-                    }
-                    .property_date {
-                        float: right;
-                        padding-right: 20px;
-                    }
-                    .employee_greeting {
-                        font-size: 1.5rem;
-                        color: white;
-                    }
-                }           
-                
-            }
-            .section_wfh {
-                display: flex;
-                flex-direction: column;
-                padding-right: 1.25rem;
-                .properties_wfh_button {
-                    padding-top: 0.3125rem;
-                }
-            }
-        }
-    }   
+        &.grow {
+          transition: all 0.2s ease-in-out;
 
-    .footer {
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 3.75rem;
-        background-color: #1840B7;
+          &:hover {
+            transform: scale(1.5);
+          }
+        }
+      }
+    }
+  }
+
+  .employee_details {
+    display: flex;
+    // height: 6.25rem;
+    background: linear-gradient(
+      180deg,
+      rgba(55, 81, 162, 1) 0%,
+      rgba(112, 143, 240, 1) 100%
+    );
+    justify-content: space-between;
+    align-items: center;
+    // padding-left: 1.25rem;
+    padding: 1rem;
+    // opacity: 0.9;
+    .section_empdetails {
+      display: flex;
+      flex-direction: column;
+    //   padding-left: 3rem;
+      .employee_name,
+      .employee_id,
+      .employee_designation {
+        .properties {
+          color: white;
+          font-size: 1rem;
+          font-weight: 600;
+        }
+        .properties_header {
+          color: white;
+        }
+
+        .employee_greeting {
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+    .section_wfh {
+      display: flex;
+      flex-direction: column;
+      padding-right: 1.25rem;
+      .properties_wfh_button {
+        padding-top: 0.3125rem;
+      }
+      .property_date {
         color: white;
-        width: 100%;
-        align-items: center;
+        float: right;
+        padding-right: 20px;
+      }
     }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 3.75rem;
+  background-color: #1840b7;
+  color: white;
+  width: 100%;
+  align-items: center;
+}

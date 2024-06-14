@@ -1,50 +1,129 @@
 .container_icon {
-    transform: translateY(4px);
-  }
-  .icon-circle {
-    width: 3.125rem;
-    height: 3.125rem;
-    background-color: #e0e0e0;
-    border-radius: 50%;
-  }
-  
-  .icon {
-    color: #9c27b0; /* Example color, adjust as needed */
-  }
-  
-  mat-card {
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .heading {
-    font-weight: 500;
-    text-align: start;
-    padding-left: 14px;
-  }
-  
-  .paragraph-text {
-    font-size: 1rem;
-    color: gray;
-    text-align: start;
-    padding-left: 16px;
-  }
-  
-  .card_content {
-    padding-left: 30px;
-    padding-top: 2px;
-  }
+  transform: translateY(4px);
+}
+.icon-circle {
+  width: 3.125rem;
+  height: 3.125rem;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
 
-  table {
-    width: 100%;
-  }
-  
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
-  
+.icon {
+  color: #9c27b0; /* Example color, adjust as needed */
+}
+
+mat-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-weight: 500;
+  text-align: start;
+  padding-left: 14px;
+}
+
+.paragraph-text {
+  font-size: 1rem;
+  color: gray;
+  text-align: start;
+  padding-left: 16px;
+}
+
+.card_content {
+  padding-left: 30px;
+  padding-top: 2px;
+}
+
+.icon {
+  color: #9c27b0; /* Example color, adjust as needed */
+}
+
+mat-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-weight: 500;
+  text-align: start;
+  padding-left: 14px;
+}
+
+.paragraph-text {
+  font-size: 1rem;
+  color: gray;
+  text-align: start;
+  padding-left: 16px;
+}
+
+.card_content {
+  //transform: translateY(-53px);
+  // display: flex;
+  // position: relative;
+  // bottom: 30px;
+  padding-left: 30px;
+  padding-top: 2px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.mat-mdc-table {
+  table-layout: fixed;
+}
+
+/* Status colors */
+
+.badge {
+  font-size: 14px;
+  font-weight: 300;
+}
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+.badge-danger {
+  color: #fff;
+  background-color: #dc3545;
+}
+.badge-info {
+  color: #fff;
+  background-color: #17a2b8;
+}
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: white !important;
+}
+::ng-deep .mat-mdc-header-row {
+  font-family: sans-serif !important;
+}
+::ng-deep .mat-mdc-header-cell {
+  font-family: sans-serif !important;
+}
+.container_header {
+  font-weight: 600;
+  padding: 1rem;
+  font-size: 1.2rem;
+  padding-top: 2rem;
+}
+.container_filter {
+  float: left;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  padding-right: 1rem;
+}
+.table_header {
+  font-weight: 600;
+}
