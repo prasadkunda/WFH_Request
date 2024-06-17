@@ -1,0 +1,17 @@
+mat-form-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.off-canvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 40px 16px;
+  overflow-y: auto; /* Ensure the off-canvas can scroll if necessary */
+}
+.cdk-overlay-container {
+  position: relative; /* Ensure the overlay container does not escape the off-canvas bounds */
+}

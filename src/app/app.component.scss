@@ -1,9 +1,11 @@
 .main_container {
   .header_main {
   position: sticky;
+  top:0;
   position: -webkit-sticky;
   // top: 50px;
-  overflow: hidden;
+  overflow: auto;
+  z-index: 9;
     .header {
       display: flex;
       background-color: white;

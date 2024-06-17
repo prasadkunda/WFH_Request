@@ -13,7 +13,7 @@ export class CommonService {
 
   // to get card icons,names and No of requests
     getCardsDetails() : Observable<cardData[]>{
-      return this.http.get<cardData[]>('https://mocki.io/v1/1591059e-7844-4a71-b526-d98a34c00058').pipe(catchError((err) => {
+      return this.http.get<cardData[]>('https://mocki.io/v1/9b15e17b-f681-4516-9dd4-77454a84cd93').pipe(catchError((err) => {
           throw new Error(err);
       }))
     }
@@ -43,8 +43,11 @@ export class CommonService {
   }
   //to get user details after login
   getUserdetails() : Observable<IUserDetails>{
-    return this.http.get<IUserDetails>('https://mocki.io/v1/f8c392f3-3d39-4ae7-929a-7dfec3a5010d').pipe(catchError((err) => {
+    return this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78').pipe(catchError((err) => {
       throw new Error(err);
   }))
   }
 }
+
+
+

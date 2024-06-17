@@ -10,7 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonService } from '../../shared/service/common.service';
 import { Observable } from 'rxjs';
-import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 
@@ -47,7 +46,6 @@ export interface Request {
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatRippleModule,
     MatTooltipModule,
   ],
   templateUrl: './employee.component.html',
@@ -58,13 +56,14 @@ export class EmployeeComponent implements OnInit {
   users!: UserData[];
   dataSource!: MatTableDataSource<UserData>;
   headerTitle: string = 'Total Request ';
+  public activeCardId: number | null = null;
 
   displayedColumns: string[] = [
     // 'sl_no',
     'project',
     'requested_date',
     'approved_date',
-    'aprover',
+    'approver',
     'status',
     'comments',
     'actions',
@@ -73,7 +72,10 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private commonService: CommonService,private exportexcelservice:ExportExcelService) {}
+  constructor(
+    private commonService: CommonService,
+    private exportexcelservice: ExportExcelService
+  ) {}
 
   public ngOnInit(): void {
     this.commonService.getAllRequest().subscribe((res) => {
@@ -116,6 +118,7 @@ export class EmployeeComponent implements OnInit {
 
   // used to get title and index of the card
   public onCardClick(index: number, title: string) {
+    this.activeCardId = index;
     this.headerTitle = title;
     this.dataSource = new MatTableDataSource();
     let requestObservable;
@@ -170,6 +173,12 @@ export class EmployeeComponent implements OnInit {
   }
 
   exporttableToExcel() {
-    this.exportexcelservice.exportToExcel(this.dataSource.data,this.headerTitle)
+    this.exportexcelservice.exportToExcel(
+      this.dataSource.data,
+      this.headerTitle
+    );
+  }
+  public setActiveCard(cardId: number) {
+    this.activeCardId = cardId;
   }
 }

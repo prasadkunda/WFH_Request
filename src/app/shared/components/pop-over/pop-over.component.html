@@ -1,1 +1,62 @@
-<p>pop-over works!</p>
+<div class="offcanvas offcanvas-end off-canvas" [id]="id">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title">WFH Request</h3>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <form [formGroup]="dateRangeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startPicker"
+          formControlName="startDate"
+          [matDatepickerFilter]="dateFilter"
+          (dateChange)="onDateChange($event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        @if(dateRangeForm.get('startDate')?.hasError('required')){
+        <mat-error>Start date is required</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="endPicker"
+          formControlName="endDate"
+          [matDatepickerFilter]="dateFilter"
+          (dateChange)="onDateChange($event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+        <mat-error *ngIf="dateRangeForm.get('endDate')?.hasError('required')"
+          >End date is required</mat-error
+        >
+      </mat-form-field>
+      
+      @if(dateRangeForm.hasError('dateRangeInvalid')){
+      <mat-error>Date range must be within 5 days</mat-error>}
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="dateRangeForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

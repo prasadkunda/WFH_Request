@@ -1,53 +1,52 @@
 <div class="main_container">
-    <div class="header_main">
-      <div class="header">
-        <div class="header_title">
-          <img src="../assets/images/Qentelli.svg" class="logo" alt="">
-         
-        </div>
-        <div class="icon">
-          <span class="empid"><b>{{ userDetails[0].emp_id }}</b></span>          
-          <mat-icon class="bell-icon grow">notifications</mat-icon>
-          <mat-icon class="bell-icon grow">logout</mat-icon>
-        </div>
+  <div class="header_main">
+    <div class="header">
+      <div class="header_title">
+        <img src="../assets/images/Qentelli.svg" class="logo" alt="" />
+      </div>
+      <div class="icon">
+        <span class="empid" *ngIf="userDetails"
+          ><b>{{ userDetails.emp_id }}</b></span
+        >
+        <mat-icon class="bell-icon grow">notifications</mat-icon>
+        <mat-icon class="bell-icon grow">logout</mat-icon>
+      </div>
     </div>
-    <div class="employee_details"> 
-          <div class="section_empdetails">
-            <div class="employee_name">
-                <span class="properties" style="font-size: 1rem;"><b>Hello</b>, David </span>
-                <br>
-                <span class="employee_greeting">{{greeting}}</span>              
-            </div>       
-         </div>
-         <div class="section_wfh">
-          <span class="property_date">Monday, June 10</span>
-          <span class="properties_wfh_button">
-            <button mat-flat-button color="warn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">Request WFH</button>
+    <div class="employee_details">
+      <div class="section_empdetails">
+        <div class="employee_name">
+          <span class="properties" style="font-size: 1rem"
+            ><b>Hello</b>, {{ userName }}
           </span>
+          <br />
+          <span class="employee_greeting">{{ greeting }}</span>
         </div>
+      </div>
+      <div class="section_wfh">
+        <span class="property_date">{{ currentDate }}</span>
+        <span class="properties_wfh_button">
+          <button
+            mat-flat-button
+            color="warn"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#demo"
+          >
+            Request WFH
+          </button>
+        </span>
+      </div>
     </div>
-    </div>
- 
+  </div>
+
   <div class="container">
     <app-employee></app-employee>
   </div>
-  
+
   <!-- <div class="footer">
     <span>copy right 2024</span>
   </div> -->
 </div>
-
-
-
-<div class="offcanvas offcanvas-end" id="demo">
-  <div class="offcanvas-header">
-    <h3 class="offcanvas-title">WFH Request</h3>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p>Some text lorem ipsum.</p>
-    <p>Some text lorem ipsum.</p>
-    <p>Some text lorem ipsum.</p>
-    <button class="btn btn-secondary" type="button">A Button</button>
-  </div>
+<div class="pop_over">
+  <app-pop-over [id]="'demo'"></app-pop-over>
 </div>
