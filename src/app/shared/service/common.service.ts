@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { UserData, cardData } from '../../Employee/employee/employee.component';
+import { IUserDetails } from '../../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,12 @@ export class CommonService {
   //to get All the New requests details
   getNewRequest(){
     return this.http.get('https://mocki.io/v1/45ff2bf5-5220-46a0-9a25-464c5552647c').pipe(catchError((err) => {
+      throw new Error(err);
+  }))
+  }
+  //to get user details after login
+  getUserdetails() : Observable<IUserDetails>{
+    return this.http.get<IUserDetails>('https://mocki.io/v1/f8c392f3-3d39-4ae7-929a-7dfec3a5010d').pipe(catchError((err) => {
       throw new Error(err);
   }))
   }

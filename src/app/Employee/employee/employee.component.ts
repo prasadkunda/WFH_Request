@@ -12,6 +12,8 @@ import { CommonService } from '../../shared/service/common.service';
 import { Observable } from 'rxjs';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ExportExcelService } from '../../shared/utils/export-excel.service';
+
 export interface UserData {
   // sl_no: string;
   project: any;
@@ -26,6 +28,12 @@ export interface cardData {
   title: string;
   number: number;
 }
+export interface Request {
+  id: number;
+  name: string;
+  status: string;
+}
+
 @Component({
   selector: 'app-employee',
   standalone: true,
@@ -56,7 +64,7 @@ export class EmployeeComponent implements OnInit {
     'project',
     'requested_date',
     'approved_date',
-    'approver',
+    'aprover',
     'status',
     'comments',
     'actions',
@@ -65,7 +73,7 @@ export class EmployeeComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private commonService: CommonService) {}
+  constructor(private commonService: CommonService,private exportexcelservice:ExportExcelService) {}
 
   public ngOnInit(): void {
     this.commonService.getAllRequest().subscribe((res) => {
@@ -159,5 +167,9 @@ export class EmployeeComponent implements OnInit {
       default:
         return '';
     }
+  }
+
+  exporttableToExcel() {
+    this.exportexcelservice.exportToExcel(this.dataSource.data,this.headerTitle)
   }
 }

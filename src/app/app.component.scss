@@ -1,88 +1,108 @@
 .main_container {
-  .header {
-    display: flex;
-    background-color: white;
-    justify-content: space-between;
-    align-items: center;
-    .logo {
-      width: 8rem;
-    }
-    .header_title {
+  .header_main {
+  position: sticky;
+  position: -webkit-sticky;
+  // top: 50px;
+  overflow: hidden;
+    .header {
       display: flex;
-      color: white;
-      font-size: 1.5625rem;
-      padding-left: 1.25rem;
-      font-weight: bolder;
-    }
-    .icon {
-      display: flex;
+      background-color: white;
       justify-content: space-between;
-      padding-right: 0.625rem;
-      .bell-icon {
+      align-items: center;
+  
+      .logo {
+        width: 8rem;
+      }
+  
+      .header_title {
         display: flex;
-        width: 2.5rem;
-        color: black;
-        align-items: center;
-        &.grow {
-          transition: all 0.2s ease-in-out;
-
-          &:hover {
-            transform: scale(1.5);
+        color: white;
+        font-size: 1.5625rem;
+        padding-left: 1.25rem;
+        font-weight: bolder;
+      }
+  
+      .icon {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 0.625rem;
+  
+        .bell-icon {
+          display: flex;
+          width: 2.5rem;
+          color: black;
+          align-items: center;
+  
+          &.grow {
+            transition: all 0.2s ease-in-out;
+  
+            &:hover {
+              transform: scale(1.5);
+            }
+          }
+        }
+        .empid {
+          font-weight: 500;
+          font-size: 1rem;
+          padding-right: 10px;
+        }
+      }
+    }
+  
+    .employee_details {
+      display: flex;
+      // height: 6.25rem;
+      background: linear-gradient(180deg,
+          rgba(55, 81, 162, 1) 0%,
+          rgba(112, 143, 240, 1) 100%);
+      justify-content: space-between;
+      align-items: center;
+      // padding-left: 1.25rem;
+      padding: 1rem;
+  
+      // opacity: 0.9;
+      .section_empdetails {
+        display: flex;
+        flex-direction: column;
+  
+        //   padding-left: 3rem;
+        .employee_name,
+        .employee_id,
+        .employee_designation {
+          .properties {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+  
+          .properties_header {
+            color: white;
+          }
+  
+          .employee_greeting {
+            font-size: 1.5rem;
+            color: white;
           }
         }
       }
-    }
-  }
-
-  .employee_details {
-    display: flex;
-    // height: 6.25rem;
-    background: linear-gradient(
-      180deg,
-      rgba(55, 81, 162, 1) 0%,
-      rgba(112, 143, 240, 1) 100%
-    );
-    justify-content: space-between;
-    align-items: center;
-    // padding-left: 1.25rem;
-    padding: 1rem;
-    // opacity: 0.9;
-    .section_empdetails {
-      display: flex;
-      flex-direction: column;
-    //   padding-left: 3rem;
-      .employee_name,
-      .employee_id,
-      .employee_designation {
-        .properties {
-          color: white;
-          font-size: 1rem;
-          font-weight: 600;
+  
+      .section_wfh {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1.25rem;
+  
+        .properties_wfh_button {
+          padding-top: 0.3125rem;
         }
-        .properties_header {
+  
+        .property_date {
           color: white;
-        }
-
-        .employee_greeting {
-          font-size: 1.5rem;
-          color: white;
+          float: right;
+          padding-right: 20px;
         }
       }
     }
-    .section_wfh {
-      display: flex;
-      flex-direction: column;
-      padding-right: 1.25rem;
-      .properties_wfh_button {
-        padding-top: 0.3125rem;
-      }
-      .property_date {
-        color: white;
-        float: right;
-        padding-right: 20px;
-      }
-    }
-  }
+}
 }
 
 .footer {

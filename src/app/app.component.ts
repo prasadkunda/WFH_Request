@@ -4,7 +4,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeComponent } from './Employee/employee/employee.component';
 import { MatCardModule } from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import { CommonService } from './shared/service/common.service';
+
+export interface IUserDetails {
+  emp_id : string;
+  emp_name : string;
+  email : string;
+  desiganation : string;
+  Project : string;
+}
 
 @Component({
   selector: 'app-root',
@@ -13,12 +21,17 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'WFH_Request';
   greeting : string =  '';
   greetingTimes: { [key:  string]:string} = {morning:'Good Morning',afternoon:'Good Afternoon',evening:'Good Evening',};
+  userDetails !: IUserDetails[];
+
+  constructor(private commonservice:CommonService){}
 
    ngOnInit() {
+    this.getUserDetails();
     this.setGreeting();
   }
 
@@ -33,4 +46,15 @@ export class AppComponent {
       this.greeting = this.greetingTimes['evening'];
     }
   }
+
+ getUserDetails() {
+  this.commonservice.getUserdetails().subscribe(res => {
+    if(res && Array.isArray(res)){
+      this.userDetails = res;
+    }    
+  });
+  console.log("user Details",this.userDetails);
+ }
 }
+
+
