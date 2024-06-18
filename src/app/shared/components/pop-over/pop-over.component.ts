@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -23,6 +23,7 @@ import { SharedUiDesignSystemModule } from '../../utils/shared-ui-design-system.
 })
 export class PopOverComponent {
   @Input() id!: string;
+  @Output() close = new EventEmitter<void>();
   public dateRangeForm: FormGroup;
   public dateRangeInvalid: boolean = false;
 
@@ -31,6 +32,7 @@ export class PopOverComponent {
       {
         startDate: new FormControl('', [Validators.required]),
         endDate: new FormControl('', [Validators.required]),
+        comments: new FormControl('', [Validators.required])
       },
       { validators: this.dateRangeValidator }
     );
@@ -69,6 +71,10 @@ export class PopOverComponent {
   onSubmit() {
     if (this.dateRangeForm.valid) {
       console.log('Form Submitted', this.dateRangeForm.value);
+      this.dateRangeForm.reset();
+      this.close.emit(); // Emit close event
     }
   }
+
+  
 }

@@ -7,8 +7,20 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonService } from './shared/service/common.service';
 import { CommonModule, formatDate } from '@angular/common';
 import { PopOverComponent } from './shared/components/pop-over/pop-over.component';
+import { ManagerComponent } from './Manager/manager/manager.component';
 
 export interface IUserDetails {
+  emp_id: string;
+  emp_name: string;
+  emp_fname: string;
+  emp_mname: string;
+  emp_lname: string;
+  email: string;
+  desiganation: string;
+  Project: string;
+}
+
+export interface IUsesrAllDetals {
   emp_id: string;
   emp_name: string;
   emp_fname: string;
@@ -29,7 +41,8 @@ export interface IUserDetails {
     EmployeeComponent,
     MatCardModule,
     CommonModule,
-    PopOverComponent
+    PopOverComponent,
+    ManagerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -45,7 +58,8 @@ export class AppComponent {
   userDetails!: IUserDetails;
   currentDate: string;
   public userName!: string;
- 
+  isOffCanvasVisible = false;
+  user_role : string = '';
 
   constructor(private commonservice: CommonService) {
     this.currentDate = formatDate(new Date(), 'EEEE MMMM d', 'en');
@@ -54,6 +68,7 @@ export class AppComponent {
   ngOnInit() {
     this.getUserDetails();
     this.setGreeting();
+    console.log("user_role",this.user_role);
   }
 
   setGreeting() {
@@ -72,7 +87,15 @@ export class AppComponent {
     this.commonservice.getUserdetails().subscribe((res) => {
       this.userDetails = res;
       this.userName = `${this.userDetails.emp_fname} ${this.userDetails.emp_mname} ${this.userDetails.emp_lname}`;
+      this.user_role = this.userDetails?.desiganation;
     });
-    console.log(this.userDetails, 'this.useerDetails');
+  }
+
+  showOffCanvas() {
+    this.isOffCanvasVisible = true;
+  }
+
+  hideOffCanvas() {
+    this.isOffCanvasVisible = false;
   }
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { UserData, cardData } from '../../Employee/employee/employee.component';
-import { IUserDetails } from '../../app.component';
+import { IUserDetails, IUsesrAllDetals } from '../../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class CommonService {
     }
   //to get All the Approved requests details
   getApprovedRequest(){
-    return this.http.get('https://mocki.io/v1/971b74b6-8d01-416f-aec4-604992f411a4').pipe(catchError((err) => {
+    return this.http.get('https://mocki.io/v1/b41048c4-6c51-4b62-9d49-56656527690c').pipe(catchError((err) => {
       throw new Error(err);
   }))
   }
@@ -41,13 +41,17 @@ export class CommonService {
       throw new Error(err);
   }))
   }
-  //to get user details after login
+  //to get user details after login. based on the employee id need to fetch the data from DB.
   getUserdetails() : Observable<IUserDetails>{
-    return this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78').pipe(catchError((err) => {
+    // return this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
+    return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532').pipe(catchError((err) => {
       throw new Error(err);
   }))
   }
+  // to get list of employees and projects under the manager. based on the manager employee id need to fetch the data from DB.
+  getEmployeesandProjects() : Observable<IUsesrAllDetals[]> {
+    return this.http.get<IUsesrAllDetals[]>('https://mocki.io/v1/d88227f3-acf7-4eb2-b7e6-fc8a7a849d5b').pipe(catchError((err) => {
+      throw new Error(err);
+    }))
+  }
 }
-
-
-

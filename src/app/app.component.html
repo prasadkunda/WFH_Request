@@ -31,6 +31,7 @@
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#demo"
+            (click)="showOffCanvas()"
           >
             Request WFH
           </button>
@@ -38,15 +39,20 @@
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <app-employee></app-employee>
-  </div>
-
+      <!-- @if(user_role === "Senior Software Developer"){ -->
+      <div class="container">
+        <app-employee></app-employee>
+      </div>
+    <!-- } -->
+    <!-- @if(user_role === "manager"){
+      <div class="container">
+        <app-manager></app-manager>
+      </div>
+    } -->
   <!-- <div class="footer">
     <span>copy right 2024</span>
   </div> -->
 </div>
-<div class="pop_over">
-  <app-pop-over [id]="'demo'"></app-pop-over>
+<div *ngIf="isOffCanvasVisible" class="pop_over" >
+  <app-pop-over [id]="'demo'" (close)="hideOffCanvas()"></app-pop-over>
 </div>

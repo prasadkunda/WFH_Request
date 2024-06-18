@@ -49,6 +49,14 @@
       
       @if(dateRangeForm.hasError('dateRangeInvalid')){
       <mat-error>Date range must be within 5 days</mat-error>}
+
+      <mat-form-field appearance="fill">
+        <mat-label>Comments</mat-label>
+        <textarea matInput placeholder="Mention the Reason for WFH..." formControlName="comments"></textarea>
+        <mat-error *ngIf="dateRangeForm.get('comments')?.hasError('required')"
+          >Comments are required</mat-error
+        >
+      </mat-form-field>
       <button
         mat-raised-button
         color="primary"

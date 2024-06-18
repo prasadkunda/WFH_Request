@@ -1,0 +1,17 @@
+<div class="row mt-3">
+    <div class="col-md-2 container_header">
+      {{ title }}
+    </div>
+    <div class="col-md-5"></div>
+    <div class="col-md-1">
+      <span class="align-middle" (click)="onExportClick()">
+        <img class="export_excel_img" src="../../../assets/images/export-excel.png" alt="export-excel"/>
+      </span>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="onSearchChange($event)" placeholder="Ex. approved wfh"/>
+      </mat-form-field>
+    </div>
+  </div>

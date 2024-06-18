@@ -1,0 +1,59 @@
+.table_container {
+    margin-top: 20px;
+  }
+  .table_header {
+    font-weight: bold;
+  }
+  .status-approved {
+    color: green;
+  }
+  .status-rejected {
+    color: red;
+  }
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td,
+  th {
+    width: 25%;
+  }
+  
+  .mat-mdc-table {
+    table-layout: fixed;
+  }
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    background-color: white !important;
+  }
+  ::ng-deep .mat-mdc-header-row {
+    font-family: sans-serif !important;
+  }
+  ::ng-deep .mat-mdc-header-cell {
+    font-family: sans-serif !important;
+  }
+  .table_header {
+    font-weight: 600;
+  }
+  /* Status colors */
+
+.badge {
+  font-size: 14px;
+  font-weight: 300;
+}
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+.badge-danger {
+  color: #fff;
+  background-color: #dc3545;
+}
+.badge-info {
+  color: #fff;
+  background-color: #17a2b8;
+}

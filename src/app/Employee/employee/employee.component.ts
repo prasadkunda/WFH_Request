@@ -3,8 +3,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,6 +12,8 @@ import { CommonService } from '../../shared/service/common.service';
 import { Observable } from 'rxjs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
+import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
+import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
 
 export interface UserData {
   // sl_no: string;
@@ -47,6 +49,8 @@ export interface Request {
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
+    HeaderTableComponent,
+    MatTableComponent
   ],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss',
@@ -54,12 +58,12 @@ export interface Request {
 export class EmployeeComponent implements OnInit {
   cardDetails!: cardData[];
   users!: UserData[];
-  dataSource!: MatTableDataSource<UserData>;
-  headerTitle: string = 'Total Request ';
+  dataSource!: MatTableDataSource<any>;
+
+  headerTitle: string = 'Total Request';
   public activeCardId: number | null = null;
 
-  displayedColumns: string[] = [
-    // 'sl_no',
+  displayedColumns = [
     'project',
     'requested_date',
     'approved_date',
@@ -68,10 +72,6 @@ export class EmployeeComponent implements OnInit {
     'comments',
     'actions',
   ];
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   constructor(
     private commonService: CommonService,
     private exportexcelservice: ExportExcelService
@@ -83,20 +83,16 @@ export class EmployeeComponent implements OnInit {
         this.users = res;
         if (res && Array.isArray(res)) {
           this.dataSource = new MatTableDataSource(res);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
         }
       }
     });
+    console.log("this.dataSource",this.dataSource);
     this.getCardDetails();
   }
-
-  // ngAfterViewInit() {}
 
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -120,7 +116,7 @@ export class EmployeeComponent implements OnInit {
   public onCardClick(index: number, title: string) {
     this.activeCardId = index;
     this.headerTitle = title;
-    this.dataSource = new MatTableDataSource();
+    this.dataSource = new MatTableDataSource<any>();
     let requestObservable;
     switch (title) {
       case 'Approved':
@@ -145,8 +141,6 @@ export class EmployeeComponent implements OnInit {
       try {
         if (res && Array.isArray(res)) {
           this.dataSource = new MatTableDataSource(res);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
         }
       } catch {
         console.error('Error in API Response', res);
