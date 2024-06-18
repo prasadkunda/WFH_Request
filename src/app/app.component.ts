@@ -31,6 +31,16 @@ export interface IUsesrAllDetals {
   Project: string;
 }
 
+export interface IUsesrRequestsDetails {
+  emp_id: string;
+  email: string;
+  Project: string;
+  requested_date:string;
+  no_of_days:string;
+  status:string;
+  comments:string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,

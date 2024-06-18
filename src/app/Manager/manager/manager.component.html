@@ -1,121 +1,15 @@
-<!-- <div class="row mt-3">
-    <div class="col-md-2 container_header">
-        Employees List
+<div>
+    <app-header-table title="Employee List" (exportClicked)="exporttableToExcel()" (searchChanged)="applyFilter($event)"></app-header-table>
+  </div>
+  <div>
+      <app-mat-table [dataSource]="dataSource" [displayedColumns]="displayedColumns"></app-mat-table>
+  </div>
+
+  <div>
+    <div>
+      <app-header-table title="Request's" (exportClicked)="exporttableToExcel()" (searchChanged)="applyFilter($event)"></app-header-table>
     </div>
-    <div class="col-md-5"></div>
-    <div class="col-md-1">
-      <span class="align-middle" (click)="exporttableToExcel()"
-        ><img
-          class="export_excel_img"
-          src="../../../assets/images/export-excel.png"
-          alt="export-excel"
-      /></span>
+    <div>
+        <app-mat-table [dataSource]="manager_DataSource" [displayedColumns]="displayedColumnsRequests"></app-mat-table>
     </div>
-    <div class="col-md-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Ex. approved wfh"
-          #input
-        />
-      </mat-form-field>
-    </div>
-</div>
-<div style="padding-bottom: 20px">
-    <div class="mat-elevation-z8 table_container">
-      <table mat-table [dataSource]="dataSource" matSort class="mat-table">
-        <ng-container
-          *ngFor="let columnName of displayedColumns"
-          [matColumnDef]="columnName"
-        >
-          <th
-            class="table_header"
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-          >
-            {{ capitalize(columnName) }}
-          </th>
-          <td mat-cell *matCellDef="let element"></td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-  
-      <mat-paginator
-        [length]="100"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page of users"
-      ></mat-paginator>
-    </div>
-</div>
-<div class="row mt-3">
-    <div class="col-md-2 container_header">
-        Requests
-    </div>
-    <div class="col-md-5"></div>
-    <div class="col-md-1">
-      <span class="align-middle" (click)="exporttableToExcel()"
-        ><img
-          class="export_excel_img"
-          src="../../../assets/images/export-excel.png"
-          alt="export-excel"
-      /></span>
-    </div>
-    <div class="col-md-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input
-          matInput
-          (keyup)="applyFilter($event)"
-          placeholder="Ex. approved wfh"
-          #input
-        />
-      </mat-form-field>
-    </div>
-</div>
-<div style="padding-bottom: 20px">
-    <div class="mat-elevation-z8 table_container">
-      <table mat-table [dataSource]="dataSource" matSort class="mat-table">
-        <ng-container
-          *ngFor="let columnName of displayedColumns"
-          [matColumnDef]="columnName"
-        >
-          <th
-            class="table_header"
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-          >
-            {{ capitalize(columnName) }}
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <span
-              *ngIf="columnName === 'actions' && element['status'] !== 'rejected'"
-              ><mat-icon tooltip matTooltip="cancel your request"
-                >history</mat-icon
-              ></span
-            >
-            <span
-              [ngClass]="
-                columnName === 'status' ? getStatusClass(element[columnName]) : ''
-              "
-              >{{ element[columnName] }}</span
-            >
-          </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-  
-      <mat-paginator
-        [length]="100"
-        [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]"
-        aria-label="Select page of users"
-      ></mat-paginator>
-    </div>
-  </div> -->
+  </div>

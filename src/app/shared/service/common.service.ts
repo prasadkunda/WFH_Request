@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { UserData, cardData } from '../../Employee/employee/employee.component';
-import { IUserDetails, IUsesrAllDetals } from '../../app.component';
+import { IUserDetails, IUsesrAllDetals, IUsesrRequestsDetails } from '../../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +51,12 @@ export class CommonService {
   // to get list of employees and projects under the manager. based on the manager employee id need to fetch the data from DB.
   getEmployeesandProjects() : Observable<IUsesrAllDetals[]> {
     return this.http.get<IUsesrAllDetals[]>('https://mocki.io/v1/d88227f3-acf7-4eb2-b7e6-fc8a7a849d5b').pipe(catchError((err) => {
+      throw new Error(err);
+    }))
+  }
+  // to get list of requests to manager.
+  getRequests() : Observable<IUsesrRequestsDetails[]> {
+    return this.http.get<IUsesrRequestsDetails[]>('https://mocki.io/v1/baa5f4e4-284e-41fb-bfcf-6ba146484b18').pipe(catchError((err) => {
       throw new Error(err);
     }))
   }
