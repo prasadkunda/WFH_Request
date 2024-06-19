@@ -1,0 +1,36 @@
+<mat-form-field appearance="outline" class="filter-dropdown">
+    <mat-label>Filter</mat-label>
+    <mat-select (selectionChange)="onFilterSelectionChange($event)">
+      <mat-option *ngFor="let option of filterOptions" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div *ngIf="selectedFilter === 'Request Status'">
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option *ngFor="let status of statusOptions" [value]="status">
+          {{ status }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div *ngIf="selectedFilter === 'Date Range'">
+    <mat-form-field appearance="outline">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" formControlName="startDate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" formControlName="endDate">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  

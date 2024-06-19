@@ -58,6 +58,7 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -113,6 +114,7 @@ import { CommonModule } from '@angular/common';
     PortalModule,
     TextFieldModule,
     MatNativeDateModule ,
+    ReactiveFormsModule 
   ],
   exports: [
     CdkTableModule,
@@ -171,7 +173,8 @@ import { CommonModule } from '@angular/common';
     CdkStepperModule,
     TextFieldModule,
     CdkTreeModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    ReactiveFormsModule 
   ],
 })
 export class SharedUiDesignSystemModule {}

@@ -3,7 +3,6 @@
   position: sticky;
   top:0;
   position: -webkit-sticky;
-  // top: 50px;
   overflow: auto;
   z-index: 9;
     .header {
@@ -53,21 +52,17 @@
   
     .employee_details {
       display: flex;
-      // height: 6.25rem;
       background: linear-gradient(180deg,
           rgba(55, 81, 162, 1) 0%,
           rgba(112, 143, 240, 1) 100%);
       justify-content: space-between;
       align-items: center;
-      // padding-left: 1.25rem;
       padding: 1rem;
   
-      // opacity: 0.9;
       .section_empdetails {
         display: flex;
         flex-direction: column;
   
-        //   padding-left: 3rem;
         .employee_name,
         .employee_id,
         .employee_designation {
