@@ -1,78 +1,15 @@
-// .container_header {
-//     font-weight: 600;
-//     padding: 1rem;
-//     font-size: 1.2rem;
-//     padding-top: 2rem;
-//   }
-//   .export_excel_img {
-//     height: 35px;
-//     width: 35px;
-//     position: relative;
-//     left: 55px;
-//     top: 10px;
-//   }
-  .table_header {
-    font-weight: 600;
-  }
-.main_container {
-  margin-top: 30px;
-  
+.filter-dropdown {
+  margin-bottom: 20px;
 }
-.filters_section {
-  display: flex;
-  gap: 10px;
+
+.filter-section {
+  margin-bottom: 20px;
 }
-  .employee_list {
-    margin-top: 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  
-  mat-expansion-panel-header {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-  
-  mat-expansion-panel {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  .mat-expansion-panel-header-title {
-    font-size: 1rem;
-    font-weight: 600
-  }
-  // .filter-form {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   margin-bottom: 16px;
-  // }
-  
-  // .mat-form-field {
-  //   width: 30%;
-  // }
-  
-  // .table-container {
-  //   margin-top: 16px;
-  // }
-  // .mat-form-field {
-  //   width: 30%;
-  // }
-  
-  // .filter-form {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   margin-bottom: 16px;
-  // }
-  .mat-mdc-form-field {
-    width: 140px;
-    height: 70px;
-  }
-  .clear {
-    margin-top : 7px;
-  }
-  .mat-mdc-header-row {
-      font-weight: 600;
-  }
-  
-  
+
+.mat-form-field {
+  margin-right: 20px;
+}
+
+.mat-raised-button {
+  margin-left: 20px;
+}

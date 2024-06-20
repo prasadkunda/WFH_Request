@@ -78,7 +78,7 @@ export class AppComponent {
   ngOnInit() {
     this.getUserDetails();
     this.setGreeting();
-    console.log("user_role",this.user_role);
+    // console.log("user_role",this.user_role);
   }
 
   setGreeting() {

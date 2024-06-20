@@ -43,8 +43,12 @@ export class CommonService {
   }
   //to get user details after login. based on the employee id need to fetch the data from DB.
   getUserdetails() : Observable<IUserDetails>{
+    // team member API
     // return this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
-    return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532').pipe(catchError((err) => {
+    //Manager API
+    return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
+    // return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
+    .pipe(catchError((err) => {
       throw new Error(err);
   }))
   }
@@ -56,7 +60,7 @@ export class CommonService {
   }
   // to get list of requests to manager.
   getRequests() : Observable<IUsesrRequestsDetails[]> {
-    return this.http.get<IUsesrRequestsDetails[]>('https://mocki.io/v1/baa5f4e4-284e-41fb-bfcf-6ba146484b18').pipe(catchError((err) => {
+    return this.http.get<IUsesrRequestsDetails[]>('https://mocki.io/v1/4e527a0b-9a27-4f02-88b0-34d46de0b26e').pipe(catchError((err) => {
       throw new Error(err);
     }))
   }

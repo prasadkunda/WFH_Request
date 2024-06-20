@@ -1,47 +1,41 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonService } from '../../shared/service/common.service';
-import { IUsesrAllDetals, IUsesrRequestsDetails } from '../../app.component';
+import { IUsesrRequestsDetails } from '../../app.component';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
 import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
-import moment from 'moment';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-manager',
   standalone: true,
   imports: [SharedUiDesignSystemModule,
     HeaderTableComponent,
-    MatTableComponent],
+    MatTableComponent,
+    FormsModule,
+  CommonModule],
   templateUrl: './manager.component.html',
   styleUrl: './manager.component.scss'
 })
 export class ManagerComponent implements OnInit {
-      emp_projects !: IUsesrAllDetals[];
       emp_requests !: IUsesrRequestsDetails[];
-      dataSource!: MatTableDataSource<IUsesrAllDetals>;
       manager_DataSource!: MatTableDataSource<IUsesrRequestsDetails>;
       filterForm !: FormGroup;
       @ViewChild(MatPaginator, {static: false})
-  set paginator(value: MatPaginator) {
-    if (this.dataSource && value){
-      this.dataSource.paginator = value;
-    }
+      set paginator(value: MatPaginator) {
+      if (this.manager_DataSource && value){
+        this.manager_DataSource.paginator = value;
+      }
   }
   @ViewChild(MatSort) sort!: MatSort;
-      
-      displayedColumns: string[] = [
-        'emp_id',
-        'emp_fname',
-        'email',
-        'desiganation',
-        'Project',
-      ];
 
+  selectedFilter: string = '';
+  st_date = new Date();
       displayedColumnsRequests: string[] = [
         'emp_id',
         'email',
@@ -54,88 +48,86 @@ export class ManagerComponent implements OnInit {
 
       constructor(private commonService: CommonService,private exportexcelservice: ExportExcelService,
         private fb: FormBuilder,private cdr: ChangeDetectorRef) {
-          this.emp_projects = [];
         this.filterForm = this.fb.group({
-          status: [''],
-          startDate: [''],
-          endDate: ['']
+          start: new FormControl(this.st_date,[Validators.required]),
+          end: [''],
+          requestStatus: [''],
+          employeeId: [''],
         });
+        
       }
 
-      ngOnInit(): void {        
-        this.getProjectsandEmployeesDetails();
-        this.dataSource = new MatTableDataSource(this.emp_projects);
+      ngOnInit(): void {  
         this.getRequestsdetails();
         this.manager_DataSource = new MatTableDataSource(this.emp_requests) ;
-        this.filterRequests();
-        this.filterForm.valueChanges.subscribe(filters => {
-          this.filterRequests(filters);
-        });
+        this.manager_DataSource.paginator = this.paginator;
+        this.manager_DataSource.sort = this.sort;
       }
 
-      // ngAfterViewInit() {
-      //   this.dataSource.paginator = this.paginator;
-      //   this.cdr.detectChanges(); 
-      // }
-
-// get employees and projects lists
-    getProjectsandEmployeesDetails() {
-      this.emp_projects = [];
-        this.commonService.getEmployeesandProjects().subscribe(res => {
-          this.emp_projects = res;          
-        })
-      
-    }
-
-    public applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    }
-    exporttableToExcel() {
-      this.exportexcelservice.exportToExcel(
-        this.dataSource.data,
-        'Employee details'
-      );
-    }
-// to get the requets
+    // to get the requets
     getRequestsdetails() {
       this.emp_requests = [];
       this.commonService.getRequests().subscribe(res => {
         this.emp_requests = res;
         this.manager_DataSource = new MatTableDataSource(this.emp_requests);         
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;         
+        this.manager_DataSource.paginator = this.paginator;
+        this.manager_DataSource.sort = this.sort;         
       })
     }
 
-    onFilterChanged(filters: any) {
-      this.filterRequests(filters);
+    clearFilters() {
+      this.selectedFilter = '';
+      this.filterForm.reset();
+      this.manager_DataSource.data = this.emp_requests;
+    }
+
+    onFilterChange(filter: string) {
+      this.selectedFilter = filter;
+      // Reset data source to all data when filter type changes
+      this.manager_DataSource.data = this.emp_requests;
+      this.filterForm.reset();
     }
   
-    filterRequests(filters: any = {}) {
+    applyDateRangeFilter() {
+      debugger;
+      const value = this.filterForm.value
+    if (value.start && value.end) {
       const filteredData = this.emp_requests.filter(request => {
-        const requestDate = moment(request.requested_date, 'DD-MM-YYYY');
-        const startDate = filters.startDate ? moment(filters.startDate) : null;
-        const endDate = filters.endDate ? moment(filters.endDate) : null;
-  
-        return (
-          (!filters.status || request.status === filters.status) &&
-          (!startDate || requestDate.isSameOrAfter(startDate, 'day')) &&
-          (!endDate || requestDate.isSameOrBefore(endDate, 'day'))
-        );
+        const requestedDate = new Date(request.requested_date);
+        return requestedDate >= value.start && requestedDate <= value.end;
       });
-  
       this.manager_DataSource.data = filteredData;
     }
-
-    clearFilters() {
-      this.filterForm.reset();
-      this.dataSource.data = [];
-      // this.paginator.firstPage();
     }
-
+  
+    applyRequestStatusFilter() {
+      const requestStatusControl = this.filterForm.get('requestStatus');
+      if (requestStatusControl && requestStatusControl.value) {
+        const requestStatus = requestStatusControl.value;
+        const filteredData = this.emp_requests.filter(request => request.status === requestStatus);
+        this.manager_DataSource.data = filteredData;
+      }
+    }
+  
+    applyEmployeeFilter() {
+      const employeeId = this.filterForm.get('employeeId')?.value;
+      if (employeeId) {
+        const filteredData = this.emp_requests.filter(request => request.emp_id.includes(employeeId));
+        this.manager_DataSource.data = filteredData;
+      }
+    }
+  
+    applyFilter() {
+      switch (this.selectedFilter) {
+        case 'dateRange':
+          this.applyDateRangeFilter();
+          break;
+        case 'requestStatus':
+          this.applyRequestStatusFilter();
+          break;
+        case 'employee':
+          this.applyEmployeeFilter();
+          break;
+      }
+    }
 }
