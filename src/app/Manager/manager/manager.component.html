@@ -48,6 +48,9 @@
           </mat-select>
         </mat-form-field>
       </div>
+      <div class="filter_header">
+
+      </div>
     </div>
   </div>
     <div class="table-container">
@@ -79,6 +82,25 @@
         <ng-container matColumnDef="comments">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Comments</th>
           <td mat-cell *matCellDef="let request">{{ request.comments }}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+          <td mat-cell *matCellDef="let request">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon style="color: green;">check_circle</mat-icon>
+                <span>Approve</span>
+              </button>
+              <button mat-menu-item (click)="openDialog()">
+                <mat-icon style="color: red;">cancel</mat-icon>
+                <span>Reject</span>
+              </button>
+            </mat-menu>
+            
+          </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumnsRequests"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsRequests;"></tr>

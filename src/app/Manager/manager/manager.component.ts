@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild, inject, model, signal } from '@angular/core';
 import { CommonService } from '../../shared/service/common.service';
 import { IUsesrRequestsDetails } from '../../app.component';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
@@ -10,6 +10,11 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@a
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../../shared/components/pop-up/pop-up/pop-up.component';
 
 @Component({
   selector: 'app-manager',
@@ -18,7 +23,10 @@ import { CommonModule } from '@angular/common';
     HeaderTableComponent,
     MatTableComponent,
     FormsModule,
-  CommonModule],
+  CommonModule,
+  MatButtonModule,
+  MatMenuModule,
+   MatIconModule],
   templateUrl: './manager.component.html',
   styleUrl: './manager.component.scss'
 })
@@ -44,6 +52,7 @@ export class ManagerComponent implements OnInit {
         'no_of_days',
         'status',
         'comments',
+        'actions',
       ];
 
       constructor(private commonService: CommonService,private exportexcelservice: ExportExcelService,
@@ -130,4 +139,22 @@ export class ManagerComponent implements OnInit {
           break;
       }
     }
+
+    // mat dailog related code
+    readonly animal = signal('');
+  readonly name = model('');
+  readonly dialog = inject(MatDialog);
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PopUpComponent, {
+      data: {name: this.name(), animal: this.animal()},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+        this.animal.set(result);
+      }
+    });
+  }
 }

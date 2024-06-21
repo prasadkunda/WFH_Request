@@ -114,7 +114,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     PortalModule,
     TextFieldModule,
     MatNativeDateModule ,
-    ReactiveFormsModule 
+    ReactiveFormsModule ,
+    MatButtonModule,
+     MatMenuModule,
+      MatIconModule
   ],
   exports: [
     CdkTableModule,
@@ -174,7 +177,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     TextFieldModule,
     CdkTreeModule,
     MatNativeDateModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatMenuModule,
+     MatIconModule
   ],
 })
 export class SharedUiDesignSystemModule {}

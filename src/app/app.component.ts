@@ -8,6 +8,7 @@ import { CommonService } from './shared/service/common.service';
 import { CommonModule, formatDate } from '@angular/common';
 import { PopOverComponent } from './shared/components/pop-over/pop-over.component';
 import { ManagerComponent } from './Manager/manager/manager.component';
+import { SidenavbarComponent } from './shared/components/sidenavbar/sidenavbar.component';
 
 export interface IUserDetails {
   emp_id: string;
@@ -52,7 +53,8 @@ export interface IUsesrRequestsDetails {
     MatCardModule,
     CommonModule,
     PopOverComponent,
-    ManagerComponent
+    ManagerComponent,
+    SidenavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -70,6 +72,7 @@ export class AppComponent {
   public userName!: string;
   isOffCanvasVisible = false;
   user_role : string = '';
+  sidebarExpanded = true;
 
   constructor(private commonservice: CommonService) {
     this.currentDate = formatDate(new Date(), 'EEEE MMMM d', 'en');

@@ -14,6 +14,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
 import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
+import { SidenavbarComponent } from '../../shared/components/sidenavbar/sidenavbar.component';
+import { RouterModule } from '@angular/router';
 
 export interface UserData {
   // sl_no: string;
@@ -50,7 +52,9 @@ export interface Request {
     MatPaginatorModule,
     MatTooltipModule,
     HeaderTableComponent,
-    MatTableComponent
+    MatTableComponent,
+    SidenavbarComponent,
+    RouterModule 
   ],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss',
@@ -58,10 +62,11 @@ export interface Request {
 export class EmployeeComponent implements OnInit {
   cardDetails!: cardData[];
   users!: UserData[];
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<UserData[]>;
 
   headerTitle: string = 'Total Request';
   public activeCardId: number | null = null;
+  sidebarExpanded = true;
 
   displayedColumns = [
     'project',
@@ -86,7 +91,6 @@ export class EmployeeComponent implements OnInit {
         }
       }
     });
-    console.log("this.dataSource",this.dataSource);
     this.getCardDetails();
   }
 
@@ -116,7 +120,7 @@ export class EmployeeComponent implements OnInit {
   public onCardClick(index: number, title: string) {
     this.activeCardId = index;
     this.headerTitle = title;
-    this.dataSource = new MatTableDataSource<any>();
+    this.dataSource = new MatTableDataSource<UserData[]>();
     let requestObservable;
     switch (title) {
       case 'Approved':

@@ -2,12 +2,10 @@
   <div class="header_main">
     <div class="header">
       <div class="header_title">
-        <img src="../assets/images/Qentelli.svg" class="logo" alt="" />
+        <img src="../assets/images/Qentelli.svg" class="logo" alt="Logo" />
       </div>
       <div class="icon">
-        <span class="empid" *ngIf="userDetails"
-          ><b>{{ userDetails.emp_id }}</b></span
-        >
+        <span class="empid" *ngIf="userDetails"><b>{{ userDetails.emp_id }}</b></span>
         <mat-icon class="bell-icon grow">notifications</mat-icon>
         <mat-icon class="bell-icon grow">logout</mat-icon>
       </div>
@@ -15,9 +13,7 @@
     <div class="employee_details">
       <div class="section_empdetails">
         <div class="employee_name">
-          <span class="properties" style="font-size: 1rem"
-            ><b>Hello</b>, {{ userName }}
-          </span>
+          <span class="properties"><b>Hello</b>, {{ userName }}</span>
           <br />
           <span class="employee_greeting">{{ greeting }}</span>
         </div>
@@ -25,34 +21,33 @@
       <div class="section_wfh">
         <span class="property_date">{{ currentDate }}</span>
         <span class="properties_wfh_button">
-          <button
-            mat-flat-button
-            color="warn"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#demo"
-            (click)="showOffCanvas()"
-          >
+          <button mat-flat-button color="warn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" (click)="showOffCanvas()">
             Request WFH
           </button>
         </span>
       </div>
     </div>
   </div>
-      @if(user_role === "Senior Software Developer"){
-      <div class="container">
+  <div class="body_container">
+    <app-sidenavbar *ngIf="user_role === 'manager'" [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-sidenavbar>
+    <div class="main_content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+      <div *ngIf="user_role === 'Senior Software Developer'" class="container">
         <app-employee></app-employee>
       </div>
-    }
-     @if(user_role === "manager"){
-      <div class="container">
+      <div *ngIf="user_role === 'manager'" class="container">
         <app-manager></app-manager>
       </div>
-    }
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
   <!-- <div class="footer">
-    <span>copy right 2024</span>
+    Footer content
   </div> -->
 </div>
+
+
 <div *ngIf="isOffCanvasVisible" class="pop_over" >
   <app-pop-over [id]="'demo'" (close)="hideOffCanvas()"></app-pop-over>
 </div>

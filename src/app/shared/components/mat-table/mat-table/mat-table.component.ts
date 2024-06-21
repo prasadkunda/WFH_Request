@@ -25,8 +25,10 @@ export class MatTableComponent {
 
 constructor(private cdr: ChangeDetectorRef) {}
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.cdr.detectChanges(); 
+    if(this.dataSource?.paginator){
+      this.dataSource.paginator = this.paginator;
+      this.cdr.detectChanges(); 
+    }   
   }
 
 

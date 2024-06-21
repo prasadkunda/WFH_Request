@@ -1,3 +1,8 @@
+<div>
+  <!-- <app-sidenavbar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-sidenavbar>
+  <div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+    <router-outlet></router-outlet>
+  </div> -->
 <div class="mt-3">
   <div class="row">
     @for(card of cardDetails;track card;let i = $index){
@@ -24,4 +29,5 @@
 </div>
 <div>
     <app-mat-table [dataSource]="dataSource" [displayedColumns]="displayedColumns"></app-mat-table>
+</div>
 </div>

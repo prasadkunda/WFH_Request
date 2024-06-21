@@ -47,7 +47,6 @@ export class CommonService {
     // return this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
     //Manager API
     return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
-    // return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
     .pipe(catchError((err) => {
       throw new Error(err);
   }))

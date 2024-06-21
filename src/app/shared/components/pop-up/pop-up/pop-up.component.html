@@ -1,0 +1,13 @@
+<!-- <h2 mat-dialog-title>Hi {{data.name}}</h2> -->
+<mat-dialog-content>
+  <p>Reason for the WFH Rejection</p>
+  <mat-form-field>
+    <mat-label>Reason</mat-label>
+    <input matInput [(ngModel)]="animal" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onNoClick()">Reject</button>
+  <!-- <button mat-button [mat-dialog-close]="onNoClick()" cdkFocusInitial>Ok</button> -->
+</mat-dialog-actions>

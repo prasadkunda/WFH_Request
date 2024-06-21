@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8 table_container" *ngIf="dataSource.data.length">
+<div class="mat-elevation-z8 table_container" *ngIf="dataSource?.data?.length">
     <table mat-table [dataSource]="dataSource" matSort class="mat-table">
       <ng-container *ngFor="let columnName of displayedColumns" [matColumnDef]="columnName">
         <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>
