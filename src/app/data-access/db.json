@@ -6,16 +6,16 @@
         { "id":"4","icon": "library_add", "title": "New", "number": "1" }
       ],
       "AllRequests": [
-        {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"09-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
-        {"sl_no":"2","project":"IMMIGRATION","requested_date":"01-06-2024","approved_date":"30-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
-        {"sl_no":"3","project":"SWA","requested_date":"11-06-2024","approved_date":"10-06-2024","aprover":"Rahul","status":"approved","comments":"Health issues"},
-        {"sl_no":"4","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
-        {"sl_no":"5","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
-        {"sl_no":"6","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
-        {"sl_no":"7","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
-        {"sl_no":"8","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Family function"},
-        {"sl_no":"9","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
-        {"sl_no":"10","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"created","comments":"Health issues"}
+        {"sl_no":"1","project":"TAX","emp_id":"QE1001","requested_date":"10-06-2024","approved_date":"09-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+        {"sl_no":"2","project":"IMMIGRATION","emp_id":"QE1002","requested_date":"01-06-2024","approved_date":"30-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+        {"sl_no":"3","project":"SWA","emp_id":"QE1003","requested_date":"11-06-2024","approved_date":"10-06-2024","aprover":"Rahul","status":"approved","comments":"Health issues"},
+        {"sl_no":"4","project":"TAX","emp_id":"QE1004","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"5","project":"TAX","emp_id":"QE1005","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"6","project":"TAX","emp_id":"QE1006","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"7","project":"TAX","emp_id":"QE1007","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
+        {"sl_no":"8","project":"TAX","emp_id":"QE1008","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Family function"},
+        {"sl_no":"9","project":"TAX","emp_id":"QE1009","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
+        {"sl_no":"10","project":"TAX","emp_id":"QE1010","requested_date":"","approved_date":"","approver":"","status":"created","comments":"Health issues"}
         ],
         "Approved": [
             {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"09-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
@@ -31,7 +31,14 @@
             {"sl_no":"3","project":"SWA","requested_date":"11-06-2024","approved_date":"10-06-2024","aprover":"Gowri","status":"rejected","comments":"Traveling"}
         ],
         "Created": [
-            {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"","aprover":"Gowri","status":"created","comments":"Family event"}
+          {"sl_no":"1",
+            "project":"TAX",
+            "emp_id":"QE1001",
+            "requested_date":"10-06-2024",
+            "approved_date":"",
+            "status":"created",
+            "approver":"",
+            "comments":"Family event"}
         ],
         "Requests_Manager": [
             {"sl_no":"1","emp_id":"QE1001","email":"david@qentelli.com","project":"TAX","requested_date":"10-06-2024","no_of_days":"2","status":"created","comments":"Health issues"},
@@ -84,5 +91,25 @@
             {"emp_id":"QE1008","emp_fname":"Scean","emp_mname":"","emp_lname":"paul","email":"sceanpaul@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
             {"emp_id":"QE1009","emp_fname":"Enrigue","emp_mname":"","emp_lname":"eliglias","email":"enrigue@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
             {"emp_id":"QE1010","emp_fname":"Paul","emp_mname":"","emp_lname":"david","email":"pauldavid@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"}
-          ]
+          ],
+          "User_detial":[
+            {
+            "emp_id": "QE1001",
+            "emp_fname": "David",
+            "emp_mname": "",
+            "emp_lname": "miller",
+            "email": "david@qentelli.com",
+            "desiganation": "Senior Software Developer",
+            "Project": "TAX"
+          }],
+          "Manager_details":[{
+            "emp_id": "QE1002",
+            "emp_fname": "Arthur",
+            "emp_mname": "louise",
+            "emp_lname": "king",
+            "email": "alk@qentelli.com",
+            "desiganation": "manager",
+            "Project": "TAX"
+          }]
+          
 }

@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +14,14 @@ import { CommonModule, formatDate } from '@angular/common';
 import { PopOverComponent } from './shared/components/pop-over/pop-over.component';
 import { ManagerComponent } from './Manager/manager/manager.component';
 import { SidenavbarComponent } from './shared/components/sidenavbar/sidenavbar.component';
+import {
+  MatMenuModule,
+  MAT_MENU_DEFAULT_OPTIONS,
+} from '@angular/material/menu';
+import { NotificationsComponent } from './shared/components/notifications/notifications.component';
+import { MatDialog } from '@angular/material/dialog';
+import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
 export interface IUserDetails {
   emp_id: string;
@@ -36,10 +49,10 @@ export interface IUsesrRequestsDetails {
   emp_id: string;
   email: string;
   Project: string;
-  requested_date:string;
-  no_of_days:string;
-  status:string;
-  comments:string;
+  requested_date: string;
+  no_of_days: string;
+  status: string;
+  comments: string;
 }
 
 @Component({
@@ -54,12 +67,26 @@ export interface IUsesrRequestsDetails {
     CommonModule,
     PopOverComponent,
     ManagerComponent,
-    SidenavbarComponent
+    SidenavbarComponent,
+    MatMenuModule,
+    NotificationsComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  encapsulation: ViewEncapsulation.None,
+  providers: [
+    {
+      provide: MAT_MENU_DEFAULT_OPTIONS,
+      useValue: {
+        overlayPanelClass: 'custom_class',
+      },
+    },
+  ],
 })
 export class AppComponent {
+  @ViewChild('demo') public demo!: ElementRef;
+  public dialogRef!: MatDialog;
   title = 'WFH_Request';
   greeting: string = '';
   greetingTimes: { [key: string]: string } = {
@@ -68,14 +95,50 @@ export class AppComponent {
     evening: 'Good Evening',
   };
   userDetails!: IUserDetails;
-  currentDate: string;
+  public currentDate: string;
   public userName!: string;
   isOffCanvasVisible = false;
-  user_role : string = '';
+  user_role: string = '';
   sidebarExpanded = true;
+  public modalOpen: boolean = false;
+  private apiUrl = [
+    'http://localhost:3000/Created',
+    'http://localhost:3000/AllRequests',
+  ]; // JSON server URL
 
-  constructor(private commonservice: CommonService) {
+  constructor(
+    private commonservice: CommonService,
+    public dialog: MatDialog,
+    private http: HttpClient
+  ) {
     this.currentDate = formatDate(new Date(), 'EEEE MMMM d', 'en');
+    this.dialogRef = dialog;
+    this.dialogRef.afterAllClosed.subscribe(() => {
+      this.modalOpen = false;
+    });
+  }
+
+  public openDialog(): void {
+    if (!this.modalOpen) {
+      this.dialog
+        .open(PopOverComponent, {
+          width: '848px',
+          height: '544px',
+          panelClass: 'custom_class',
+          autoFocus: true,
+          ariaLabel: 'WFH Request-modal',
+          hasBackdrop: true,
+        })
+        .afterClosed()
+        .subscribe((result: any) => {
+          console.log('The dialog was closed');
+          if (result) {
+            console.log('Form data:', result);
+            this.saveWFHR(result);
+          }
+        });
+    }
+    this.modalOpen = true;
   }
 
   ngOnInit() {
@@ -104,11 +167,60 @@ export class AppComponent {
     });
   }
 
-  showOffCanvas() {
-    this.isOffCanvasVisible = true;
+  // showOffCanvas() {
+  //   this;
+  // }
+
+  // hideOffCanvas() {
+  //   this.isOffCanvasVisible = false;
+  // }
+
+  // ngAfterViewInit() {
+  //   if (this.demo) {
+  //     this.showOffCanvas();
+  //   } else {
+  //     this.hideOffCanvas();
+  //   }
+  // }
+  // ngAfterViewInit() {
+  // Initialize your offcanvas component here
+  // For example, if you're using a third-party library like Offcanvas.js:
+  //new Offcanvas(this.demo.nativeElement, {
+  //this.backdrop = true; // or any other configuration
+  //});
+  //}
+
+  public saveWFHR(data: any) {
+    console.log(data)
+    const payload: any = {
+      sl_no: '',
+      emp_id: this.userDetails.emp_id,
+      project: this.userDetails.Project,
+      requested_date: formatDate(data.startDate, 'MM/dd/yyyy', 'en'),
+      approved_date: '',
+      approver: '',
+      status: 'Created',
+      comments: data.comments,
+      id: '',
+    };
+    this.commonservice.addItem(payload);
   }
 
-  hideOffCanvas() {
-    this.isOffCanvasVisible = false;
-  }
+  // public addItem(item: any): void {
+  //   this.apiUrl.forEach((url) => {
+  //     return this.http.post(url, item).pipe(
+  //       catchError(this.handleError));
+  //   });
+  // }
+  // private handleError(error: HttpErrorResponse) {
+  //   console.log(error);
+  //   let errorMessage = 'Unknown error!';
+  //   if (error.error instanceof ErrorEvent) {
+  //     errorMessage = `Error: ${error.error.message}`;
+  //   } else {
+  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  //   }
+  //   console.error(errorMessage);
+  //   return throwError(errorMessage);
+  // }
 }

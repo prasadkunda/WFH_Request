@@ -5,8 +5,15 @@
         <img src="../assets/images/Qentelli.svg" class="logo" alt="Logo" />
       </div>
       <div class="icon">
-        <span class="empid" *ngIf="userDetails"><b>{{ userDetails.emp_id }}</b></span>
-        <mat-icon class="bell-icon grow">notifications</mat-icon>
+        <span class="empid" *ngIf="userDetails"
+          ><b>{{ userDetails.emp_id }}</b></span
+        >
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="menu_container">
+          <app-notifications></app-notifications>
+        </mat-menu>
         <mat-icon class="bell-icon grow">logout</mat-icon>
       </div>
     </div>
@@ -21,7 +28,12 @@
       <div class="section_wfh">
         <span class="property_date">{{ currentDate }}</span>
         <span class="properties_wfh_button">
-          <button mat-flat-button color="warn" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo" (click)="showOffCanvas()">
+          <button
+            mat-flat-button
+            color="warn"
+            type="button"
+            (click)="openDialog()"
+          >
             Request WFH
           </button>
         </span>
@@ -29,8 +41,12 @@
     </div>
   </div>
   <div class="body_container">
-    <app-sidenavbar *ngIf="user_role === 'manager'" [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-sidenavbar>
-    <div class="main_content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+    <app-sidenavbar
+      *ngIf="user_role === 'manager'"
+      [isExpanded]="sidebarExpanded"
+      (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
+    ></app-sidenavbar>
+    <div class="main_content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
       <div *ngIf="user_role === 'Senior Software Developer'" class="container">
         <app-employee></app-employee>
       </div>
@@ -46,8 +62,7 @@
     Footer content
   </div> -->
 </div>
-
-
-<div *ngIf="isOffCanvasVisible" class="pop_over" >
-  <app-pop-over [id]="'demo'" (close)="hideOffCanvas()"></app-pop-over>
-</div>
+<!-- 
+<div *ngIf="isOffCanvasVisible" class="pop_over">
+  <app-pop-over [id]="'demo'"  (close)="hideOffCanvas()"></app-pop-over>
+</div> -->

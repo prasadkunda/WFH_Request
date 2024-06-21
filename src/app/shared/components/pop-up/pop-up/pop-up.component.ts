@@ -20,11 +20,11 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './pop-up.component.scss'
 })
 export class PopUpComponent {
-  readonly dialogRef = inject(MatDialogRef<PopUpComponent>);
+  readonly dialogRef = inject(MatDialogRef);
   readonly data = inject<any>(MAT_DIALOG_DATA);
   readonly animal = model(this.data.animal);
 
-  onNoClick(): void {
+  close(): void {
     this.dialogRef.close();
   }
 

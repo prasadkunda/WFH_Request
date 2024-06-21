@@ -15,3 +15,6 @@ mat-form-field {
 .cdk-overlay-container {
   position: relative; /* Ensure the overlay container does not escape the off-canvas bounds */
 }
+.form-button {
+  float: right;
+}

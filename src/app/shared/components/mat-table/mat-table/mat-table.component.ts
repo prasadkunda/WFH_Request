@@ -8,29 +8,31 @@ import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-mat-table',
   standalone: true,
-  imports: [SharedUiDesignSystemModule,CommonModule],
+  imports: [SharedUiDesignSystemModule, CommonModule],
   templateUrl: './mat-table.component.html',
-  styleUrl: './mat-table.component.scss'
+  styleUrl: './mat-table.component.scss',
 })
 export class MatTableComponent {
   @Input() dataSource!: MatTableDataSource<any>;
   @Input() displayedColumns!: string[];
-  @ViewChild(MatPaginator, {static: false})
+  @Input() searchedValue!: string;
+  @ViewChild(MatPaginator, { static: false })
   set paginator(value: MatPaginator) {
-    if (this.dataSource && value){
+    if (this.dataSource && value) {
       this.dataSource.paginator = value;
     }
   }
   @ViewChild(MatSort) sort!: MatSort;
+  expandedElement: any;
 
-constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngAfterViewInit() {
     if(this.dataSource?.paginator){
       this.dataSource.paginator = this.paginator;
       this.cdr.detectChanges(); 
     }   
   }
-
 
   public getStatusClass(status: string): string {
     console.log();
@@ -46,7 +48,15 @@ constructor(private cdr: ChangeDetectorRef) {}
     }
   }
 
-  capitalize(text: string): string {
+  public capitalize(text: string): string {
     return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
+  public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

@@ -25,15 +25,15 @@ mat-card {
 
 .paragraph-text {
   font-size: 1rem;
-  color: gray;
+  color: gray !important;
   text-align: start;
   padding-left: 16px;
 }
 
-.card_content {
-  padding-left: 30px;
-  padding-top: 2px;
-}
+// .card_content {
+//   padding-left: 30px;
+//   padding-top: 2px;
+// }
 
 .icon {
   color: #9c27b0; /* Example color, adjust as needed */
@@ -58,10 +58,20 @@ mat-card {
 }
 
 .card_content {
-  padding-left: 30px;
-  padding-top: 2px;
+  padding-top: 4px;
 }
 
+.card-container {
+  padding-right: 50px;
+}
+.count_text {
+  font-size:x-small;
+  color: gray;
+}
+.arrow-icon-color {
+  font-size: 20px;
+  height: 20px;
+}
 // table {
 //   width: 100%;
 // }
@@ -130,4 +140,11 @@ mat-card {
 //   left: 55px;
 //   top: 10px;
 // }
-.active-card {   border-color: #007bff;   background-color: #bec2c5; }
+.active-card {
+  border-color: #007bff;
+  background-color: #bec2c5;
+}
+.border-style {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}

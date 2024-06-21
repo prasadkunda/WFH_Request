@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,8 +14,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
 import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
-import { SidenavbarComponent } from '../../shared/components/sidenavbar/sidenavbar.component';
-import { RouterModule } from '@angular/router';
+
 
 export interface UserData {
   // sl_no: string;
@@ -53,13 +52,12 @@ export interface Request {
     MatTooltipModule,
     HeaderTableComponent,
     MatTableComponent,
-    SidenavbarComponent,
-    RouterModule 
   ],
   templateUrl: './employee.component.html',
-  styleUrl: './employee.component.scss',
+  styleUrl: './employee.component.scss'
+  
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit, AfterViewInit {
   cardDetails!: cardData[];
   users!: UserData[];
   dataSource!: MatTableDataSource<UserData[]>;
@@ -77,6 +75,7 @@ export class EmployeeComponent implements OnInit {
     'comments',
     'actions',
   ];
+
   constructor(
     private commonService: CommonService,
     private exportexcelservice: ExportExcelService
@@ -94,6 +93,8 @@ export class EmployeeComponent implements OnInit {
     this.getCardDetails();
   }
 
+  public ngAfterViewInit() {}
+
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -101,13 +102,13 @@ export class EmployeeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
   public getCardDetails() {
     this.cardDetails = [];
     this.commonService.getCardsDetails().subscribe((res) => {
       try {
         if (res && Array.isArray(res)) {
           this.cardDetails = res;
+          console.log(res);
         } else {
         }
       } catch {
@@ -151,6 +152,7 @@ export class EmployeeComponent implements OnInit {
       }
     });
   }
+
   public capitalize(s: string): string {
     s = s.replace(/_/g, ' ');
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -176,7 +178,14 @@ export class EmployeeComponent implements OnInit {
       this.headerTitle
     );
   }
+
   public setActiveCard(cardId: number) {
     this.activeCardId = cardId;
+  }
+
+  public getBorderStyle(card: any) {
+    return {
+      'border-left': card.color ? `5px solid ${card.color}` : '5px solid blue',
+    };
   }
 }

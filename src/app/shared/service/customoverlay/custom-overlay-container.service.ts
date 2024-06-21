@@ -10,7 +10,7 @@ export class CustomOverlayContainerService extends OverlayContainer {
     const container = document.createElement('div');
     container.classList.add('cdk-overlay-container');
 
-    const offCanvas = document.querySelector('app-pop-over .offcanvas');
+    const offCanvas = document.querySelector('app-pop-over .off-canvas');
     if (offCanvas) {
       offCanvas.appendChild(container);
     } else {

@@ -1,45 +1,48 @@
 .table_container {
-    margin-top: 20px;
+  // margin-top: 20px;
+  .mat-mdc-row {
+    height:42px;
   }
-  .table_header {
-    font-weight: bold;
-  }
-  .status-approved {
-    color: green;
-  }
-  .status-rejected {
-    color: red;
-  }
-  table {
-    width: 100%;
-  }
-  
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td,
-  th {
-    width: 25%;
-  }
-  
-  .mat-mdc-table {
-    table-layout: fixed;
-  }
-  ::ng-deep .mat-mdc-text-field-wrapper {
-    background-color: white !important;
-  }
-  ::ng-deep .mat-mdc-header-row {
-    font-family: sans-serif !important;
-  }
-  ::ng-deep .mat-mdc-header-cell {
-    font-family: sans-serif !important;
-  }
-  .table_header {
-    font-weight: 600;
-  }
-  /* Status colors */
+}
+.table_header {
+  font-weight: bold;
+}
+.status-approved {
+  color: green;
+}
+.status-rejected {
+  color: red;
+}
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.mat-mdc-table {
+  table-layout: fixed;
+}
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: white !important;
+}
+::ng-deep .mat-mdc-header-row {
+  font-family: sans-serif !important;
+}
+::ng-deep .mat-mdc-header-cell {
+  font-family: sans-serif !important;
+}
+.table_header {
+  font-weight: 600;
+}
+/* Status colors */
 
 .badge {
   font-size: 14px;

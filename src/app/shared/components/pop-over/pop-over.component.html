@@ -1,12 +1,88 @@
-<div class="offcanvas offcanvas-end off-canvas" [id]="id">
+<mat-dialog-content>
   <div class="offcanvas-header">
-    <h3 class="offcanvas-title">WFH Request</h3>
+    <h4 class="offcanvas-title">WFH Request</h4>
+    <mat-dialog-actions>
+      <button mat-button (click)="dialogRef.close()"><mat-icon>close</mat-icon></button>
+    </mat-dialog-actions>
+  </div>
+  <form [formGroup]="dateRangeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="startPicker"
+        formControlName="startDate"
+        [matDatepickerFilter]="dateFilter"
+        (dateChange)="onDateChange($event)"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="startPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+      @if(dateRangeForm.get('startDate')?.hasError('required')){
+      <mat-error>Start date is required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>End Date</mat-label>
+      <input
+        matInput
+        [matDatepicker]="endPicker"
+        formControlName="endDate"
+        [matDatepickerFilter]="dateFilter"
+        (dateChange)="onDateChange($event)"
+      />
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="endPicker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+      <mat-error *ngIf="dateRangeForm.get('endDate')?.hasError('required')"
+        >End date is required</mat-error
+      >
+    </mat-form-field>
+
+    @if(dateRangeForm.hasError('dateRangeInvalid')){
+    <mat-error>Date range must be within 5 days</mat-error>}
+
+    <mat-form-field appearance="fill">
+      <mat-label>Comments</mat-label>
+      <textarea
+        matInput
+        placeholder="Mention the Reason for WFH..."
+        formControlName="comments"
+      ></textarea>
+      <mat-error *ngIf="dateRangeForm.get('comments')?.hasError('required')"
+        >Comments are required</mat-error
+      >
+    </mat-form-field>
+    <button
+      class="form-button"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="dateRangeForm.invalid"
+      (click)="dialogRef.close()"
+    >
+      Submit
+    </button>
+  </form>
+</mat-dialog-content>
+
+  <!-- <button mat-button (click)="onNoClick()">Cancel</button> -->
+
+<!-- <div class="offcanvas offcanvas-end off-canvas" [id]="id">
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">WFH Request</h4>
     <button
       type="button"
       class="btn-close"
       data-bs-dismiss="offcanvas"
     ></button>
   </div>
+
   <div class="offcanvas-body">
     <form [formGroup]="dateRangeForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
@@ -46,18 +122,23 @@
           >End date is required</mat-error
         >
       </mat-form-field>
-      
+
       @if(dateRangeForm.hasError('dateRangeInvalid')){
       <mat-error>Date range must be within 5 days</mat-error>}
 
       <mat-form-field appearance="fill">
         <mat-label>Comments</mat-label>
-        <textarea matInput placeholder="Mention the Reason for WFH..." formControlName="comments"></textarea>
+        <textarea
+          matInput
+          placeholder="Mention the Reason for WFH..."
+          formControlName="comments"
+        ></textarea>
         <mat-error *ngIf="dateRangeForm.get('comments')?.hasError('required')"
           >Comments are required</mat-error
         >
       </mat-form-field>
       <button
+        class="form-button"
         mat-raised-button
         color="primary"
         type="submit"
@@ -67,4 +148,4 @@
       </button>
     </form>
   </div>
-</div>
+</div> -->

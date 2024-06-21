@@ -1,17 +1,47 @@
 <div class="row mt-3">
-    <div class="col-md-2 container_header">
-      {{ title }}
-    </div>
-    <!-- <div class="col-md-5"></div>
-    <div class="col-md-1">
-      <span class="align-middle" (click)="onExportClick()">
-        <img class="export_excel_img" src="../../../assets/images/export-excel.png" alt="export-excel"/>
-      </span>
-    </div>
-    <div class="col-md-4">
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="onSearchChange($event)" placeholder="Ex. approved wfh"/>
-      </mat-form-field>
+  <div class="col-md-6 container_header">
+    {{ title }}
+  </div>
+  <div class="col-md-1">
+    <span class="align-middle" (click)="onExportClick()">
+      <img
+        class="export_excel_img"
+        src="../../../assets/images/export-excel.png"
+        alt="export-excel"
+      />
+    </span>
+  </div>
+  <div class="col-md-5">
+    <mat-form-field class="search_field" appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (keyup)="onSearchChange($event)"
+        placeholder="Ex. approved wfh"
+      />
+    </mat-form-field>
+    <!-- <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control shadow-none"
+        aria-label="Text input with dropdown button"
+        placeholder="search"
+      />
+      <button
+        class="btn btn-outline-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        filter
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">employee</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">status</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">date range</a></li>
+      </ul>
     </div> -->
   </div>
+</div>

@@ -1,5 +1,14 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule, formatDate } from '@angular/common';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  inject,
+  Input,
+  model,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -10,33 +19,52 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import moment from 'moment';
 import { SharedUiDesignSystemModule } from '../../utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 
 @Component({
   selector: 'app-pop-over',
   standalone: true,
-  imports: [ReactiveFormsModule, SharedUiDesignSystemModule, CommonModule],
+  imports: [
+    ReactiveFormsModule,
+    SharedUiDesignSystemModule,
+    CommonModule,
+    MatDialogModule,
+  ],
   templateUrl: './pop-over.component.html',
   styleUrl: './pop-over.component.scss',
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
 })
-export class PopOverComponent {
+export class PopOverComponent implements OnInit {
   @Input() id!: string;
   @Output() close = new EventEmitter<void>();
-  public dateRangeForm: FormGroup;
+  public dateRangeForm!: FormGroup;
   public dateRangeInvalid: boolean = false;
+  @Output() emitRequestForm = new EventEmitter<any>();
+  // readonly dialogRef = inject(MatDialogRef);
+  readonly data = inject<any>(MAT_DIALOG_DATA);
+  readonly FormData = model(this.dateRangeForm);
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,@Inject(MatDialogRef) public dialogRef: MatDialogRef<any>) {
+    console.log();
     this.dateRangeForm = new FormGroup(
       {
         startDate: new FormControl('', [Validators.required]),
         endDate: new FormControl('', [Validators.required]),
-        comments: new FormControl('', [Validators.required])
+        comments: new FormControl('', [Validators.required]),
       },
       { validators: this.dateRangeValidator }
     );
   }
+
+  ngOnInit(): void {}
 
   dateRangeValidator: ValidatorFn = (
     group: AbstractControl
@@ -70,11 +98,10 @@ export class PopOverComponent {
 
   onSubmit() {
     if (this.dateRangeForm.valid) {
-      console.log('Form Submitted', this.dateRangeForm.value);
+      this.emitRequestForm.emit(this.dateRangeForm.value);
+      this.dialogRef.close(this.dateRangeForm.value); // Emit close event
       this.dateRangeForm.reset();
-      this.close.emit(); // Emit close event
     }
   }
 
-  
 }
