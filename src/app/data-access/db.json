@@ -1,0 +1,88 @@
+{
+    "cards": [
+        { "id":"1","icon": "list_alt", "title": "Total Requests", "number": "10" },
+        { "id":"2","icon": "check_circle_outline", "title": "Approved", "number": "6" },
+        { "id":"3","icon": "highlight_off", "title": "Rejected", "number": "3" },
+        { "id":"4","icon": "library_add", "title": "New", "number": "1" }
+      ],
+      "AllRequests": [
+        {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"09-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+        {"sl_no":"2","project":"IMMIGRATION","requested_date":"01-06-2024","approved_date":"30-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+        {"sl_no":"3","project":"SWA","requested_date":"11-06-2024","approved_date":"10-06-2024","aprover":"Rahul","status":"approved","comments":"Health issues"},
+        {"sl_no":"4","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"5","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"6","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"approved","comments":"Health issues"},
+        {"sl_no":"7","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
+        {"sl_no":"8","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Family function"},
+        {"sl_no":"9","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"rejected","comments":"Health issues"},
+        {"sl_no":"10","project":"TAX","requested_date":"","approved_date":"","approver":"","status":"created","comments":"Health issues"}
+        ],
+        "Approved": [
+            {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"09-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+            {"sl_no":"2","project":"IMMIGRATION","requested_date":"01-06-2024","approved_date":"30-05-2024","approver":"Rahul","status":"approved","comments":"Health issues"},
+            {"sl_no":"3","project":"SWA","requested_date":"11-06-2024","approved_date":"10-06-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+            {"sl_no":"4","project":"TAX","requested_date":"17-05-2024","approved_date":"16-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+            {"sl_no":"5","project":"TAX","requested_date":"25-05-2024","approved_date":"24-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"},
+            {"sl_no":"6","project":"TAX","requested_date":"30-05-2024","approved_date":"29-05-2024","approver":"Gowri","status":"approved","comments":"Health issues"}
+        ],
+        "Rejected": [
+            {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"09-06-2024","aprover":"Gowri","status":"rejected","comments":"Family event"},
+            {"sl_no":"2","project":"IMMIGRATION","requested_date":"01-06-2024","approved_date":"30-05-2024","aprover":"Rahul","status":"rejected","comments":"Health issues"},
+            {"sl_no":"3","project":"SWA","requested_date":"11-06-2024","approved_date":"10-06-2024","aprover":"Gowri","status":"rejected","comments":"Traveling"}
+        ],
+        "Created": [
+            {"sl_no":"1","project":"TAX","requested_date":"10-06-2024","approved_date":"","aprover":"Gowri","status":"created","comments":"Family event"}
+        ],
+        "Requests_Manager": [
+            {"sl_no":"1","emp_id":"QE1001","email":"david@qentelli.com","project":"TAX","requested_date":"10-06-2024","no_of_days":"2","status":"created","comments":"Health issues"},
+            {"sl_no":"2","emp_id":"QE1002","email":"david1@qentelli.com","project":"SWA","requested_date":"11-06-2024","no_of_days":"1","status":"created","comments":"Family event"},
+            {"sl_no":"3","emp_id":"QE1003","email":"david2@qentelli.com","project":"TAX","requested_date":"12-06-2024","no_of_days":"2","status":"approved","comments":"Doctor Appointment"},
+            {"sl_no":"4","emp_id":"QE1004","email":"david3@qentelli.com","project":"Immigration","requested_date":"09-06-2024","no_of_days":"3","status":"approved","comments":"Family event"},
+            {"sl_no":"5","emp_id":"QE1005","email":"david4@qentelli.com","project":"Immigration","requested_date":"08-06-2024","no_of_days":"1","status":"approved","comments":"Family event"},
+            {"sl_no":"6","emp_id":"QE1006","email":"david5@qentelli.com","project":"TAX","requested_date":"08-06-2024","no_of_days":"1","status":"approved","comments":"Health issues"},
+            {"sl_no":"7","emp_id":"QE1007","email":"david6@qentelli.com","project":"SWA","requested_date":"08-06-2024","no_of_days":"3","status":"approved","comments":"Health issues"},
+            {"sl_no":"8","emp_id":"QE1008","email":"david7@qentelli.com","project":"SWA","requested_date":"08-06-2024","no_of_days":"1","status":"approved","comments":"Family event"},
+            {"sl_no":"9","emp_id":"QE1009","email":"david8@qentelli.com","project":"TAX","requested_date":"08-06-2024","no_of_days":"2","status":"approved","comments":"Health issues"},
+            {"sl_no":"10","emp_id":"QE1010","email":"david9@qentelli.com","project":"TAX","requested_date":"07-06-2024","no_of_days":"2","status":"approved","comments":"Family event"},
+            {"sl_no":"11","emp_id":"QE1011","email":"david10@qentelli.com","project":"Immigration","requested_date":"06-06-2024","no_of_days":"1","status":"rejected","comments":"Health issues"},
+            {"sl_no":"12","emp_id":"QE1012","email":"david11@qentelli.com","project":"TAX","requested_date":"06-06-2024","no_of_days":"2","status":"rejected","comments":"Health issues"},
+            {"sl_no":"13","emp_id":"QE1013","email":"david12@qentelli.com","project":"SWA","requested_date":"05-06-2024","no_of_days":"1","status":"rejected","comments":"Health issues"},
+            {"sl_no":"14","emp_id":"QE1014","email":"david13@qentelli.com","project":"Immigration","requested_date":"11-06-2024","no_of_days":"1","status":"created","comments":"Health issues"},
+            {"sl_no":"15","emp_id":"QE1015","email":"david14@qentelli.com","project":"TAX","requested_date":"12-06-2024","no_of_days":"1","status":"created","comments":"Health issues"},
+            {"sl_no":"16","emp_id":"QE1016","email":"david15@qentelli.com","project":"TAX","requested_date":"13-06-2024","no_of_days":"2","status":"created","comments":"Health issues"},
+            {"sl_no":"17","emp_id":"QE1017","email":"david16@qentelli.com","project":"Immigration","requested_date":"14-06-2024","no_of_days":"2","status":"created","comments":"Health issues"}
+        ],
+        "Projects_Manager": [
+            {"sl_no":"1","project":"TAX"},
+            {"sl_no":"2","project":"Immigration"}  
+        ],
+        "Project_TAX": [
+            {"sl_no":"1","emp_id":"QE1001","email":"david@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+             {"sl_no":"2","emp_id":"QE1003","email":"david2@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"3","emp_id":"QE1006","email":"david5@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"4","emp_id":"QE1009","email":"david8@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"5","emp_id":"QE1010","email":"david9@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"6","emp_id":"QE1012","email":"david11@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"7","emp_id":"QE1015","email":"david14@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"8","emp_id":"QE1016","email":"david15@qentelli.com","project":"TAX","allocation_date":"10-06-2024","end_date":""}
+          ],
+          "Project_Immigration":   [
+            {"sl_no":"1","emp_id":"QE1004","email":"david3@qentelli.com","project":"Immigration","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"2","emp_id":"QE1005","email":"david4@qentelli.com","project":"Immigration","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"3","emp_id":"QE1011","email":"david10@qentelli.com","project":"Immigration","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"4","emp_id":"QE1014","email":"david13@qentelli.com","project":"Immigration","allocation_date":"10-06-2024","end_date":""},
+            {"sl_no":"5","emp_id":"QE1017","email":"david16@qentelli.com","project":"Immigration","allocation_date":"10-06-2024","end_date":""}
+          ],
+          "Employees_Projects":   [
+            {"emp_id":"QE1001","emp_fname":"David","emp_mname":"","emp_lname":"miller","email":"david@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
+            {"emp_id":"QE1002","emp_fname":"Arthur","emp_mname":"louise","emp_lname":"king","email":"alk@qentelli.com","desiganation":"Team Lead","Project":"TAX"},
+            {"emp_id":"QE1003","emp_fname":"Raja","emp_mname":"","emp_lname":"singh","email":"rajas@qentelli.com","desiganation":"Senior Software Developer","Project":"SWA"},
+            {"emp_id":"QE1004","emp_fname":"Rahul","emp_mname":"","emp_lname":"dravid","email":"rahul@qentelli.com","desiganation":"Senior Software Developer","Project":"SWA"},
+            {"emp_id":"QE1005","emp_fname":"Will","emp_mname":"","emp_lname":"smith","email":"willsmith@qentelli.com","desiganation":"Senior Software Developer","Project":"Immigration"},
+            {"emp_id":"QE1006","emp_fname":"Ema","emp_mname":"","emp_lname":"watson","email":"emawatson@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
+            {"emp_id":"QE1007","emp_fname":"DJ","emp_mname":"","emp_lname":"snake","email":"djsnake@qentelli.com","desiganation":"Senior Software Developer","Project":"Immigration"},
+            {"emp_id":"QE1008","emp_fname":"Scean","emp_mname":"","emp_lname":"paul","email":"sceanpaul@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
+            {"emp_id":"QE1009","emp_fname":"Enrigue","emp_mname":"","emp_lname":"eliglias","email":"enrigue@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"},
+            {"emp_id":"QE1010","emp_fname":"Paul","emp_mname":"","emp_lname":"david","email":"pauldavid@qentelli.com","desiganation":"Senior Software Developer","Project":"TAX"}
+          ]
+}
