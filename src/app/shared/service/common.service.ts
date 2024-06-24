@@ -12,10 +12,15 @@ import {
   providedIn: 'root',
 })
 export class CommonService {
-  private apiUrl = [
-    'http://localhost:3000/Created',
-    'http://localhost:3000/AllRequests',
-  ]; // JSON server URL
+  userDetails!: IUserDetails[];
+  userId !: string;
+  private apiUrl = 'http://localhost:3000/AllRequests';
+  // [
+  //   'http://localhost:3000/Created',
+  //   'http://localhost:3000/AllRequests',
+  // ]; // JSON server URL
+filteredData: any[] = [];
+
   constructor(private http: HttpClient) {}
 
   // to get card icons,names and No of requests
@@ -74,17 +79,14 @@ export class CommonService {
     );
   }
   //to get user details after login. based on the employee id need to fetch the data from DB.
-  getUserdetails(): Observable<IUserDetails> {
-    // team member API
-    return (
-      this.http
-        .get<IUserDetails>(
-          'https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78'
-        )
+  getUserdetails(): Observable<IUserDetails[]> {
+        // team member API
+        // return (this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
+        // return (this.http.get<IUserDetails>('http://localhost:3000/User_detial')
         //Manager API
-        //return this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
-        .pipe(
-          catchError((err) => {
+        // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
+        return (this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
+        .pipe(catchError((err) => {
             throw new Error(err);
           })
         )
@@ -117,10 +119,48 @@ export class CommonService {
       );
   }
 
-  public addItem(item: any): void {
+  public addItem(item: any): any{
     console.log(item)
-    this.apiUrl.forEach((url) => {
-      return this.http.post(url, item);
-    });
+    return this.http.post('http://localhost:3000/AllRequests',item)
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
+    // this.apiUrl.forEach((url) => {
+    //   return this.http.post(url, item);
+    // });
+  }
+
+  // to update the existing request details
+  updateRequest(request: UserData): Observable<UserData> {
+    return this.http.put<UserData>(`${this.apiUrl}/${request.id}`, request)
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
+  }
+
+  getUserID(): any {
+     this.getUserdetails().subscribe(res => {
+      if(res && Array.isArray(res)){
+        this.userDetails = res;
+        console.log('this.userDetails',this.userDetails);
+        this.userId = this.userDetails[0].emp_id;
+        console.log('this.userId',this.userId);
+      }      
+     });
+  }
+
+  // to get projects under the manager, need to pass manager Emp_id here
+  getProjects_Manager(): Observable<any> {
+    // return this.http.get(`${'http://localhost:3000/Projects_Manager'}?emp_id=${manager_Id}`)
+    return this.http.get<any>('http://localhost:3000/Projects_Manager')
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
   }
 }

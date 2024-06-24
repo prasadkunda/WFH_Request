@@ -6,7 +6,7 @@
       </div>
       <div class="icon">
         <span class="empid" *ngIf="userDetails"
-          ><b>{{ userDetails.emp_id }}</b></span
+          ><b>{{ userDetails[0].emp_id }}</b></span
         >
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>notifications</mat-icon>

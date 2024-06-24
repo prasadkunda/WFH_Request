@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose,],
+    MatDialogClose,
+  CommonModule],
   templateUrl: './pop-up.component.html',
   styleUrl: './pop-up.component.scss'
 })

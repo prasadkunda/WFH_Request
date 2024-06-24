@@ -18,10 +18,11 @@ import {
   MatMenuModule,
   MAT_MENU_DEFAULT_OPTIONS,
 } from '@angular/material/menu';
-import { NotificationsComponent } from './shared/components/notifications/notifications.component';
+import { INotifications, NotificationsComponent } from './shared/components/notifications/notifications.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
+import { NotificationService } from './shared/service/notification/notification.service';
 
 export interface IUserDetails {
   emp_id: string;
@@ -94,7 +95,7 @@ export class AppComponent {
     afternoon: 'Good Afternoon',
     evening: 'Good Evening',
   };
-  userDetails!: IUserDetails;
+  userDetails!: IUserDetails[];
   public currentDate: string;
   public userName!: string;
   isOffCanvasVisible = false;
@@ -109,7 +110,8 @@ export class AppComponent {
   constructor(
     private commonservice: CommonService,
     public dialog: MatDialog,
-    private http: HttpClient
+    private http: HttpClient,
+    private notificationService:NotificationService
   ) {
     this.currentDate = formatDate(new Date(), 'EEEE MMMM d', 'en');
     this.dialogRef = dialog;
@@ -161,9 +163,12 @@ export class AppComponent {
 
   getUserDetails() {
     this.commonservice.getUserdetails().subscribe((res) => {
+      if(res && Array.isArray(res)){
+        console.log('app',res);
       this.userDetails = res;
-      this.userName = `${this.userDetails.emp_fname} ${this.userDetails.emp_mname} ${this.userDetails.emp_lname}`;
-      this.user_role = this.userDetails?.desiganation;
+      this.userName = `${this.userDetails[0]?.emp_fname} ${this.userDetails[0]?.emp_mname} ${this.userDetails[0]?.emp_lname}`;
+      this.user_role = this.userDetails[0]?.desiganation;
+      }
     });
   }
 
@@ -194,8 +199,8 @@ export class AppComponent {
     console.log(data)
     const payload: any = {
       sl_no: '',
-      emp_id: this.userDetails.emp_id,
-      project: this.userDetails.Project,
+      emp_id: this.userDetails[0]?.emp_id,
+      project: this.userDetails[0]?.Project,
       requested_date: formatDate(data.startDate, 'MM/dd/yyyy', 'en'),
       approved_date: '',
       approver: '',
@@ -203,7 +208,17 @@ export class AppComponent {
       comments: data.comments,
       id: '',
     };
-    this.commonservice.addItem(payload);
+    this.commonservice.addItem(payload).subscribe((res:any) => {
+      const notificationPayload: INotifications = {
+        id:'1',
+        emp_id: this.userDetails[0]?.emp_id,
+        message: `New WFH request has been raised by ${this.userDetails[0]?.emp_id} `,
+        read: false,
+        project:this.userDetails[0]?.Project,
+        approver:'QE1002',
+      };
+      this.notificationService.createNotification(notificationPayload).subscribe();
+    });
   }
 
   // public addItem(item: any): void {

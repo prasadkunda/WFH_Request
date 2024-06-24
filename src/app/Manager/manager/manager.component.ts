@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild, inject, model, signal } from '@angular/core';
 import { CommonService } from '../../shared/service/common.service';
-import { IUsesrRequestsDetails } from '../../app.component';
+import { IUserDetails, IUsesrRequestsDetails } from '../../app.component';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
@@ -15,6 +15,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../../shared/components/pop-up/pop-up/pop-up.component';
+import { NotificationService } from '../../shared/service/notification/notification.service';
+import { UserData } from '../../Employee/employee/employee.component';
+import { INotifications } from '../../shared/components/notifications/notifications.component';
 
 @Component({
   selector: 'app-manager',
@@ -44,6 +47,9 @@ export class ManagerComponent implements OnInit {
 
   selectedFilter: string = '';
   st_date = new Date();
+  userDetails!: any;
+  projects_List !: any[];
+  
       displayedColumnsRequests: string[] = [
         'emp_id',
         'email',
@@ -56,7 +62,7 @@ export class ManagerComponent implements OnInit {
       ];
 
       constructor(private commonService: CommonService,private exportexcelservice: ExportExcelService,
-        private fb: FormBuilder,private cdr: ChangeDetectorRef) {
+        private fb: FormBuilder,private cdr: ChangeDetectorRef, private notificationService: NotificationService) {
         this.filterForm = this.fb.group({
           start: new FormControl(this.st_date,[Validators.required]),
           end: [''],
@@ -67,6 +73,7 @@ export class ManagerComponent implements OnInit {
       }
 
       ngOnInit(): void {  
+        this.getUserDetails();
         this.getRequestsdetails();
         this.manager_DataSource = new MatTableDataSource(this.emp_requests) ;
         this.manager_DataSource.paginator = this.paginator;
@@ -156,5 +163,51 @@ export class ManagerComponent implements OnInit {
         this.animal.set(result);
       }
     });
+    this.rejectRequest(this.userDetails);
+  }
+
+   // to approve request
+  approveRequest(request: UserData) {
+    request.status = 'approved';
+    this.commonService.updateRequest(request).subscribe(updateRequest => {
+      this.sendNotification(updateRequest,`Your request has been approved.`);
+    });
+  }
+
+   // to reject request
+  rejectRequest(request: UserData) {
+    request.status = 'rejected';
+    this.commonService.updateRequest(request).subscribe(updateRequest => {
+      this.sendNotification(updateRequest,`Your request has been rejected.`);
+    });
+  }
+
+// to send the status request
+  private sendNotification(request : UserData, message: string) {
+    const notification: INotifications = {
+      id:"1",
+      emp_id: request?.emp_id,
+      message: message,
+      read: false,
+      project: request?.project,
+      approver:'QE1002'
+    };
+    this.notificationService.createNotification(notification).subscribe();
+  }
+
+  public getUserDetails() {
+    this.commonService.getUserdetails().subscribe((res) => {
+      this.userDetails = res;
+      console.log('manager', this.userDetails);
+    });
+  }
+
+  // to get projects list for specific manager
+  public getProjects_Manager() {
+    this.commonService.getProjects_Manager().subscribe(res => {
+        if(res){
+          this.projects_List = res;
+        }
+    }) 
   }
 }

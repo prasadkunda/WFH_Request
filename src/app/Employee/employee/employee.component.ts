@@ -14,10 +14,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
 import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
+import { IUserDetails } from '../../app.component';
 
 
 export interface UserData {
-  // sl_no: string;
+  id: any;
+  emp_id: string;
   project: any;
   requested_date: string;
   approved_date: string;
@@ -60,11 +62,13 @@ export interface Request {
 export class EmployeeComponent implements OnInit, AfterViewInit {
   cardDetails!: cardData[];
   users!: UserData[];
-  dataSource!: MatTableDataSource<UserData[]>;
+  dataSource!: MatTableDataSource<UserData>;
+  userId !: string;
 
   headerTitle: string = 'Total Request';
   public activeCardId: number | null = null;
   sidebarExpanded = true;
+  userDetails!: IUserDetails[];
 
   displayedColumns = [
     'project',
@@ -82,18 +86,25 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   ) {}
 
   public ngOnInit(): void {
+    this.getUserDetails();
+    this.userId = this.userDetails[0]?.emp_id;
+    // console.log('emp component',this.userId);
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {
-        this.users = res;
-        if (res && Array.isArray(res)) {
-          this.dataSource = new MatTableDataSource(res);
-        }
+        this.users = res.filter(item => item.emp_id === this.userId);
+        // console.log('emp_id based data',this.users);
+        // this.users = res;
+        // if (res && Array.isArray(res)) {
+          this.dataSource = new MatTableDataSource(this.users);
+        // }
       }
     });
     this.getCardDetails();
   }
 
-  public ngAfterViewInit() {}
+  public ngAfterViewInit() {
+    
+  }
 
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -108,7 +119,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       try {
         if (res && Array.isArray(res)) {
           this.cardDetails = res;
-          console.log(res);
+          // console.log(res);
         } else {
         }
       } catch {
@@ -121,7 +132,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   public onCardClick(index: number, title: string) {
     this.activeCardId = index;
     this.headerTitle = title;
-    this.dataSource = new MatTableDataSource<UserData[]>();
+    this.dataSource = new MatTableDataSource<UserData>();
     let requestObservable;
     switch (title) {
       case 'Approved':
@@ -145,7 +156,8 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     requestObservable.subscribe((res) => {
       try {
         if (res && Array.isArray(res)) {
-          this.dataSource = new MatTableDataSource(res);
+          this.users = res.filter(item => item.emp_id === this.userId)
+          this.dataSource = new MatTableDataSource(this.users);
         }
       } catch {
         console.error('Error in API Response', res);
@@ -159,7 +171,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   }
 
   public getStatusClass(status: string): string {
-    console.log();
+    // console.log();
     switch (status.toLowerCase()) {
       case 'approved':
         return 'badge badge-success';
@@ -187,5 +199,11 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     return {
       'border-left': card.color ? `5px solid ${card.color}` : '5px solid blue',
     };
+  }
+
+  getUserDetails() {
+    this.commonService.getUserdetails().subscribe((res) => {
+      this.userDetails = res;
+    });
   }
 }
