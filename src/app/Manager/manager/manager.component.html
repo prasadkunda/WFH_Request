@@ -90,11 +90,11 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item >
+              <button mat-menu-item (click)="approveRequest(request)">
                 <mat-icon style="color: green;">check_circle</mat-icon>
                 <span>Approve</span>
               </button>
-              <button mat-menu-item (click)="openDialog()">
+              <button mat-menu-item (click)="rejectRequest(request)">
                 <mat-icon style="color: red;">cancel</mat-icon>
                 <span>Reject</span>
               </button>

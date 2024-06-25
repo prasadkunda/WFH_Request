@@ -26,6 +26,11 @@ export class NotificationService {
     return this.http.post<INotifications[]>(this.apiUrl, notifiction);
   }
 
+  // to update notification
+  updateNotification(notifiction: INotifications): Observable<INotifications[]> {
+    return this.http.put<INotifications[]>(`${this.apiUrl}/${notifiction.emp_id}`, notifiction);
+  }
+
    // get the All notifications
    getAllNotifications(): Observable<INotifications[]> {
     return this.http.get<INotifications[]>(`${this.apiUrl}`)
