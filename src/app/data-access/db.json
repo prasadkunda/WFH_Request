@@ -144,8 +144,19 @@
       "requested_date": "06/24/2024",
       "approved_date": "",
       "approver": "QE1002",
-      "status": "Created",
+      "status": "approved",
       "comments": "health issue"
+    },
+    {
+      "id": "",
+      "sl_no": "",
+      "emp_id": "QE1001",
+      "project": "TAX",
+      "requested_date": "06/26/2024",
+      "approved_date": "",
+      "approver": "",
+      "status": "Created",
+      "comments": "family issue"
     }
   ],
   "Approved": [
@@ -709,8 +720,8 @@
       "emp_id": "QE1001",
       "message": "New WFH request has been raised by QE1001 ",
       "read": false,
-      "project":"TAX",
-      "approver":"QE1002"
+      "project": "TAX",
+      "approver": "QE1002"
     }
   ]
 }

@@ -82,7 +82,7 @@ filteredData: any[] = [];
   getUserdetails(): Observable<IUserDetails[]> {
         // team member API
         // return (this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
-        // return (this.http.get<IUserDetails>('http://localhost:3000/User_detial')
+        // return (this.http.get<IUserDetails[]>('http://localhost:3000/User_detial')
         //Manager API
         // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
         return (this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
@@ -134,6 +134,8 @@ filteredData: any[] = [];
 
   // to update the existing request details
   updateRequest(request: UserData): Observable<UserData> {
+    console.log(request);
+    console.log(`${this.apiUrl}/${request.emp_id}`);
     return this.http.put<UserData>(`${this.apiUrl}/${request.id}`, request)
     .pipe(
       catchError((err) => {

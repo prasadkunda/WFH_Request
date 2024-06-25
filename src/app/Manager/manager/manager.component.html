@@ -1,6 +1,6 @@
 <form [formGroup]="filterForm">
   <div class="row mt-3">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="filter-dropdown">
         <mat-form-field appearance="fill">
           <mat-label>Filter By</mat-label>
@@ -16,7 +16,7 @@
       </div>
     </div>
     
-      <div class="filter-section col-md-7" *ngIf="selectedFilter === 'dateRange'">
+      <div class="filter-section date-range col-md-7" *ngIf="selectedFilter === 'dateRange'">
         <mat-form-field appearance="fill">
           <mat-label>Select Date Range</mat-label>
           <mat-date-range-input [rangePicker]="picker">

@@ -163,12 +163,13 @@ export class ManagerComponent implements OnInit {
         this.animal.set(result);
       }
     });
-    this.rejectRequest(this.userDetails);
+    // this.rejectRequest(this.userDetails);
   }
 
    // to approve request
   approveRequest(request: UserData) {
     request.status = 'approved';
+    request.approved_date = new Date().toString();
     this.commonService.updateRequest(request).subscribe(updateRequest => {
       this.sendNotification(updateRequest,`Your request has been approved.`);
     });
@@ -183,7 +184,7 @@ export class ManagerComponent implements OnInit {
   }
 
 // to send the status request
-  private sendNotification(request : UserData, message: string) {
+  private sendNotification(request : UserData, message: string) {    
     const notification: INotifications = {
       id:"1",
       emp_id: request?.emp_id,
@@ -192,7 +193,12 @@ export class ManagerComponent implements OnInit {
       project: request?.project,
       approver:'QE1002'
     };
-    this.notificationService.createNotification(notification).subscribe();
+    if(request.status === 'approved' || request.status === 'rejected') {
+      this.notificationService.updateNotification(notification).subscribe();
+    } else {
+      this.notificationService.createNotification(notification).subscribe();
+    }
+    
   }
 
   public getUserDetails() {
