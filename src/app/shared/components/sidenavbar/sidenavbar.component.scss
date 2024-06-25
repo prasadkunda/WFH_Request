@@ -18,9 +18,9 @@
     height: 100%;
     transition: 0.3s;
   
-    width: 60px;
+    width: 45px;
     &.expanded {
-      width: 150px;
+      width: 250px;
   
       .header {
         h1 {
@@ -54,8 +54,8 @@
       }
     }
   
-    background: #1d1e2c;
-    color: #6d6e7e;
+    background: white;
+    color: black;
   
     .header {
       display: flex;
@@ -63,7 +63,7 @@
       justify-content: center;
       padding: 10px;
   
-      background: #0f1017;
+      background: white;
   
       h1 {
         font-size: 20px;
@@ -122,9 +122,9 @@
           transition: 0.3s;
   
           &:hover {
-            background: #0f1017;
+            background: lightgray;
             .title {
-              color: white;
+              color: black;
             }
             svg {
               fill: white;

@@ -1,32 +1,21 @@
-
- <div class="menu_header">
+<div class="notification_container">
+  <div class="menu_header">
     <p class="announcements_text"><b>Announcements</b></p>
     <p class="mark_all">
-      <span (click)="MarkAllAsRead()"
-        ><u>Mark all as read</u>
-      </span>
+      <span (click)="MarkAllAsRead()"><u>Mark all as read</u> </span>
     </p>
   </div>
-  <div  id="menu_content_gird" [ngClass]="contentHeight > 438? 'menu_content_gird_with_scroll': 'menu_content_gird'
-    ">
-    <div *ngFor="let item of notifications; let i = index" mat-menu-item class="menu_content">
+  <div id="menu_content_gird">
+    <div *ngFor="let item of notifications; let i = index"  mat-menu-item class="menu_content">
       <!-- [status]="item.IsRead ? 'read' : 'unread'" -->
-      <div messageStatus  class="mat_menu_main_content">
-          <div class="title" (click)="announcementsTile(item,i)">
-              <p class="text">{{item.message}}</p>
-          </div>
-          <div class="close_icon" (click)="removeAnnouncementTile(item,i)">
-              <mat-icon>close</mat-icon>
-          </div>
-          <div class="time_main_content" (click)="announcementsTile(item,i)">
-              <!-- {{item.Timestamp}} -->
-          </div>
+      <div messageStatus class="mat_menu_main_content">
+        <div class="title" (click)="announcementsTile(item, i)">
+          <p class="text">{{ item.message }}</p>
+        </div>
+        <div class="close_icon" (click)="removeAnnouncementTile(item, i)">
+          <mat-icon>close</mat-icon>
+        </div>
       </div>
-
+    </div>
   </div>
-<!-- </div>
-  <div class="menu__footer">
-    <span mat-menu-item>
-      <span (click)="viewAllAnnouncements()"><u>View All</u></span>
-    </span>
-  </div> -->
+</div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NotificationService } from '../../service/notification/notification.service';
@@ -21,6 +21,7 @@ export interface INotifications {
   imports: [CommonModule,MatIconModule],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.scss',
+  encapsulation:ViewEncapsulation.None,
 })
 export class NotificationsComponent implements OnInit{
   public contentHeight!: number;

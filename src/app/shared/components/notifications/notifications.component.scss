@@ -1,0 +1,50 @@
+.custom_class {
+  display: grid;
+
+  .mat-mdc-menu-panel {
+    max-width: 479px;
+    max-height: 32.6rem;
+    overflow-y: hidden;
+  }
+
+  .menu_header {
+    display: grid;
+    row-gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 1rem;
+
+    .announcements_text {
+      grid-column: span 6;
+      justify-content: flex-start;
+    }
+
+    .mark_all {
+      grid-column: span 6;
+      justify-content: flex-end;
+      color: black;
+      font-family: sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .mat_menu_main_content {
+    display: grid;
+    row-gap: 1rem;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+
+    .title {
+      grid-column: span 10;
+      padding-right: 0.75rem;
+    }
+
+    .close_icon {
+      grid-column: span 2;
+      justify-content: flex-end;
+    }
+  }
+}
