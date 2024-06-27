@@ -106,6 +106,7 @@ export class AppComponent {
     'http://localhost:3000/Created',
     'http://localhost:3000/AllRequests',
   ]; // JSON server URL
+  projects_List !: any[];
 
   constructor(
     private commonservice: CommonService,
@@ -146,6 +147,7 @@ export class AppComponent {
   ngOnInit() {
     this.getUserDetails();
     this.setGreeting();
+    this.getProjects_Manager();
     // console.log("user_role",this.user_role);
   }
 
@@ -164,7 +166,6 @@ export class AppComponent {
   getUserDetails() {
     this.commonservice.getUserdetails().subscribe((res) => {
       if(res && Array.isArray(res)){
-        console.log('app',res);
       this.userDetails = res;
       this.userName = `${this.userDetails[0]?.emp_fname} ${this.userDetails[0]?.emp_mname} ${this.userDetails[0]?.emp_lname}`;
       this.user_role = this.userDetails[0]?.desiganation;
@@ -219,6 +220,14 @@ export class AppComponent {
       };
       this.notificationService.createNotification(notificationPayload).subscribe();
     });
+  }
+
+  public getProjects_Manager() {
+    this.commonservice.getProjects_Manager().subscribe(res => {
+        if(res){
+          this.projects_List = res;
+        }
+    }) 
   }
 
   // public addItem(item: any): void {

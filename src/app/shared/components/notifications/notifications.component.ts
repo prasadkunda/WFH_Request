@@ -64,7 +64,6 @@ export class NotificationsComponent implements OnInit{
   loadNotifications() {
     if(this.uesr_role === 'manager') {
       this.notificationService.getNotificationsManager(this.userId).subscribe(notifications => { 
-        console.log('Manager Noti...:', notifications);
         this.notifications = notifications;
         // if(this.projects && this.projects.length > 0) {
         //   this.notifications = notifications.filter(item => {

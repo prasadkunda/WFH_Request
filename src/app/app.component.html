@@ -43,7 +43,8 @@
   <div class="body_container">
     <app-sidenavbar
       *ngIf="user_role === 'manager'"
-      [isExpanded]="sidebarExpanded"
+      [isExpanded]="sidebarExpanded" 
+      [projects]="projects_List"
       (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
     ></app-sidenavbar>
     <div class="main_content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">

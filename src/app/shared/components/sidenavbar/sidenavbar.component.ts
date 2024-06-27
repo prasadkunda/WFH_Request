@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 export class SidenavbarComponent {
   @Input() isExpanded: boolean = false;
   @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() projects!: any[];
 
   handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }

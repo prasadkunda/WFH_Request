@@ -88,15 +88,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   public ngOnInit(): void {
     this.getUserDetails();
     this.userId = this.userDetails[0]?.emp_id;
-    // console.log('emp component',this.userId);
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {
         this.users = res.filter(item => item.emp_id === this.userId);
         // console.log('emp_id based data',this.users);
         // this.users = res;
-        // if (res && Array.isArray(res)) {
+        if (res) {
           this.dataSource = new MatTableDataSource(this.users);
-        // }
+        }
       }
     });
     this.getCardDetails();
@@ -152,7 +151,6 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   }
 
   public handleRequest(requestObservable: Observable<any>) {
-    let arrayBadge: string;
     requestObservable.subscribe((res) => {
       try {
         if (res && Array.isArray(res)) {

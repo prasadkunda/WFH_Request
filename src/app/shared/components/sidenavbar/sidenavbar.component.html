@@ -7,12 +7,18 @@
         <span class="chevron"></span>
       </div>
     </div>
-    <div class="content">
-      <div class="link">
-        <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
-            <mat-icon class="icon">work</mat-icon>
-          <div class="title">Home</div>
+    @for(project of projects; track project;let i=$index){
+      <div class="content">
+        <div class="link">
+          <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
+              <mat-icon class="icon">work</mat-icon>
+            <div class="title">{{ project.project }}
+
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    }
+  
+   
   </div>

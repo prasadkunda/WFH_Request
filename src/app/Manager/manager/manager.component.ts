@@ -204,7 +204,6 @@ export class ManagerComponent implements OnInit {
   public getUserDetails() {
     this.commonService.getUserdetails().subscribe((res) => {
       this.userDetails = res;
-      console.log('manager', this.userDetails);
     });
   }
 
