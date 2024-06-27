@@ -100,7 +100,7 @@ export class AppComponent {
   public userName!: string;
   isOffCanvasVisible = false;
   user_role: string = '';
-  sidebarExpanded = true;
+  sidebarExpanded = false;
   public modalOpen: boolean = false;
   private apiUrl = [
     'http://localhost:3000/Created',

@@ -1,18 +1,19 @@
 <div class="row mt-3">
-  <div class="col-md-6 container_header">
+  <div class="col-md-9 container_header">
     {{ title }}
   </div>
   <div class="col-md-1">
     <span class="align-middle" (click)="exporttableToExcel()">
-      <img
+      <mat-icon class="export_excel_img">download_for_offline</mat-icon>
+      <!-- <img
         class="export_excel_img"
         src="../../../../../assets/images/export-excel.png"
         alt="export-excel"
-      />
+      /> -->
     </span>
   </div>
-  <div class="col-md-5">
-    <mat-form-field class="search_field" appearance="outline">
+  <div class="col-md-2">
+    <mat-form-field class="search_field" appearance="outline" floatLabel="always">
       <mat-label>Search</mat-label>
       <input
         matInput

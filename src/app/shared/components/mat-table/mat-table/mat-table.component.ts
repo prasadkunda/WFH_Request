@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ExportExcelService } from '../../../utils/export-excel.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mat-table',
   standalone: true,
-  imports: [SharedUiDesignSystemModule, CommonModule],
+  imports: [SharedUiDesignSystemModule, CommonModule,MatIconModule],
   templateUrl: './mat-table.component.html',
   styleUrl: './mat-table.component.scss',
 })
@@ -27,7 +28,7 @@ export class MatTableComponent implements OnInit{
   }
  
   @ViewChild(MatSort) set matSort(sort: MatSort) {
-    if (!this.dataSource.sort) {
+    if (this.dataSource?.sort) {
         this.dataSource.sort = sort;
     }
 }
