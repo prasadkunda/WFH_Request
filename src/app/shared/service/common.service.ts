@@ -165,4 +165,14 @@ filteredData: any[] = [];
       })
     );
   }
+
+  getSidenav_Options_Employee(): Observable<any> {
+    // return this.http.get(`${'http://localhost:3000/Projects_Manager'}?emp_id=${manager_Id}`)
+    return this.http.get<any>('http://localhost:3000/sidenav_options_employee')
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
+  }
 }

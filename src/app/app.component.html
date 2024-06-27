@@ -47,8 +47,14 @@
       [projects]="projects_List"
       (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
     ></app-sidenavbar>
+    <app-sidenavbar
+    *ngIf="user_role === 'Senior Software Developer'"
+    [isExpanded]="sidebarExpanded" 
+    [projects]="projects_List"
+    (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
+  ></app-sidenavbar>
     <div class="main_content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
-      <div *ngIf="user_role === 'Senior Software Developer'" class="container">
+      <div *ngIf="user_role === 'Senior Software Developer'" class="container-fluid">
         <app-employee></app-employee>
       </div>
       <div *ngIf="user_role === 'manager'" class="container">

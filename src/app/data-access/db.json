@@ -479,12 +479,34 @@
     {
       "sl_no": "1",
       "project": "TAX",
-      "id": "P_1"
+      "id": "P_1",
+      "icon": "work"
     },
     {
       "sl_no": "2",
       "project": "Immigration",
-      "id": "P_2"
+      "id": "P_2",
+      "icon": "work"
+    }
+  ],
+  "sidenav_options_employee": [
+    {
+      "sl_no": "1",
+      "project": "Operations",
+      "id": "P_1",
+      "icon": "view_kanban"
+    },
+    {
+      "sl_no": "2",
+      "project": "Facility",
+      "id": "P_2",
+      "icon": "manage_accounts"
+    },
+    {
+      "sl_no": "3",
+      "project": "Create Idea",
+      "id": "P_3",
+      "icon": "data_saver_on"
     }
   ],
   "Project_TAX": [

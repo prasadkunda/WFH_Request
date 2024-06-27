@@ -13,15 +13,12 @@
   .sidebar {
     // position: fixed;
     left: 0;
-    top: 0;
-  
+    top: 0;  
     height: 100%;
-    transition: 0.3s;
-  
-    width: 45px;
+    transition: 0.3s;  
+    width: 60px;
     &.expanded {
-      width: 250px;
-  
+      width: 250px;  
       .header {
         h1 {
           margin-left: 0px;

@@ -11,8 +11,8 @@
       <div class="content">
         <div class="link">
           <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
-              <mat-icon class="icon">work</mat-icon>
-            <div class="title">{{ project.project }}
+              <mat-icon class="icon">{{ project?.icon }}</mat-icon>
+            <div class="title">{{ project?.project }}
 
             </div>
           </div>

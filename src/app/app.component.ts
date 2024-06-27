@@ -223,11 +223,20 @@ export class AppComponent {
   }
 
   public getProjects_Manager() {
-    this.commonservice.getProjects_Manager().subscribe(res => {
+    if(this.user_role === "manager"){
+      this.commonservice.getProjects_Manager().subscribe(res => {
         if(res){
           this.projects_List = res;
         }
-    }) 
+    })
+    } else {
+      this.commonservice.getSidenav_Options_Employee().subscribe(res => {
+        if(res){
+          this.projects_List = res;
+        }
+    })
+    }
+    
   }
 
   // public addItem(item: any): void {
