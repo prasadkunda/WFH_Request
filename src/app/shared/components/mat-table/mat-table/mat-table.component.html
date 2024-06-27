@@ -1,21 +1,87 @@
-<div class="table_container" *ngIf="dataSource?.data?.length">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-table">
-      <ng-container *ngFor="let columnName of displayedColumns" [matColumnDef]="columnName">
-        <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>
-          {{ capitalize(columnName) }}
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <span *ngIf="columnName === 'actions' && element['status'] !== 'rejected'">
-            <mat-icon tooltip matTooltip="cancel your request">history</mat-icon>
-          </span>
-          <span [ngClass]="columnName === 'status' ? getStatusClass(element[columnName]) : ''">
-            {{ element[columnName] }}
-          </span>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-    <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+<div class="row mt-3">
+  <div class="col-md-6 container_header">
+    {{ title }}
   </div>
-  
+  <div class="col-md-1">
+    <span class="align-middle" (click)="exporttableToExcel()">
+      <img
+        class="export_excel_img"
+        src="../../../../../assets/images/export-excel.png"
+        alt="export-excel"
+      />
+    </span>
+  </div>
+  <div class="col-md-5">
+    <mat-form-field class="search_field" appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Ex. approved wfh"
+      />
+    </mat-form-field>
+    <!-- <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control shadow-none"
+        aria-label="Text input with dropdown button"
+        placeholder="search"
+      />
+      <button
+        class="btn btn-outline-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        filter
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">employee</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">status</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li><a class="dropdown-item" href="#">date range</a></li>
+      </ul>
+    </div> -->
+  </div>
+</div>
+
+<div class="table_container" *ngIf="dataSource?.data?.length">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-table">
+    <ng-container
+      *ngFor="let columnName of displayedColumns"
+      [matColumnDef]="columnName"
+    >
+      <th
+        class="table_header"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        {{ capitalize(columnName) }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <span
+          *ngIf="columnName === 'actions' && element['status'] !== 'rejected'"
+        >
+          <mat-icon tooltip matTooltip="cancel your request">history</mat-icon>
+        </span>
+        <span
+          [ngClass]="
+            columnName === 'status' ? getStatusClass(element[columnName]) : ''
+          "
+        >
+          {{ element[columnName] }}
+        </span>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

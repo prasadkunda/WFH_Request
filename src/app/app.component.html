@@ -2,10 +2,10 @@
   <div class="header_main">
     <div class="header">
       <div class="header_title">
-        <img src="../assets/images/Qentelli.svg" class="logo" alt="Logo" />
+        <img src="../assets/images/logo.png" class="logo" alt="Logo" />
       </div>
       <div class="icon">
-        <span class="empid" *ngIf="userDetails"
+        <span class="empid badge text-bg-secondary" *ngIf="userDetails"
           ><b>{{ userDetails[0].emp_id }}</b></span
         >
         <button mat-icon-button [matMenuTriggerFor]="menu">

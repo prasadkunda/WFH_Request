@@ -112,6 +112,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
   public getCardDetails() {
     this.cardDetails = [];
     this.commonService.getCardsDetails().subscribe((res) => {
@@ -163,10 +164,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public capitalize(s: string): string {
-    s = s.replace(/_/g, ' ');
-    return s.charAt(0).toUpperCase() + s.slice(1);
-  }
+ 
 
   public getStatusClass(status: string): string {
     // console.log();

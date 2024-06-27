@@ -2,13 +2,14 @@
   <div class="row">
     <div class="table_grid col-md-9">
       <mat-card class="row">
-        <app-header-table
+        <!-- <app-header-table
           title="{{ headerTitle }}"
           (exportClicked)="exporttableToExcel()"
           (searchChanged)="applyFilter($event)"
-        ></app-header-table>
+        ></app-header-table> -->
         <mat-card-actions>
           <app-mat-table
+            [title]="headerTitle"
             [dataSource]="dataSource"
             [displayedColumns]="displayedColumns"
           ></app-mat-table>

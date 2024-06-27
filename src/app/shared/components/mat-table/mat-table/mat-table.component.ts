@@ -1,9 +1,10 @@
-import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../../utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 import { CommonModule } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ExportExcelService } from '../../../utils/export-excel.service';
 
 @Component({
   selector: 'app-mat-table',
@@ -12,26 +13,33 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './mat-table.component.html',
   styleUrl: './mat-table.component.scss',
 })
-export class MatTableComponent {
+export class MatTableComponent implements OnInit{
   @Input() dataSource!: MatTableDataSource<any>;
+  @Output() filterChanged = new EventEmitter<any>();
   @Input() displayedColumns!: string[];
   @Input() searchedValue!: string;
+  @Input() title: string = 'Total Request';
   @ViewChild(MatPaginator, { static: false })
   set paginator(value: MatPaginator) {
     if (this.dataSource && value) {
       this.dataSource.paginator = value;
     }
   }
-  @ViewChild(MatSort) sort!: MatSort;
+ 
+  @ViewChild(MatSort) set matSort(sort: MatSort) {
+    if (!this.dataSource.sort) {
+        this.dataSource.sort = sort;
+    }
+}
   expandedElement: any;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef,  private exportexcelservice: ExportExcelService) {}
 
-  ngAfterViewInit() {
-    if(this.dataSource?.paginator){
+  ngOnInit() {
+    if (this.dataSource?.paginator) {
       this.dataSource.paginator = this.paginator;
-      this.cdr.detectChanges(); 
-    }   
+      this.cdr.detectChanges();
+    }
   }
 
   public getStatusClass(status: string): string {
@@ -48,8 +56,9 @@ export class MatTableComponent {
     }
   }
 
-  public capitalize(text: string): string {
-    return text.charAt(0).toUpperCase() + text.slice(1);
+  public capitalize(s: string): string {
+    s = s.replace(/_/g, ' ');
+    return s.charAt(0).toUpperCase() + s.slice(1);
   }
 
   public applyFilter(event: Event) {
@@ -59,4 +68,17 @@ export class MatTableComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  exporttableToExcel() {
+    this.exportexcelservice.exportToExcel(
+      this.dataSource.data,
+      this.title
+    );
+  }
+
+  // public onSearchChange(event: Event) {
+  //   // const input = event.target as HTMLInputElement;
+  //   // this.onSearchChange.emit(input.value);
+    
+  // }
 }
