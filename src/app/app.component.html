@@ -58,12 +58,12 @@
     (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
   ></app-sidenavbar>
     <div class="main_content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
-      <div *ngIf="user_role === 'Senior Software Developer'" class="container-fluid">
+      <!-- <div *ngIf="user_role === 'Senior Software Developer'" class="container-fluid">
         <app-employee></app-employee>
       </div>
       <div *ngIf="user_role === 'manager'" class="container">
         <app-manager></app-manager>
-      </div>
+      </div> -->
       <div class="content">
         <router-outlet></router-outlet>
       </div>
@@ -72,6 +72,7 @@
   <!-- <div class="footer">
     Footer content
   </div> -->
+
 </div>
 <!-- 
 <div *ngIf="isOffCanvasVisible" class="pop_over">

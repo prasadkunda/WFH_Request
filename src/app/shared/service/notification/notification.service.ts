@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { INotifications } from '../../components/notifications/notifications.component';
+
 import { debug } from 'console';
+import { INotifications } from '../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'

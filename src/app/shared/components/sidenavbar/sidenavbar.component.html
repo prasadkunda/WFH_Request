@@ -1,24 +1,18 @@
-<div class="sidebar" [ngClass]="{ 'expanded': !isExpanded }">
-    <div class="header">
-      <h1 class="title">
-        
-      </h1>
-      <div class="toggle" (click)="handleSidebarToggle()">
-        <span class="chevron"></span>
+<div class="sidebar" [ngClass]="{ expanded: !isExpanded }">
+  <div class="header">
+    <h1 class="title"></h1>
+    <div class="toggle" (click)="handleSidebarToggle()">
+      <span class="chevron"></span>
+    </div>
+  </div>
+  @for(project of projects; track project;let i=$index){
+  <div class="content">
+    <div class="link">
+      <div class="content" (click)="navigatingToComponents(i,project)">
+        <mat-icon class="icon">{{ project?.icon }}</mat-icon>
+        <div class="title">{{ project?.project }}</div>
       </div>
     </div>
-    @for(project of projects; track project;let i=$index){
-      <div class="content">
-        <div class="link">
-          <div class="content" [routerLink]="['/home']" [routerLinkActive]="'active'">
-              <mat-icon class="icon">{{ project?.icon }}</mat-icon>
-            <div class="title">{{ project?.project }}
-
-            </div>
-          </div>
-        </div>
-      </div>
-    }
-  
-   
   </div>
+  }
+</div>

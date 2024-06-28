@@ -65,7 +65,7 @@ mat-card {
   padding-right: 50px;
 }
 .count_text {
-  font-size:x-small;
+  font-size: x-small;
   color: gray;
 }
 .arrow-icon-color {
@@ -147,4 +147,14 @@ mat-card {
 .border-style {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+}
+.properties_wfh_button {
+  padding-top: 0.3125rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  button {
+    border-radius: 10px;
+    background-color: #005cbb;
+  }
 }

@@ -7,7 +7,7 @@ import {
 import { RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { EmployeeComponent } from './Employee/employee/employee.component';
+import { EmployeeComponent } from './Employee/employee.component';
 import { MatCardModule } from '@angular/material/card';
 import { CommonService } from './shared/service/common.service';
 import { CommonModule, formatDate } from '@angular/common';
@@ -18,43 +18,12 @@ import {
   MatMenuModule,
   MAT_MENU_DEFAULT_OPTIONS,
 } from '@angular/material/menu';
-import { INotifications, NotificationsComponent } from './shared/components/notifications/notifications.component';
+import { NotificationsComponent } from './shared/components/notifications/notifications.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { NotificationService } from './shared/service/notification/notification.service';
-
-export interface IUserDetails {
-  emp_id: string;
-  emp_name: string;
-  emp_fname: string;
-  emp_mname: string;
-  emp_lname: string;
-  email: string;
-  desiganation: string;
-  Project: string;
-}
-
-export interface IUsesrAllDetals {
-  emp_id: string;
-  emp_name: string;
-  emp_fname: string;
-  emp_mname: string;
-  emp_lname: string;
-  email: string;
-  desiganation: string;
-  Project: string;
-}
-
-export interface IUsesrRequestsDetails {
-  emp_id: string;
-  email: string;
-  Project: string;
-  requested_date: string;
-  no_of_days: string;
-  status: string;
-  comments: string;
-}
+import { IUserDetails } from './shared/service/interfaces/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -86,7 +55,6 @@ export interface IUsesrRequestsDetails {
   ],
 })
 export class AppComponent {
-  @ViewChild('demo') public demo!: ElementRef;
   public dialogRef!: MatDialog;
   title = 'WFH_Request';
   greeting: string = '';
@@ -121,28 +89,28 @@ export class AppComponent {
     });
   }
 
-  public openDialog(): void {
-    if (!this.modalOpen) {
-      this.dialog
-        .open(PopOverComponent, {
-          width: '848px',
-          height: '544px',
-          panelClass: 'custom_class',
-          autoFocus: true,
-          ariaLabel: 'WFH Request-modal',
-          hasBackdrop: true,
-        })
-        .afterClosed()
-        .subscribe((result: any) => {
-          console.log('The dialog was closed');
-          if (result) {
-            console.log('Form data:', result);
-            this.saveWFHR(result);
-          }
-        });
-    }
-    this.modalOpen = true;
-  }
+  // public openDialog(): void {
+  //   if (!this.modalOpen) {
+  //     this.dialog
+  //       .open(PopOverComponent, {
+  //         width: '848px',
+  //         height: '544px',
+  //         panelClass: 'custom_class',
+  //         autoFocus: true,
+  //         ariaLabel: 'WFH Request-modal',
+  //         hasBackdrop: true,
+  //       })
+  //       .afterClosed()
+  //       .subscribe((result: any) => {
+  //         console.log('The dialog was closed');
+  //         if (result) {
+  //           console.log('Form data:', result);
+  //           this.saveWFHR(result);
+  //         }
+  //       });
+  //   }
+  //   this.modalOpen = true;
+  // }
 
   ngOnInit() {
     this.getUserDetails();
@@ -196,31 +164,7 @@ export class AppComponent {
   //});
   //}
 
-  public saveWFHR(data: any) {
-    console.log(data)
-    const payload: any = {
-      sl_no: '',
-      emp_id: this.userDetails[0]?.emp_id,
-      project: this.userDetails[0]?.Project,
-      requested_date: formatDate(data.startDate, 'MM/dd/yyyy', 'en'),
-      approved_date: '',
-      approver: '',
-      status: 'Created',
-      comments: data.comments,
-      id: '',
-    };
-    this.commonservice.addItem(payload).subscribe((res:any) => {
-      const notificationPayload: INotifications = {
-        id:'1',
-        emp_id: this.userDetails[0]?.emp_id,
-        message: `New WFH request has been raised by ${this.userDetails[0]?.emp_id} `,
-        read: false,
-        project:this.userDetails[0]?.Project,
-        approver:'QE1002',
-      };
-      this.notificationService.createNotification(notificationPayload).subscribe();
-    });
-  }
+  
 
   public getProjects_Manager() {
     if(this.user_role === "manager"){

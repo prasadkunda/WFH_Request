@@ -1,4 +1,12 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../../utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 import { CommonModule } from '@angular/common';
@@ -10,11 +18,12 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-mat-table',
   standalone: true,
-  imports: [SharedUiDesignSystemModule, CommonModule,MatIconModule],
+  imports: [SharedUiDesignSystemModule, CommonModule, MatIconModule],
   templateUrl: './mat-table.component.html',
   styleUrl: './mat-table.component.scss',
 })
-export class MatTableComponent implements OnInit{
+
+export class MatTableComponent implements OnInit {
   @Input() dataSource!: MatTableDataSource<any>;
   @Output() filterChanged = new EventEmitter<any>();
   @Input() displayedColumns!: string[];
@@ -26,19 +35,22 @@ export class MatTableComponent implements OnInit{
       this.dataSource.paginator = value;
     }
   }
- 
-  @ViewChild(MatSort) set matSort(sort: MatSort) {
-    if (this.dataSource?.sort) {
-        this.dataSource.sort = sort;
-    }
-}
-  expandedElement: any;
 
-  constructor(private cdr: ChangeDetectorRef,  private exportexcelservice: ExportExcelService) {}
+  @ViewChild(MatSort) set sort(sort: MatSort) {
+    if (this.dataSource?.sort && sort) {
+      this.dataSource.sort = sort;
+    }
+  }
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private exportexcelservice: ExportExcelService
+  ) {}
 
   ngOnInit() {
-    if (this.dataSource?.paginator) {
+    if (this.dataSource?.paginator && this.dataSource.sort) {
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
       this.cdr.detectChanges();
     }
   }
@@ -71,15 +83,12 @@ export class MatTableComponent implements OnInit{
   }
 
   exporttableToExcel() {
-    this.exportexcelservice.exportToExcel(
-      this.dataSource.data,
-      this.title
-    );
+    this.exportexcelservice.exportToExcel(this.dataSource.data, this.title);
   }
 
   // public onSearchChange(event: Event) {
   //   // const input = event.target as HTMLInputElement;
   //   // this.onSearchChange.emit(input.value);
-    
+
   // }
 }

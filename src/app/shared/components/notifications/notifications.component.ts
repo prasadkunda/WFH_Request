@@ -4,16 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { NotificationService } from '../../service/notification/notification.service';
 import { CommonService } from '../../service/common.service';
-import { IUserDetails } from '../../../app.component';
+import { INotifications, IUserDetails } from '../../service/interfaces/interfaces';
 
-export interface INotifications {
-  id: string;
-  emp_id: string;
-  message: string;
-  read:boolean;
-  project:string;
-  approver:string;
-}
 
 @Component({
   selector: 'app-notifications',

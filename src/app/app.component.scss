@@ -56,7 +56,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: linear-gradient(180deg, rgba(55, 81, 162, 1) 0%, rgba(112, 143, 240, 1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(55, 81, 162, 1) 0%,
+    rgba(112, 143, 240, 1) 100%
+  );
 }
 
 .section_empdetails {
@@ -82,10 +86,6 @@
 
 .property_date {
   color: white;
-}
-
-.properties_wfh_button {
-  padding-top: 0.3125rem;
 }
 
 .body_container {

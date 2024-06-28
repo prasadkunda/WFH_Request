@@ -2,20 +2,22 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+import { CommonModule, formatDate } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CommonService } from '../../shared/service/common.service';
 import { Observable } from 'rxjs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ExportExcelService } from '../../shared/utils/export-excel.service';
-import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
-import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
-import { IUserDetails } from '../../app.component';
+import { MatDialog } from '@angular/material/dialog';
 
+import { CommonService } from '../shared/service/common.service';
+import { ExportExcelService } from '../shared/utils/export-excel.service';
+import { MatTableComponent } from '../shared/components/mat-table/mat-table/mat-table.component';
+import { PopOverComponent } from '../shared/components/pop-over/pop-over.component';
+import { NotificationService } from '../shared/service/notification/notification.service';
+import { INotifications, IUserDetails } from '../shared/service/interfaces/interfaces';
 
 export interface UserData {
   id: any;
@@ -26,6 +28,7 @@ export interface UserData {
   approver: string;
   status: string;
   comments: string;
+  request_type: string;
 }
 export interface cardData {
   icon: string;
@@ -52,27 +55,27 @@ export interface Request {
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
-    HeaderTableComponent,
     MatTableComponent,
   ],
   templateUrl: './employee.component.html',
-  styleUrl: './employee.component.scss'
-  
+  styleUrl: './employee.component.scss',
 })
 export class EmployeeComponent implements OnInit, AfterViewInit {
   cardDetails!: cardData[];
   users!: UserData[];
   dataSource!: MatTableDataSource<UserData>;
-  userId !: string;
+  userId!: string;
 
   headerTitle: string = 'Total Request';
   public activeCardId: number | null = null;
   sidebarExpanded = true;
   userDetails!: IUserDetails[];
-
+  public dialogRef!: MatDialog;
+  public modalOpen: boolean = false;
   displayedColumns = [
     'project',
     'requested_date',
+    'request_type',
     'approved_date',
     'approver',
     'status',
@@ -82,15 +85,22 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private commonService: CommonService,
-    private exportexcelservice: ExportExcelService
-  ) {}
+    private exportexcelservice: ExportExcelService,
+    public dialog: MatDialog,
+    private notificationService: NotificationService
+  ) {
+    this.dialogRef = dialog;
+    this.dialogRef.afterAllClosed.subscribe(() => {
+      this.modalOpen = false;
+    });
+  }
 
   public ngOnInit(): void {
     this.getUserDetails();
-    this.userId = this.userDetails[0]?.emp_id;
+
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {
-        this.users = res.filter(item => item.emp_id === this.userId);
+        this.users = res.filter((item) => item.emp_id === this.userId);
         // console.log('emp_id based data',this.users);
         // this.users = res;
         if (res) {
@@ -101,9 +111,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     this.getCardDetails();
   }
 
-  public ngAfterViewInit() {
-    
-  }
+  public ngAfterViewInit() {}
 
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -155,7 +163,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     requestObservable.subscribe((res) => {
       try {
         if (res && Array.isArray(res)) {
-          this.users = res.filter(item => item.emp_id === this.userId)
+          this.users = res.filter((item) => item.emp_id === this.userId);
           this.dataSource = new MatTableDataSource(this.users);
         }
       } catch {
@@ -163,8 +171,6 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
- 
 
   public getStatusClass(status: string): string {
     // console.log();
@@ -199,7 +205,58 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
   getUserDetails() {
     this.commonService.getUserdetails().subscribe((res) => {
-      this.userDetails = res;
+      if (res) {
+        this.userDetails = res;
+        this.userId = this.userDetails[0]?.emp_id;
+      }
+    });
+  }
+
+  public openDialog(): void {
+    if (!this.modalOpen) {
+      this.dialog
+        .open(PopOverComponent, {
+          width: '648px',
+          panelClass: 'custom_class',
+          autoFocus: true,
+          ariaLabel: 'WFH Request-modal',
+          hasBackdrop: true,
+        })
+        .afterClosed()
+        .subscribe((result: any) => {
+          console.log('The dialog was closed');
+          if (result) {
+            console.log('Form data:', result);
+            this.saveWFHR(result);
+          }
+        });
+    }
+    this.modalOpen = true;
+  }
+
+  public saveWFHR(data: any) {
+    console.log(data)
+    const payload: any = {
+      sl_no: '',
+      emp_id: this.userDetails[0]?.emp_id,
+      project: this.userDetails[0]?.Project,
+      requested_date: formatDate(data.startDate, 'MM/dd/yyyy', 'en'),
+      approved_date: '',
+      approver: '',
+      status: 'Created',
+      comments: data.comments,
+      id: '',
+    };
+    this.commonService.addItem(payload).subscribe((res:any) => {
+      const notificationPayload: INotifications = {
+        id:'1',
+        emp_id: this.userDetails[0]?.emp_id,
+        message: `New WFH request has been raised by ${this.userDetails[0]?.emp_id} `,
+        read: false,
+        project:this.userDetails[0]?.Project,
+        approver:'QE1002',
+      };
+      this.notificationService.createNotification(notificationPayload).subscribe();
     });
   }
 }

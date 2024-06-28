@@ -21,7 +21,7 @@
     {
       "id": "4",
       "icon": "library_add",
-      "title": "New",
+      "title": "New Request",
       "number": "1"
     }
   ],
@@ -35,7 +35,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "1941"
+      "id": "1941",
+      "request_type": "wfh"
     },
     {
       "sl_no": "2",
@@ -46,7 +47,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "5bba"
+      "id": "5bba",
+      "request_type": "wfh"
     },
     {
       "sl_no": "3",
@@ -57,7 +59,8 @@
       "aprover": "Rahul",
       "status": "approved",
       "comments": "Health issues",
-      "id": "67e8"
+      "id": "67e8",
+      "request_type": "wfh"
     },
     {
       "sl_no": "4",
@@ -68,7 +71,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "f267"
+      "id": "f267",
+      "request_type": "wfh"
     },
     {
       "sl_no": "5",
@@ -79,7 +83,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "de3b"
+      "id": "de3b",
+      "request_type": "wfh"
     },
     {
       "sl_no": "6",
@@ -90,7 +95,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "3d55"
+      "id": "3d55",
+      "request_type": "wfh"
     },
     {
       "sl_no": "7",
@@ -101,7 +107,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Health issues",
-      "id": "2aa3"
+      "id": "2aa3",
+      "request_type": "wfh"
     },
     {
       "sl_no": "8",
@@ -112,7 +119,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Family function",
-      "id": "07b6"
+      "id": "07b6",
+      "request_type": "wfh"
     },
     {
       "sl_no": "9",
@@ -123,7 +131,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Health issues",
-      "id": "729f"
+      "id": "729f",
+      "request_type": "wfh"
     },
     {
       "sl_no": "10",
@@ -134,7 +143,8 @@
       "approver": "QE1002",
       "status": "created",
       "comments": "Health issues",
-      "id": "7e72"
+      "id": "7e72",
+      "request_type": "wfh"
     },
     {
       "id": "req_1",
@@ -145,7 +155,8 @@
       "approved_date": "",
       "approver": "QE1002",
       "status": "approved",
-      "comments": "health issue"
+      "comments": "health issue",
+      "request_type": "wfh"
     },
     {
       "id": "",
@@ -156,7 +167,8 @@
       "approved_date": "",
       "approver": "",
       "status": "Created",
-      "comments": "family issue"
+      "comments": "family issue",
+      "request_type": "wfh"
     }
   ],
   "Approved": [
@@ -169,7 +181,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "1941"
+      "id": "1941",
+      "request_type": "wfh"
     },
     {
       "sl_no": "2",
@@ -180,7 +193,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "5bba"
+      "id": "5bba",
+      "request_type": "wfh"
     },
     {
       "sl_no": "3",
@@ -191,7 +205,8 @@
       "aprover": "Rahul",
       "status": "approved",
       "comments": "Health issues",
-      "id": "67e8"
+      "id": "67e8",
+      "request_type": "wfh"
     },
     {
       "sl_no": "4",
@@ -202,7 +217,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "f267"
+      "id": "f267",
+      "request_type": "wfh"
     },
     {
       "sl_no": "5",
@@ -213,7 +229,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "de3b"
+      "id": "de3b",
+      "request_type": "wfh"
     },
     {
       "sl_no": "6",
@@ -224,7 +241,8 @@
       "approver": "QE1002",
       "status": "approved",
       "comments": "Health issues",
-      "id": "3d55"
+      "id": "3d55",
+      "request_type": "wfh"
     },
     {
       "id": "req_1",
@@ -235,7 +253,8 @@
       "approved_date": "",
       "approver": "QE1002",
       "status": "approved",
-      "comments": "health issue"
+      "comments": "health issue",
+      "request_type": "wfh"
     }
   ],
   "Rejected": [
@@ -248,7 +267,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Health issues",
-      "id": "2aa3"
+      "id": "2aa3",
+      "request_type": "wfh"
     },
     {
       "sl_no": "8",
@@ -259,7 +279,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Family function",
-      "id": "07b6"
+      "id": "07b6",
+      "request_type": "wfh"
     },
     {
       "sl_no": "9",
@@ -270,7 +291,8 @@
       "approver": "QE1002",
       "status": "rejected",
       "comments": "Health issues",
-      "id": "729f"
+      "id": "729f",
+      "request_type": "wfh"
     }
   ],
   "Created": [
@@ -283,7 +305,8 @@
       "status": "created",
       "approver": "",
       "comments": "Family event",
-      "id": "8ffc"
+      "id": "8ffc",
+      "request_type": "wfh"
     }
   ],
   "Requests_Manager": [
@@ -498,15 +521,21 @@
     },
     {
       "sl_no": "2",
-      "project": "Facility",
+      "project": "Facilities",
       "id": "P_2",
       "icon": "manage_accounts"
     },
     {
       "sl_no": "3",
-      "project": "Create Idea",
+      "project": "Innovations",
       "id": "P_3",
       "icon": "data_saver_on"
+    },
+    {
+      "sl_no": "4",
+      "project": "Raise WFH",
+      "id": "P_4",
+      "icon": "home_work"
     }
   ],
   "Project_TAX": [
@@ -764,6 +793,21 @@
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
+    }
+  ],
+  "innovations": [
+    {
+      "s_no": "1",
+      "title": "wfh",
+      "idea_description": "To raise wfh request through out the organizaztion level",
+      "idea_type": "innovation",
+      "benefits": "no need to request in teams (or) emails regarding wfh",
+      "Technology": ".Net,Angualr and Web apis",
+      "estimated_effort": "",
+      "actual_affort": "",
+      "annual_saving": "",
+      "status": "created",
+      "resource_name": "David"
     }
   ]
 }

@@ -8,7 +8,6 @@ import {
   signal,
 } from '@angular/core';
 import { CommonService } from '../../shared/service/common.service';
-import { IUserDetails, IUsesrRequestsDetails } from '../../app.component';
 import { ExportExcelService } from '../../shared/utils/export-excel.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
@@ -30,11 +29,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../../shared/components/pop-up/pop-up/pop-up.component';
 import { NotificationService } from '../../shared/service/notification/notification.service';
-import { UserData } from '../../Employee/employee/employee.component';
-import { INotifications } from '../../shared/components/notifications/notifications.component';
+import { UserData } from '../../Employee/employee.component';
 import { Options } from 'highcharts';
 import Highcharts from 'highcharts';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { INotifications, IUsesrRequestsDetails } from '../../shared/service/interfaces/interfaces';
 
 @Component({
   selector: 'app-manager',

@@ -1,12 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
-import { UserData, cardData } from '../../Employee/employee/employee.component';
-import {
-  IUserDetails,
-  IUsesrAllDetals,
-  IUsesrRequestsDetails,
-} from '../../app.component';
+import { UserData, cardData } from '../../Employee/employee.component';
+import { IUserDetails, IUsesrAllDetals, IUsesrRequestsDetails } from './interfaces/interfaces';
+
 
 @Injectable({
   providedIn: 'root',
