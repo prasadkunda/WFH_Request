@@ -149,7 +149,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       case 'Rejected':
         requestObservable = this.commonService.getRejectedRequest();
         break;
-      case 'New':
+      case 'New Request':
         requestObservable = this.commonService.getNewRequest();
         break;
       default:

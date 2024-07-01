@@ -36,7 +36,9 @@ filteredData: any[] = [];
     //Mock API
     // return this.http.get<UserData>('https://mocki.io/v1/4b512c53-a6d2-42e0-b959-0419c9c5b451')
     // Json server API
-    return this.http.get<UserData>('http://localhost:3000/AllRequests').pipe(
+    return this.http.get<UserData>('http://localhost:3000/AllRequests')
+    // return this.http.get<UserData>("https://localhost:7236/api/Users/getAllRequests")
+    .pipe(
       catchError((err) => {
         throw new Error(err);
       })
@@ -47,7 +49,10 @@ filteredData: any[] = [];
     // Mock API
     // return this.http.get('https://mocki.io/v1/b41048c4-6c51-4b62-9d49-56656527690c')
     // Json server API
-    return this.http.get('http://localhost:3000/Approved').pipe(
+    return this.http.get('http://localhost:3000/Approved')
+    //DB call
+    // return this.http.get("https://localhost:7236/api/Users/getAllRequests")
+    .pipe(
       catchError((err) => {
         throw new Error(err);
       })

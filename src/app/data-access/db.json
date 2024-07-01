@@ -4,19 +4,19 @@
       "id": "1",
       "icon": "list_alt",
       "title": "Total Requests",
-      "number": "10"
+      "number": "4"
     },
     {
       "id": "2",
       "icon": "check_circle_outline",
       "title": "Approved",
-      "number": "6"
+      "number": "2"
     },
     {
       "id": "3",
       "icon": "highlight_off",
       "title": "Rejected",
-      "number": "3"
+      "number": "1"
     },
     {
       "id": "4",
@@ -101,7 +101,7 @@
     {
       "sl_no": "7",
       "project": "TAX",
-      "emp_id": "QE1007",
+      "emp_id": "QE1001",
       "requested_date": "",
       "approved_date": "",
       "approver": "QE1002",
@@ -152,7 +152,7 @@
       "emp_id": "QE1001",
       "project": "TAX",
       "requested_date": "06/24/2024",
-      "approved_date": "",
+      "approved_date": "06/24/2024",
       "approver": "QE1002",
       "status": "approved",
       "comments": "health issue",
@@ -164,8 +164,8 @@
       "emp_id": "QE1001",
       "project": "TAX",
       "requested_date": "06/26/2024",
-      "approved_date": "",
-      "approver": "",
+      "approved_date": "06/26/2024",
+      "approver": "QE1002",
       "status": "Created",
       "comments": "family issue",
       "request_type": "wfh"
@@ -250,7 +250,7 @@
       "emp_id": "QE1001",
       "project": "TAX",
       "requested_date": "06/24/2024",
-      "approved_date": "",
+      "approved_date": "06/24/2024",
       "approver": "QE1002",
       "status": "approved",
       "comments": "health issue",
@@ -303,7 +303,7 @@
       "requested_date": "10-06-2024",
       "approved_date": "",
       "status": "created",
-      "approver": "",
+      "approver": "QE1002",
       "comments": "Family event",
       "id": "8ffc",
       "request_type": "wfh"

@@ -1,0 +1,78 @@
+<mat-dialog-content>
+    <div class="row">
+      <h4 class="col-md-11">Innovation Request</h4>
+      <button
+        mat-icon-button
+        class="close-button col-md-1"
+        [mat-dialog-close]="true"
+      >
+        <mat-icon class="close-icon" color="warn" (click)="dialogRef.close()"
+          >close</mat-icon
+        >
+      </button>
+    </div>
+    <form class="form" [formGroup]="dateRangeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startPicker"
+          formControlName="startDate"
+          [matDatepickerFilter]="dateFilter"
+          (dateChange)="onDateChange($event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        @if(dateRangeForm.get('startDate')?.hasError('required')){
+        <mat-error>Start date is required</mat-error>
+        }
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="endPicker"
+          formControlName="endDate"
+          [matDatepickerFilter]="dateFilter"
+          (dateChange)="onDateChange($event)"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+        <mat-error *ngIf="dateRangeForm.get('endDate')?.hasError('required')"
+          >End date is required</mat-error
+        >
+      </mat-form-field>
+<!--   
+      @if(dateRangeForm.hasError('dateRangeInvalid')){
+      <mat-error>Date range must be within 5 days</mat-error>} -->
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Comments</mat-label>
+        <textarea
+          matInput
+          placeholder="Mention the Reason for WFH..."
+          formControlName="comments"
+        ></textarea>
+        <mat-error *ngIf="dateRangeForm.get('comments')?.hasError('required')"
+          >Comments are required</mat-error
+        >
+      </mat-form-field>
+      <button
+        class="form-button"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="dateRangeForm.invalid"
+        (click)="dialogRef.close()"
+      >
+        Submit
+      </button>
+    </form>
+  </mat-dialog-content>

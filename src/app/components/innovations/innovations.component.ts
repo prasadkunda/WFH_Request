@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { PopOverComponent } from '../../shared/components/pop-over/pop-over.component';
+import { InnovationPopupComponent } from '../../shared/components/innovation-popup/innovation-popup.component';
 
 @Component({
   selector: 'app-innovations',
@@ -24,7 +25,7 @@ export class InnovationsComponent {
   public openDialog(): void {
     if (!this.modalOpen) {
       this.dialog
-        .open(PopOverComponent, {
+        .open(InnovationPopupComponent, {
           width: '648px',
           panelClass: 'custom_class',
           autoFocus: true,
