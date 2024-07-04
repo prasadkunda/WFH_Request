@@ -4,7 +4,7 @@
 .icon-circle {
   width: 3.125rem;
   height: 3.125rem;
-  background-color: #e0e0e0;
+  // background-color: #e0e0e0;
   border-radius: 50%;
 }
 
@@ -24,7 +24,7 @@ mat-card {
 }
 
 .paragraph-text {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: gray !important;
   text-align: start;
   padding-left: 16px;
@@ -36,7 +36,7 @@ mat-card {
 // }
 
 .icon {
-  color: #9c27b0; /* Example color, adjust as needed */
+  color: white; /* Example color, adjust as needed */
 }
 
 mat-card {
@@ -154,7 +154,6 @@ mat-card {
   justify-content: flex-end;
   margin-bottom: 10px;
   button {
-    border-radius: 10px;
     background-color: #005cbb;
   }
 }
@@ -165,3 +164,14 @@ mat-card {
   line-height: 1.5;
   letter-spacing: 0.5px;
 }
+.btn-round {
+  border-width: 1px;
+  border-radius: 30px !important;
+  padding: 2px 18px 5px 18px;
+}
+.add-icon-employee {
+  position: relative;
+  top: 5px;
+}
+
+

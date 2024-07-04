@@ -7,12 +7,9 @@ import {
   model,
   signal,
 } from '@angular/core';
-import { CommonService } from '../../shared/service/common.service';
-import { ExportExcelService } from '../../shared/utils/export-excel.service';
+
 import { MatTableDataSource } from '@angular/material/table';
-import { SharedUiDesignSystemModule } from '../../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
-import { HeaderTableComponent } from '../../shared/components/header-table/header-table/header-table.component';
-import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
+
 import {
   FormBuilder,
   FormControl,
@@ -27,13 +24,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
-import { PopUpComponent } from '../../shared/components/pop-up/pop-up/pop-up.component';
-import { NotificationService } from '../../shared/service/notification/notification.service';
-import { UserData } from '../../Employee/employee.component';
 import { Options } from 'highcharts';
 import Highcharts from 'highcharts';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { INotifications, IUsesrRequestsDetails } from '../../shared/service/interfaces/interfaces';
+import { CommonService } from '../shared/service/common.service';
+import { PopUpComponent } from '../shared/components/pop-up/pop-up/pop-up.component';
+import { UserData } from '../Employee/employee.component';
+import { HeaderTableComponent } from '../shared/components/header-table/header-table/header-table.component';
+import { MatTableComponent } from '../shared/components/mat-table/mat-table/mat-table.component';
+import { IUsesrRequestsDetails, INotifications } from '../shared/service/interfaces/interfaces';
+import { NotificationService } from '../shared/service/notification/notification.service';
+import { ExportExcelService } from '../shared/utils/export-excel.service';
+import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 
 @Component({
   selector: 'app-manager',
@@ -53,6 +55,7 @@ import { INotifications, IUsesrRequestsDetails } from '../../shared/service/inte
   templateUrl: './manager.component.html',
   styleUrl: './manager.component.scss',
 })
+
 export class ManagerComponent implements OnInit {
   emp_requests!: IUsesrRequestsDetails[];
   manager_DataSource!: MatTableDataSource<IUsesrRequestsDetails>;

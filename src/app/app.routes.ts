@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: 'operations',loadComponent: () => import("../app/components/operations/operations.component").then((m) => m.OperationsComponent) },
   { path: 'employee', loadComponent: () => import("../app/Employee/employee.component").then((m) => m.EmployeeComponent) },
   { path: '', component: HomeComponent },
+  {path: 'manager',loadComponent: () => import("../app/Manager/manager.component").then((m) => m.ManagerComponent)}
 ];

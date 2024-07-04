@@ -34,6 +34,7 @@ export interface cardData {
   icon: string;
   title: string;
   number: number;
+  backgroundcolor:string
 }
 export interface Request {
   id: number;

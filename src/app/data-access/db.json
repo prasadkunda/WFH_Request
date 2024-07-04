@@ -4,25 +4,33 @@
       "id": "1",
       "icon": "list_alt",
       "title": "Total Requests",
-      "number": "4"
+      "number": "4",
+      "color": "#fff",
+      "backgroundcolor": "#FFC300"
     },
     {
       "id": "2",
       "icon": "check_circle_outline",
       "title": "Approved",
-      "number": "2"
+      "number": "2",
+      "color": "#fff",
+      "backgroundcolor": "#28a745"
     },
     {
       "id": "3",
       "icon": "highlight_off",
       "title": "Rejected",
-      "number": "1"
+      "number": "1",
+      "color": "#fff",
+      "backgroundcolor": "#dc3545"
     },
     {
       "id": "4",
       "icon": "library_add",
       "title": "New Request",
-      "number": "1"
+      "number": "1",
+      "color": "#fff",
+      "backgroundcolor": "#17a2b8"
     }
   ],
   "AllRequests": [

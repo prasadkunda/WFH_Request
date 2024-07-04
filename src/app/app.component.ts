@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonService } from './shared/service/common.service';
 import { CommonModule, formatDate } from '@angular/common';
 import { PopOverComponent } from './shared/components/pop-over/pop-over.component';
-import { ManagerComponent } from './Manager/manager/manager.component';
+import { ManagerComponent } from './Manager/manager.component';
 import { SidenavbarComponent } from './shared/components/sidenavbar/sidenavbar.component';
 import {
   MatMenuModule,
