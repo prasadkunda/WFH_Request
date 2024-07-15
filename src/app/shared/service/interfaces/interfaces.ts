@@ -37,6 +37,8 @@ export interface IUserDetails {
   email: string;
   desiganation: string;
   Project: string;
+  repoting_manager: string;
+  repoting_manager_id: string;
 }
 
 export interface IUsesrAllDetals {

@@ -4,7 +4,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { EmployeeComponent } from './Employee/employee.component';
@@ -80,7 +80,8 @@ export class AppComponent {
     private commonservice: CommonService,
     public dialog: MatDialog,
     private http: HttpClient,
-    private notificationService:NotificationService
+    private notificationService:NotificationService,
+    private router:Router
   ) {
     this.currentDate = formatDate(new Date(), 'EEEE MMMM d', 'en');
     this.dialogRef = dialog;
@@ -89,30 +90,7 @@ export class AppComponent {
     });
   }
 
-  // public openDialog(): void {
-  //   if (!this.modalOpen) {
-  //     this.dialog
-  //       .open(PopOverComponent, {
-  //         width: '848px',
-  //         height: '544px',
-  //         panelClass: 'custom_class',
-  //         autoFocus: true,
-  //         ariaLabel: 'WFH Request-modal',
-  //         hasBackdrop: true,
-  //       })
-  //       .afterClosed()
-  //       .subscribe((result: any) => {
-  //         console.log('The dialog was closed');
-  //         if (result) {
-  //           console.log('Form data:', result);
-  //           this.saveWFHR(result);
-  //         }
-  //       });
-  //   }
-  //   this.modalOpen = true;
-  // }
-
-  ngOnInit() {
+  ngOnInit() {    
     this.getUserDetails();
     this.setGreeting();
     this.getProjects_Manager();
@@ -137,43 +115,25 @@ export class AppComponent {
       this.userDetails = res;
       this.userName = `${this.userDetails[0]?.emp_fname} ${this.userDetails[0]?.emp_mname} ${this.userDetails[0]?.emp_lname}`;
       this.user_role = this.userDetails[0]?.desiganation;
+      if(this.user_role === 'manager'){
+        this.router.navigate(['manager']);
+      }else if(this.user_role === 'Senior Software Developer'){
+        this.router.navigate(['employee']);
+      }
       }
     });
   }
-
-  // showOffCanvas() {
-  //   this;
-  // }
-
-  // hideOffCanvas() {
-  //   this.isOffCanvasVisible = false;
-  // }
-
-  // ngAfterViewInit() {
-  //   if (this.demo) {
-  //     this.showOffCanvas();
-  //   } else {
-  //     this.hideOffCanvas();
-  //   }
-  // }
-  // ngAfterViewInit() {
-  // Initialize your offcanvas component here
-  // For example, if you're using a third-party library like Offcanvas.js:
-  //new Offcanvas(this.demo.nativeElement, {
-  //this.backdrop = true; // or any other configuration
-  //});
-  //}
-
   
 
   public getProjects_Manager() {
+    this.projects_List = [];
     if(this.user_role === "manager"){
       this.commonservice.getProjects_Manager().subscribe(res => {
         if(res){
           this.projects_List = res;
         }
     })
-    } else {
+    } else if(this.user_role === "Senior Software Developer"){
       this.commonservice.getSidenav_Options_Employee().subscribe(res => {
         if(res){
           this.projects_List = res;
@@ -182,22 +142,4 @@ export class AppComponent {
     }
     
   }
-
-  // public addItem(item: any): void {
-  //   this.apiUrl.forEach((url) => {
-  //     return this.http.post(url, item).pipe(
-  //       catchError(this.handleError));
-  //   });
-  // }
-  // private handleError(error: HttpErrorResponse) {
-  //   console.log(error);
-  //   let errorMessage = 'Unknown error!';
-  //   if (error.error instanceof ErrorEvent) {
-  //     errorMessage = `Error: ${error.error.message}`;
-  //   } else {
-  //     errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-  //   }
-  //   console.error(errorMessage);
-  //   return throwError(errorMessage);
-  // }
 }

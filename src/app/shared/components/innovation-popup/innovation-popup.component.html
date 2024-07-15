@@ -11,65 +11,40 @@
         >
       </button>
     </div>
-    <form class="form" [formGroup]="dateRangeForm" (ngSubmit)="onSubmit()">
+    <form class="form" [formGroup]="innovationForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
-        <mat-label>Start Date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="startPicker"
-          formControlName="startDate"
-          [matDatepickerFilter]="dateFilter"
-          (dateChange)="onDateChange($event)"
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="startPicker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #startPicker></mat-datepicker>
-        @if(dateRangeForm.get('startDate')?.hasError('required')){
-        <mat-error>Start date is required</mat-error>
-        }
+        <mat-label>Select Request Type</mat-label>
+        <mat-select matNativeControl required formControlName="requesttype">
+          <mat-option value="wfh">WFH</mat-option>
+          <mat-option value="innovation">Innovation</mat-option>
+        </mat-select>
       </mat-form-field>
-  
+
       <mat-form-field appearance="fill">
-        <mat-label>End Date</mat-label>
-        <input
-          matInput
-          [matDatepicker]="endPicker"
-          formControlName="endDate"
-          [matDatepickerFilter]="dateFilter"
-          (dateChange)="onDateChange($event)"
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="endPicker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #endPicker></mat-datepicker>
-        <mat-error *ngIf="dateRangeForm.get('endDate')?.hasError('required')"
-          >End date is required</mat-error
-        >
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Ex. High level explanation of innovation..." formControlName="description"></textarea>
       </mat-form-field>
-<!--   
-      @if(dateRangeForm.hasError('dateRangeInvalid')){
-      <mat-error>Date range must be within 5 days</mat-error>} -->
-  
+
       <mat-form-field appearance="fill">
-        <mat-label>Comments</mat-label>
-        <textarea
-          matInput
-          placeholder="Mention the Reason for WFH..."
-          formControlName="comments"
-        ></textarea>
-        <mat-error *ngIf="dateRangeForm.get('comments')?.hasError('required')"
-          >Comments are required</mat-error
-        >
+        <mat-label>Benifits</mat-label>
+        <textarea matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Technology</mat-label>
+        <textarea matInput placeholder="Ex. Java,Angular..." formControlName="technology"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Estimated Efforts</mat-label>
+        <textarea matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts"></textarea>
       </mat-form-field>
       <button
         class="form-button"
         mat-raised-button
         color="primary"
         type="submit"
-        [disabled]="dateRangeForm.invalid"
+        [disabled]="innovationForm.invalid"
         (click)="dialogRef.close()"
       >
         Submit

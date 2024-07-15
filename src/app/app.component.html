@@ -45,8 +45,7 @@
     </div> -->
   </div>
   <div class="body_container">
-    <app-sidenavbar
-      *ngIf="user_role === 'manager'"
+    <app-sidenavbar      
       [isExpanded]="sidebarExpanded" 
       [projects]="projects_List"
       (toggleSidebar)="sidebarExpanded = !sidebarExpanded"

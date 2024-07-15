@@ -3,7 +3,7 @@
 }
 
 .filter-section {
-  margin-bottom: 20px;
+ 
 }
 
 .mat-form-field {
@@ -16,7 +16,11 @@
 }
 .apply-filter {
   margin-left: 20px;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
+}
+.justify_flex_end {
+  display: inline-flex;
+  justify-content: flex-end;
 }
 .clear{
   margin-top: 13px;
@@ -25,5 +29,5 @@
   padding-left: 3rem;
 }
 .chart-container{
-  padding-top: 20px;
+  // padding-top: 20px;
 }

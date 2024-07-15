@@ -98,15 +98,14 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
   public ngOnInit(): void {
     this.getUserDetails();
-
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {
         this.users = res.filter((item) => item.emp_id === this.userId);
-        // console.log('emp_id based data',this.users);
+        console.log('emp_id based data',this.users);
         // this.users = res;
-        if (res) {
+        // if (res) {
           this.dataSource = new MatTableDataSource(this.users);
-        }
+        // }
       }
     });
     this.getCardDetails();
@@ -208,6 +207,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     this.commonService.getUserdetails().subscribe((res) => {
       if (res) {
         this.userDetails = res;
+        console.log("User details",this.userDetails);
         this.userId = this.userDetails[0]?.emp_id;
       }
     });
@@ -225,7 +225,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
         })
         .afterClosed()
         .subscribe((result: any) => {
-          console.log('The dialog was closed');
+          console.log('The dialog was closed',result);
           if (result) {
             console.log('Form data:', result);
             this.saveWFHR(result);
@@ -237,6 +237,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
 
   public saveWFHR(data: any) {
     console.log(data)
+    if(data != true || data != false){
     const payload: any = {
       sl_no: '',
       emp_id: this.userDetails[0]?.emp_id,
@@ -259,5 +260,6 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       };
       this.notificationService.createNotification(notificationPayload).subscribe();
     });
+    }
   }
 }

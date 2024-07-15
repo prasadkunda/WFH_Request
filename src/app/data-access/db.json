@@ -5,15 +5,13 @@
       "icon": "list_alt",
       "title": "Total Requests",
       "number": "4",
-      "color": "#fff",
-      "backgroundcolor": "#FFC300"
+      "backgroundcolor": "#17a2b8"
     },
     {
       "id": "2",
       "icon": "check_circle_outline",
       "title": "Approved",
       "number": "2",
-      "color": "#fff",
       "backgroundcolor": "#28a745"
     },
     {
@@ -21,7 +19,6 @@
       "icon": "highlight_off",
       "title": "Rejected",
       "number": "1",
-      "color": "#fff",
       "backgroundcolor": "#dc3545"
     },
     {
@@ -29,7 +26,6 @@
       "icon": "library_add",
       "title": "New Request",
       "number": "1",
-      "color": "#fff",
       "backgroundcolor": "#17a2b8"
     }
   ],
@@ -778,16 +774,18 @@
       "email": "david@qentelli.com",
       "desiganation": "Senior Software Developer",
       "Project": "TAX",
+      "repoting_manager": "Gowri",
+      "repoting_manager_id": "QE1002",
       "id": "c1f1"
     }
   ],
   "Manager_details": [
     {
       "emp_id": "QE1002",
-      "emp_fname": "Arthur",
-      "emp_mname": "louise",
-      "emp_lname": "king",
-      "email": "alk@qentelli.com",
+      "emp_fname": "Gowri",
+      "emp_mname": "",
+      "emp_lname": "shankar",
+      "email": "gowrishankar@qentelli.com",
       "desiganation": "manager",
       "Project": "TAX",
       "id": "3a30"
@@ -798,6 +796,14 @@
       "id": "1",
       "emp_id": "QE1001",
       "message": "New WFH request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_84",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
@@ -815,7 +821,25 @@
       "actual_affort": "",
       "annual_saving": "",
       "status": "created",
-      "resource_name": "David"
+      "resource_name": "David",
+      "emp_id": "QE1003",
+      "project": "IMMIGRATION",
+      "approver": "QE1002",
+      "id": "Innovation_1"
+    },
+    {
+      "id": "Innovation_84",
+      "sl_no": "",
+      "title": "innovation",
+      "idea_description": "test",
+      "idea_type": "innovation",
+      "benifits": "test",
+      "technology": "test",
+      "estimated_effort": "1 month",
+      "emp_id": "QE1001",
+      "project": "TAX",
+      "approver": "QE1002",
+      "status": "Created"
     }
   ]
 }

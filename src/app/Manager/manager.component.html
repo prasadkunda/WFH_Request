@@ -1,26 +1,13 @@
 <form [formGroup]="filterForm">
-  <div class="row mt-3">
-    <div class="col-md-2">
-      <div class="filter-dropdown">
-        <mat-form-field appearance="fill">
-          <mat-label>Filter By</mat-label>
-          <mat-select
-            [(value)]="selectedFilter"
-            (selectionChange)="onFilterChange($event.value)"
-          >
-            <mat-option value="dateRange">Select Date Range</mat-option>
-            <mat-option value="requestStatus">Select Request Status</mat-option>
-            <mat-option value="employee">Select Employee</mat-option>
-          </mat-select>
-        </mat-form-field>
+  @if(_parentfilter === true) {
+    <div class="row mt-1" >
+      <div class="col-md-2">
+        <h4 class="mt-3">Request Dashboard</h4>
       </div>
-    </div>
-
-    <div
-      class="filter-section date-range col-md-7"
+      <div  class="filter-section date-range col-md-7 justify_flex_end"
       *ngIf="selectedFilter === 'dateRange'"
     >
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" style="height: 5rem;">
         <mat-label>Select Date Range</mat-label>
         <mat-date-range-input [rangePicker]="picker">
           <input
@@ -48,12 +35,11 @@
         Apply Filter
       </button>
     </div>
-
-    <div
-      class="filter-section date-range col-md-7"
+  
+    <div  class="filter-section date-range col-md-7 justify_flex_end"
       *ngIf="selectedFilter === 'requestStatus'"
     >
-      <div class="col-md-7">
+      <div class="">
         <mat-form-field appearance="fill">
           <mat-label>Select Request Status</mat-label>
           <mat-select formControlName="requestStatus">
@@ -72,12 +58,11 @@
         </button>
       </div>
     </div>
-
-    <div
-      class="filter-section date-range col-md-7"
+  
+    <div class="filter-section date-range col-md-7 justify_flex_end"
       *ngIf="selectedFilter === 'employee'"
     >
-      <div class="col-md-7">
+      <div class="">
         <mat-form-field appearance="fill">
           <mat-label>Enter Employee ID</mat-label>
           <input
@@ -96,8 +81,8 @@
         </button>
       </div>
     </div>
-    <div class="col-md-2" *ngIf="selectedFilter">
-      <button
+    <div class="col-md-1 justify_flex_end" *ngIf="selectedFilter">
+      <button style="margin-top: 1px;"
         mat-flat-button
         color="warn"
         (click)="clearFilters()"
@@ -106,74 +91,133 @@
         Clear
       </button>
     </div>
-  </div>
-  <div class="table-container">
-    <table mat-table [dataSource]="manager_DataSource" matSort>
-      <ng-container matColumnDef="emp_id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</th>
-        <td mat-cell *matCellDef="let request">{{ request.emp_id }}</td>
-      </ng-container>
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-        <td mat-cell *matCellDef="let request">{{ request.email }}</td>
-      </ng-container>
-      <ng-container matColumnDef="project">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Project</th>
-        <td mat-cell *matCellDef="let request">{{ request.project }}</td>
-      </ng-container>
-      <ng-container matColumnDef="requested_date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>
-          Requested Date
-        </th>
-        <td mat-cell *matCellDef="let request">{{ request.requested_date }}</td>
-      </ng-container>
-      <ng-container matColumnDef="no_of_days">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>No. of Days</th>
-        <td mat-cell *matCellDef="let request">{{ request.no_of_days }}</td>
-      </ng-container>
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-        <td mat-cell *matCellDef="let request">{{ request.status }}</td>
-      </ng-container>
-      <ng-container matColumnDef="comments">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Comments</th>
-        <td mat-cell *matCellDef="let request">{{ request.comments }}</td>
-      </ng-container>
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
-        <td mat-cell *matCellDef="let request">
-          <button
-            mat-icon-button
-            [matMenuTriggerFor]="menu"
-            aria-label="Example icon-button with a menu"
-          >
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon style="color: green">check_circle</mat-icon>
-              <span>Approve</span>
-            </button>
-            <button mat-menu-item (click)="openDialog()">
-              <mat-icon style="color: red">cancel</mat-icon>
-              <span>Reject</span>
-            </button>
-          </mat-menu>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumnsRequests"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumnsRequests"></tr>
-    </table>
-    <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
-  </div>
-</form>
-<div class="chart-container">
+  
+      <div class="col-md-2 justify_flex_end">
+        <div class="filter-dropdown">
+          <mat-form-field appearance="fill">
+            <mat-label>Filter By</mat-label>
+            <mat-select
+              [(value)]="selectedFilter"
+              (selectionChange)="onFilterChange($event.value)"
+            >
+              <mat-option value="dateRange">Select Date Range</mat-option>
+              <mat-option value="requestStatus">Select Request Status</mat-option>
+              <mat-option value="employee">Select Employee</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+  
+     
+    </div>
+  } @else{
+    <div class="row" *ngIf="!_parentfilter">
+      <div class="col-md-10">
+        <h4 class="mt-3">Request Dashboard</h4>
+      </div>
+      <div class="col-md-2 justify_flex_end">
+        <div class="filter-dropdown">
+          <mat-form-field appearance="fill">
+            <mat-label>Filter By</mat-label>
+            <mat-select
+              [(value)]="selectedFilter"
+              (selectionChange)="onFilterChange($event.value)"
+            >
+              <mat-option value="dateRange">Select Date Range</mat-option>
+              <mat-option value="requestStatus">Select Request Status</mat-option>
+              <mat-option value="employee">Select Employee</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+  
+    </div>
+  }
+ 
+  
+
   <div class="row">
-    <highcharts-chart
-      [Highcharts]="Highcharts"
-      [options]="highChartsOptions"
-      style="width: 100%; height: 400px; display: block"
-      [(update)]="updateFlag"
-    ></highcharts-chart>
+    <div class="col-md-8">
+      <div class="col-md-12">
+              <div class="">
+        <table mat-table [dataSource]="manager_DataSource" matSort>
+          <ng-container matColumnDef="emp_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee ID</th>
+            <td mat-cell *matCellDef="let request">{{ request.emp_id }}</td>
+          </ng-container>
+          <!-- <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let request">{{ request.email }}</td>
+          </ng-container> -->
+          <ng-container matColumnDef="project">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Project</th>
+            <td mat-cell *matCellDef="let request">{{ request.project }}</td>
+          </ng-container>
+          <ng-container matColumnDef="requested_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Requested Date
+            </th>
+            <td mat-cell *matCellDef="let request">{{ request.requested_date }}</td>
+          </ng-container>
+          <ng-container matColumnDef="no_of_days">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>No. of Days</th>
+            <td mat-cell *matCellDef="let request">{{ request.no_of_days }}</td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let request">{{ request.status }}</td>
+          </ng-container>
+          <ng-container matColumnDef="comments">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Comments</th>
+            <td mat-cell *matCellDef="let request">{{ request.comments }}</td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+            <td mat-cell *matCellDef="let request">
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon style="color: green">check_circle</mat-icon>
+                  <span>Approve</span>
+                </button>
+                <button mat-menu-item (click)="openDialog()">
+                  <mat-icon style="color: red">cancel</mat-icon>
+                  <span>Reject</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsRequests"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsRequests"></tr>
+        </table>
+        <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
+      </div>
+      </div>
+
+    </div>
+    
+    <div class="col-md-4">
+      <div class="col-md-12">
+              <div class="chart-container">
+        <div class="row">
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="highChartsOptions"
+            style="width: 100%; height: 380px; display: block"
+            [(update)]="updateFlag"
+          ></highcharts-chart>
+        </div>
+      </div>
+      </div>
+
+    </div>
   </div>
-</div>
+ 
+</form>
+

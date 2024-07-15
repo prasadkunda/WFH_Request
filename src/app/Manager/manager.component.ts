@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   OnInit,
@@ -56,16 +57,17 @@ import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-sys
   styleUrl: './manager.component.scss',
 })
 
-export class ManagerComponent implements OnInit {
-  emp_requests!: IUsesrRequestsDetails[];
-  manager_DataSource!: MatTableDataSource<IUsesrRequestsDetails>;
+export class ManagerComponent implements OnInit,AfterViewInit {
+  emp_requests!: UserData[];
+  _parentfilter: boolean = false;
+  manager_DataSource!: MatTableDataSource<UserData>;
   filterForm!: FormGroup;
-  @ViewChild(MatPaginator, { static: false })
-  set paginator(value: MatPaginator) {
-    if (this.manager_DataSource && value) {
-      this.manager_DataSource.paginator = value;
-    }
-  }
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  // set paginator(value: MatPaginator) {
+  //   if (this.manager_DataSource) {
+  //     this.manager_DataSource.paginator = value;
+  //   }
+  // }
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   selectedFilter: string = '';
@@ -75,7 +77,7 @@ export class ManagerComponent implements OnInit {
 
   displayedColumnsRequests: string[] = [
     'emp_id',
-    'email',
+    // 'email',
     'project',
     'requested_date',
     'no_of_days',
@@ -102,35 +104,45 @@ export class ManagerComponent implements OnInit {
       employeeId: [''],
     });
   }
+  ngAfterViewInit(): void {
+    this.manager_DataSource.paginator = this.paginator;
+    this.manager_DataSource.sort = this.sort;
+  }
 
   ngOnInit(): void {
     this.getUserDetails();
     this.getRequestsdetails();
     this.loadChartData();
     this.manager_DataSource = new MatTableDataSource(this.emp_requests);
-    this.manager_DataSource.paginator = this.paginator;
-    this.manager_DataSource.sort = this.sort;
+    // this.manager_DataSource.paginator = this.paginator;
+    // this.manager_DataSource.sort = this.sort;
   }
 
   // to get the requets
   getRequestsdetails() {
     this.emp_requests = [];
     this.commonService.getRequests().subscribe((res) => {
-      this.emp_requests = res;
-      this.manager_DataSource = new MatTableDataSource(this.emp_requests);
-      this.manager_DataSource.paginator = this.paginator;
-      this.manager_DataSource.sort = this.sort;
+      if(res && Array.isArray(res)){
+        this.emp_requests = res.filter((item)=> item?.approver === 'QE1002'); // assign value from session or local storage
+        console.log(this.emp_requests);
+        this.manager_DataSource = new MatTableDataSource(this.emp_requests);
+        this.manager_DataSource.paginator = this.paginator;
+        this.manager_DataSource.sort = this.sort;
+      }
+     
     });
   }
 
   clearFilters() {
     this.selectedFilter = '';
     this.filterForm.reset();
+    this._parentfilter = false;
     this.manager_DataSource.data = this.emp_requests;
   }
 
   onFilterChange(filter: string) {
     this.selectedFilter = filter;
+    this._parentfilter = true;
     // Reset data source to all data when filter type changes
     this.manager_DataSource.data = this.emp_requests;
     this.filterForm.reset();
