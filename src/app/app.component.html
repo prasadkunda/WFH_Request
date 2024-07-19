@@ -45,13 +45,13 @@
     </div> -->
   </div>
   <div class="body_container">
-    <app-sidenavbar      
+    <!-- <app-sidenavbar *ngIf="user_role === 'manager'" 
       [isExpanded]="sidebarExpanded" 
       [projects]="projects_List"
       (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
-    ></app-sidenavbar>
+    ></app-sidenavbar> -->
     <app-sidenavbar
-    *ngIf="user_role === 'Senior Software Developer'"
+    
     [isExpanded]="sidebarExpanded" 
     [projects]="projects_List"
     (toggleSidebar)="sidebarExpanded = !sidebarExpanded"

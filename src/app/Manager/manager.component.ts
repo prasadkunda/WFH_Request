@@ -33,7 +33,7 @@ import { PopUpComponent } from '../shared/components/pop-up/pop-up/pop-up.compon
 import { UserData } from '../Employee/employee.component';
 import { HeaderTableComponent } from '../shared/components/header-table/header-table/header-table.component';
 import { MatTableComponent } from '../shared/components/mat-table/mat-table/mat-table.component';
-import { IUsesrRequestsDetails, INotifications } from '../shared/service/interfaces/interfaces';
+import { IUsesrRequestsDetails, INotifications, IInnovationDashboard } from '../shared/service/interfaces/interfaces';
 import { NotificationService } from '../shared/service/notification/notification.service';
 import { ExportExcelService } from '../shared/utils/export-excel.service';
 import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
@@ -85,10 +85,23 @@ export class ManagerComponent implements OnInit,AfterViewInit {
     'comments',
     'actions',
   ];
+
+  displayedColumnsInnovations: string[] = [
+    'title',
+    'idea_description',
+    'benifits',
+    'technology',
+    'estimated_effort',
+    'status',
+    'emp_name'
+  ];
+
   isHighcharts = typeof Highcharts === 'object';
   Highcharts: typeof Highcharts = Highcharts;
   highChartsOptions!: Options;
   updateFlag: boolean = true; // optional boolean
+  innovationRecords!: IInnovationDashboard[];
+  dataSourceInnovations!: MatTableDataSource<IInnovationDashboard>;
 
   constructor(
     private commonService: CommonService,
@@ -114,6 +127,7 @@ export class ManagerComponent implements OnInit,AfterViewInit {
     this.getRequestsdetails();
     this.loadChartData();
     this.manager_DataSource = new MatTableDataSource(this.emp_requests);
+    this.getInnovations();
     // this.manager_DataSource.paginator = this.paginator;
     // this.manager_DataSource.sort = this.sort;
   }
@@ -303,5 +317,14 @@ export class ManagerComponent implements OnInit,AfterViewInit {
         } as Highcharts.SeriesPieOptions,
       ],
     };
+  }
+
+  public getInnovations() {
+    this.commonService.getInnovations().subscribe((res) => {
+      if(res){
+        this.innovationRecords = res;
+          this.dataSourceInnovations = new MatTableDataSource(this.innovationRecords);
+      }
+    })
   }
 }

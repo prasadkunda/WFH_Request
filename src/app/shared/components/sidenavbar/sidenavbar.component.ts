@@ -30,10 +30,16 @@ export class SidenavbarComponent {
       this.router.navigate(['/innovations']);
     } else if (value.project === 'Facilities') {
       this.router.navigate(['/facility']);
-    } else if (value.project === 'Raise WFH') {
+    } else if (value.project === 'WFH') {
       this.router.navigate(['/employee']);
-    } else {
+    } else if (value.project === 'Operations') {
       this.router.navigate(['/operations']);
+    }else if (value.project === 'Request') {
+      this.router.navigate(['/request']);
+    }else if (value.project === 'Trainings') {
+      this.router.navigate(['/trainings']);
+    }else if (value.project === 'Home') {
+      this.router.navigate(['/manager']);
     }
   }
 }

@@ -4,6 +4,7 @@ import { Observable, catchError } from 'rxjs';
 import { UserData, cardData } from '../../Employee/employee.component';
 import { RouterModule ,Router} from '@angular/router';
 import {
+  IInnovationDashboard,
   IUserDetails,
   IUsesrAllDetals,
   IUsesrRequestsDetails,
@@ -99,10 +100,10 @@ export class CommonService {
     // team member API
     this.userRole = '';
     // return (this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
-    //  return this.http.get<IUserDetails[]>('http://localhost:3000/User_detial')
+     return this.http.get<IUserDetails[]>('http://localhost:3000/User_detial')
     //Manager API
     // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
-    return this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
+    // return this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
       .pipe(
         catchError((err) => {
           throw new Error(err);
@@ -211,5 +212,27 @@ export class CommonService {
   // Generate a random number between min (inclusive) and max (exclusive)
   getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  // to get Innovations
+  public getInnovations(): Observable<IInnovationDashboard[]> {
+    return this.http
+    .get<IInnovationDashboard[]>('http://localhost:3000/innovations')
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
+  }
+
+  // to get innovation card details in innovation dashboard
+  public getInnovationCardDetails(): Observable<cardData[]> {
+    return this.http
+    .get<cardData[]>('http://localhost:3000/innnovationcards')
+    .pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
   }
 }

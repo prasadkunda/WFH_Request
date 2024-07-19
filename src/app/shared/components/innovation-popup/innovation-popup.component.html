@@ -12,32 +12,39 @@
       </button>
     </div>
     <form class="form" [formGroup]="innovationForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Select Request Type</mat-label>
+      <mat-form-field >
+        <mat-label>Select Innovation Type</mat-label>
         <mat-select matNativeControl required formControlName="requesttype">
-          <mat-option value="wfh">WFH</mat-option>
-          <mat-option value="innovation">Innovation</mat-option>
+          <!-- <mat-option value="wfh">WFH</mat-option> -->
+          <mat-option value="product">Product</mat-option>
+          <mat-option value="automation">Automation</mat-option>
+          <mat-option value="reuseble_library">Re Useble Library</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input  matInput placeholder="Ex. Type/Use of Innovation..." formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Ex. High level explanation of innovation..." formControlName="description"></textarea>
+        <input  matInput placeholder="Ex. High level explanation of innovation..." formControlName="description">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Benifits</mat-label>
-        <textarea matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits"></textarea>
+        <input  matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Technology</mat-label>
-        <textarea matInput placeholder="Ex. Java,Angular..." formControlName="technology"></textarea>
+        <input  matInput placeholder="Ex. Java,Angular..." formControlName="technology">
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field>
         <mat-label>Estimated Efforts</mat-label>
-        <textarea matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts"></textarea>
+        <input  matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts">
       </mat-form-field>
       <button
         class="form-button"

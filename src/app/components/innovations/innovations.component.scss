@@ -5,7 +5,6 @@
 }
 .add-icon{
     position: relative;
-    // top: 6px;
     left: 4px;
     color: white;
 }
@@ -16,3 +15,60 @@
     line-height: 1.5;
     letter-spacing: 0.5px;
   }
+  .container_icon {
+    transform: translateY(4px);
+  }
+  .icon-circle {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+  }
+  
+ .mat-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    font-weight: 500;
+    text-align: start;
+    padding-left: 14px;
+  }
+  
+  .paragraph-text {
+    font-size: 1rem;
+    color: gray !important;
+    text-align: start;
+    padding-left: 16px;
+  }
+  
+  .icon {
+    color: white; /* Example color, adjust as needed */
+  }
+  .card_content {
+    padding-top: 4px;
+  }
+  
+  .card-container {
+    padding-right: 50px;
+  }
+  .count_text {
+    font-size: x-small;
+    color: gray;
+  }
+  .arrow-icon-color {
+    font-size: 20px;
+    height: 20px;
+  }
+  
+  .active-card {
+    border-color: #007bff;
+    background-color: #bec2c5;
+  }
+  .border-style {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  
+  

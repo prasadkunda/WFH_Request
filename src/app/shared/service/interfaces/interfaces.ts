@@ -74,3 +74,15 @@ export interface IInnovations {
   status: string;
   resource_name: string;
 }
+
+export interface IInnovationDashboard {
+  id:string;
+  title: string;
+  idea_description: string;
+  benifits: string;
+  technology: string;
+  estimated_effort: string;
+  status: string;
+  emp_id: string;
+  emp_name:string;
+}

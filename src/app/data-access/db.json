@@ -505,41 +505,59 @@
   "Projects_Manager": [
     {
       "sl_no": "1",
-      "project": "TAX",
+      "project": "Home",
       "id": "P_1",
-      "icon": "work"
+      "icon": "3p"
     },
     {
       "sl_no": "2",
-      "project": "Immigration",
+      "project": "TAX",
       "id": "P_2",
-      "icon": "work"
+      "icon": "3p"
+    },
+    {
+      "sl_no": "3",
+      "project": "Immigration",
+      "id": "P_3",
+      "icon": "3p"
     }
   ],
   "sidenav_options_employee": [
     {
       "sl_no": "1",
-      "project": "Operations",
-      "id": "P_1",
-      "icon": "view_kanban"
-    },
-    {
-      "sl_no": "2",
-      "project": "Facilities",
-      "id": "P_2",
-      "icon": "manage_accounts"
-    },
-    {
-      "sl_no": "3",
       "project": "Innovations",
-      "id": "P_3",
+      "id": "P_1",
       "icon": "data_saver_on"
     },
     {
-      "sl_no": "4",
-      "project": "Raise WFH",
-      "id": "P_4",
+      "sl_no": "2",
+      "project": "WFH",
+      "id": "P_2",
       "icon": "home_work"
+    },    
+    {
+      "sl_no": "3",
+      "project": "Request",
+      "id": "P_3",
+      "icon": "open_in_new"
+    },
+    {
+      "sl_no": "4",
+      "project": "Operations",
+      "id": "P_4",
+      "icon": "view_kanban"
+    },
+    {
+      "sl_no": "5",
+      "project": "Facilities",
+      "id": "P_5",
+      "icon": "manage_accounts"
+    },
+    {
+      "sl_no": "6",
+      "project": "Trainings",
+      "id": "P_6",
+      "icon": "model_training"
     }
   ],
   "Project_TAX": [
@@ -807,39 +825,119 @@
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
+    },
+    {
+      "id": "innovation_35",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_6",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
     }
   ],
   "innovations": [
     {
+      "id": "Innovation_1",
       "s_no": "1",
-      "title": "wfh",
+      "title": "Product to raise WFH",
       "idea_description": "To raise wfh request through out the organizaztion level",
       "idea_type": "innovation",
-      "benefits": "no need to request in teams (or) emails regarding wfh",
-      "Technology": ".Net,Angualr and Web apis",
-      "estimated_effort": "",
+      "benifits": "no need to request in teams (or) emails regarding wfh",
+      "technology": "Angualr,.Net and Web apis",
+      "estimated_effort": "1 month",
       "actual_affort": "",
       "annual_saving": "",
-      "status": "created",
+      "status": "completed",
       "resource_name": "David",
       "emp_id": "QE1003",
       "project": "IMMIGRATION",
       "approver": "QE1002",
-      "id": "Innovation_1"
+      "emp_name": "David Miller"
     },
     {
       "id": "Innovation_84",
-      "sl_no": "",
-      "title": "innovation",
-      "idea_description": "test",
+      "sl_no": "2",
+      "title": "Product to raise ideas",
+      "idea_description": "To raise/create new ideas to help our organization",
       "idea_type": "innovation",
-      "benifits": "test",
-      "technology": "test",
+      "benifits": "will create our own ideas, will try to implement and use org level",
+      "technology": "Angular 17,.Net,WEB API and SQL",
       "estimated_effort": "1 month",
       "emp_id": "QE1001",
       "project": "TAX",
       "approver": "QE1002",
-      "status": "Created"
+      "status": "inprogress",
+      "emp_name": "David John"
+    },
+    {
+      "id": "Innovation_35",
+      "s_no": "3",
+      "title": "productPRequest App",
+      "idea_description": "To raise/create any kind of request through out the organizaztion level",
+      "idea_type": "innovation",
+      "benifits": "We will raise all kind of request like idea,wfh,faciloity,..etc",
+      "technology": "Angular,.Net and WEB API",
+      "estimated_effort": "3 months",
+      "actual_affort": "",
+      "annual_saving": "",
+      "status": "inprogress",
+      "emp_id": "QE1003",
+      "approver": "QE1002",
+      "emp_name": "David Miller"
+    },
+    {
+      "id": "Innovation_35",
+      "s_no": "4",
+      "title": "Extension to VS code",
+      "idea_description": "To convert px to rem in css",
+      "idea_type": "innovation",
+      "benifits": "It will converts px units to rem/em/vh/vm and vice versa in css/scss file",
+      "technology": "Angular",
+      "estimated_effort": "1 month",
+      "actual_affort": "",
+      "annual_saving": "",
+      "status": "inprogress",
+      "emp_id": "QE1003",
+      "approver": "QE1002",
+      "emp_name": "David Miller"
+    }
+  ],
+  "innnovationcards": [
+    {
+      "id": "1",
+      "icon": "lightbulb_outline_on",
+      "title": "Ideation",
+      "number": "4",
+      "backgroundcolor": "darkturquoise"
+    },
+    {
+      "id": "2",
+      "icon": "rotate_left",
+      "title": "Inprogress",
+      "number": "3",
+      "backgroundcolor": "blue"
+    },
+    {
+      "id": "3",
+      "icon": "done_all",
+      "title": "Completed",
+      "number": "1",
+      "backgroundcolor": "green"
+    },
+    {
+      "id": "4",
+      "icon": "gpp_bad",
+      "title": "Cancelled",
+      "number": "0",
+      "backgroundcolor": "red"
     }
   ]
 }

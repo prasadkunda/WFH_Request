@@ -101,7 +101,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {
         this.users = res.filter((item) => item.emp_id === this.userId);
-        console.log('emp_id based data',this.users);
+        // console.log('emp_id based data',this.users);
         // this.users = res;
         // if (res) {
           this.dataSource = new MatTableDataSource(this.users);
