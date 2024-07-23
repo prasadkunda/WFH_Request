@@ -24,6 +24,7 @@ import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common
 import { catchError, throwError } from 'rxjs';
 import { NotificationService } from './shared/service/notification/notification.service';
 import { IUserDetails } from './shared/service/interfaces/interfaces';
+import { ProfileComponent } from './shared/components/profile/profile.component';
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,8 @@ import { IUserDetails } from './shared/service/interfaces/interfaces';
     SidenavbarComponent,
     MatMenuModule,
     NotificationsComponent,
-    HttpClientModule
+    HttpClientModule,
+    ProfileComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

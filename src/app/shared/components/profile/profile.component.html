@@ -1,0 +1,24 @@
+<div class="profile-container" matTooltip="Profile">
+    <div class="profile-details" (click)="toggleDropdown()">
+        @if(userImage){
+            <img [src]="userImage" alt="Profile Picture" class="profile-image"/>
+        }
+      <!-- <img *ngIf="userImage; else initials" [src]="userImage" alt="Profile Picture" class="profile-image"/> -->
+      @if(userInitials){
+        <ng-template #initials>
+            <div class="profile-initials">{{ userInitials }}</div>
+          </ng-template>
+      }      
+      <span class="profile-name">{{ userName }}</span>
+      <mat-icon class="dropdown-icon">{{ dropdownOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
+    </div>
+    @if(dropdownOpen){
+        <div class="dropdown-menu">
+            <button mat-menu-item (click)="onProfileClick()">Profile</button>
+            <button mat-menu-item (click)="onSettingsClick()">Settings</button>
+            <button mat-menu-item (click)="onLogoutClick()">Logout</button>
+          </div>
+    }
+    
+  </div>
+  
