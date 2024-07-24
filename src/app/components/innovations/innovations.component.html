@@ -12,11 +12,11 @@
     <div class="col-md-3 p-2" (click)="onCardClick(i, card.title)" >
       <!-- [ngStyle]="getBorderStyle(card)" -->
       <mat-card
-        class="text-center card-container border-style"
+        class="text-center card-container border-style glass-card"
         [ngClass]="{ 'active-card': i === activeCardId }"
       >
         <div class="row">
-          <div class="card_content col-md-10">
+          <div class="card_content col-md-8">
             <h5 class="m-0 heading">{{ card.number }}</h5>
             <p class="paragraph-text text-muted m-0">{{ card.title }}</p>
             <mat-icon
