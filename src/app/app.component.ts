@@ -25,6 +25,9 @@ import { catchError, throwError } from 'rxjs';
 import { NotificationService } from './shared/service/notification/notification.service';
 import { IUserDetails } from './shared/service/interfaces/interfaces';
 import { ProfileComponent } from './shared/components/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +45,9 @@ import { ProfileComponent } from './shared/components/profile/profile.component'
     MatMenuModule,
     NotificationsComponent,
     HttpClientModule,
-    ProfileComponent
+    ProfileComponent,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

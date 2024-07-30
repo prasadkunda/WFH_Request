@@ -40,6 +40,14 @@ export class SidenavbarComponent {
       this.router.navigate(['/trainings']);
     }else if (value.project === 'Home') {
       this.router.navigate(['/manager']);
+    }else if(value.project === 'About Us'){
+      this.router.navigate(['/about-us'])
+    }else if(value.project === 'Contact Us'){
+      this.router.navigate(['/contact-us'])
+    }else if(value.project === 'Admin'){
+      this.router.navigate(['/admin'])
+    }else if(value.project === 'Login'){
+      this.router.navigate(['/login'])
     }
   }
 }

@@ -36,9 +36,9 @@ export class MatTableComponent implements OnInit {
     }
   }
 
-  @ViewChild(MatSort) set sort(sort: MatSort) {
-    if (this.dataSource?.sort && sort) {
-      this.dataSource.sort = sort;
+  @ViewChild(MatSort) set sort(value: MatSort) {
+    if (this.dataSource?.sort && value) {
+      this.dataSource.sort = value;
     }
   }
 

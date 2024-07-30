@@ -1,1 +1,13 @@
-<p>admin works!</p>
+<form [formGroup]="toggleForm">
+  <div class="row mt-1">
+    <mat-slide-toggle
+    formControlName="checked"
+    (change)="fnToggleAdmin()"
+    class="example-margin"
+    [color]="color"
+  >
+    Navigate To Manager
+  </mat-slide-toggle>
+  </div> 
+
+</form>

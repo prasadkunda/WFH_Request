@@ -534,7 +534,7 @@
       "project": "WFH",
       "id": "P_2",
       "icon": "home_work"
-    },    
+    },
     {
       "sl_no": "3",
       "project": "Request",
@@ -557,6 +557,30 @@
       "sl_no": "6",
       "project": "Trainings",
       "id": "P_6",
+      "icon": "model_training"
+    },
+    {
+      "sl_no": "7",
+      "project": "About Us",
+      "id": "P_7",
+      "icon": "model_training"
+    },
+    {
+      "sl_no": "8",
+      "project": "Contact Us",
+      "id": "P_8",
+      "icon": "model_training"
+    },
+    {
+      "sl_no": "9",
+      "project": "Admin",
+      "id": "P_9",
+      "icon": "model_training"
+    },
+    {
+      "sl_no": "10",
+      "project": "Login",
+      "id": "P_10",
       "icon": "model_training"
     }
   ],
@@ -838,6 +862,14 @@
       "id": "innovation_6",
       "emp_id": "QE1001",
       "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "1",
+      "emp_id": "QE1001",
+      "message": "New WFH request has been raised by QE1001 ",
       "read": false,
       "project": "TAX",
       "approver": "QE1002"

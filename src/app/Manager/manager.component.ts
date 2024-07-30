@@ -37,7 +37,8 @@ import { IUsesrRequestsDetails, INotifications, IInnovationDashboard } from '../
 import { NotificationService } from '../shared/service/notification/notification.service';
 import { ExportExcelService } from '../shared/utils/export-excel.service';
 import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-manager',
   standalone: true,
@@ -52,6 +53,7 @@ import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-sys
     MatMenuModule,
     MatIconModule,
     HighchartsChartModule,
+    MatSlideToggleModule
   ],
   templateUrl: './manager.component.html',
   styleUrl: './manager.component.scss',
@@ -62,6 +64,10 @@ export class ManagerComponent implements OnInit,AfterViewInit {
   _parentfilter: boolean = false;
   manager_DataSource!: MatTableDataSource<UserData>;
   filterForm!: FormGroup;
+  color = 'accent';
+  toggleForm!: FormGroup;
+  toggleValue= 'Admin';
+  
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   // set paginator(value: MatPaginator) {
   //   if (this.manager_DataSource) {
@@ -108,7 +114,8 @@ export class ManagerComponent implements OnInit,AfterViewInit {
     private exportexcelservice: ExportExcelService,
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router : Router
   ) {
     this.filterForm = this.fb.group({
       start: new FormControl(this.st_date, [Validators.required]),
@@ -116,7 +123,19 @@ export class ManagerComponent implements OnInit,AfterViewInit {
       requestStatus: [''],
       employeeId: [''],
     });
+    {
+      this.toggleForm = this.fb.group({
+        checked : new FormControl('')
+      })
+    }
   }
+  fnToggleAdmin(){
+    let isChecked = this.toggleForm.get('checked')?.value;
+    if(isChecked === true){
+      this.router.navigate(['/admin'])
+    }
+  }
+  
   ngAfterViewInit(): void {
     this.manager_DataSource.paginator = this.paginator;
     this.manager_DataSource.sort = this.sort;

@@ -117,7 +117,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule ,
     MatButtonModule,
      MatMenuModule,
-      MatIconModule
+      MatIconModule,
+      
   ],
   exports: [
     CdkTableModule,
