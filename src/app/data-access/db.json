@@ -40,7 +40,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "1941",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": "data:image/jpeg;base64,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"
     },
     {
       "sl_no": "2",
@@ -52,7 +53,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "5bba",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "3",
@@ -64,7 +66,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "67e8",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "4",
@@ -76,7 +79,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "f267",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "5",
@@ -88,7 +92,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "de3b",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "6",
@@ -100,7 +105,8 @@
       "status": "approved",
       "comments": "Health issues",
       "id": "3d55",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "7",
@@ -112,7 +118,8 @@
       "status": "rejected",
       "comments": "Health issues",
       "id": "2aa3",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "8",
@@ -124,7 +131,8 @@
       "status": "rejected",
       "comments": "Family function",
       "id": "07b6",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "9",
@@ -136,7 +144,8 @@
       "status": "rejected",
       "comments": "Health issues",
       "id": "729f",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "sl_no": "10",
@@ -148,7 +157,8 @@
       "status": "created",
       "comments": "Health issues",
       "id": "7e72",
-      "request_type": "wfh"
+      "request_type": "wfh",
+      "avatar": ""
     },
     {
       "id": "req_1",
@@ -712,7 +722,8 @@
       "emp_mname": "",
       "emp_lname": "miller",
       "email": "david@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
+      "avatar": "https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-512.png",
       "Project": "TAX",
       "id": "48dd"
     },
@@ -722,8 +733,9 @@
       "emp_mname": "louise",
       "emp_lname": "king",
       "email": "alk@qentelli.com",
-      "desiganation": "Team Lead",
+      "designation": "Team Lead",
       "Project": "TAX",
+      "avatar":"",
       "id": "9658"
     },
     {
@@ -732,8 +744,9 @@
       "emp_mname": "",
       "emp_lname": "singh",
       "email": "rajas@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "SWA",
+      "avatar":"",
       "id": "859c"
     },
     {
@@ -742,9 +755,10 @@
       "emp_mname": "",
       "emp_lname": "dravid",
       "email": "rahul@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "SWA",
-      "id": "c3fa"
+      "id": "c3fa",
+      "avatar":""
     },
     {
       "emp_id": "QE1005",
@@ -752,9 +766,10 @@
       "emp_mname": "",
       "emp_lname": "smith",
       "email": "willsmith@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "Immigration",
-      "id": "8869"
+      "id": "8869",
+      "avatar":""
     },
     {
       "emp_id": "QE1006",
@@ -762,9 +777,10 @@
       "emp_mname": "",
       "emp_lname": "watson",
       "email": "emawatson@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "TAX",
-      "id": "201c"
+      "id": "201c",
+      "avatar":""
     },
     {
       "emp_id": "QE1007",
@@ -772,9 +788,10 @@
       "emp_mname": "",
       "emp_lname": "snake",
       "email": "djsnake@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "Immigration",
-      "id": "c0c8"
+      "id": "c0c8",
+      "avatar":""
     },
     {
       "emp_id": "QE1008",
@@ -782,9 +799,10 @@
       "emp_mname": "",
       "emp_lname": "paul",
       "email": "sceanpaul@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "TAX",
-      "id": "ee93"
+      "id": "ee93",
+      "avatar":""
     },
     {
       "emp_id": "QE1009",
@@ -792,9 +810,10 @@
       "emp_mname": "",
       "emp_lname": "eliglias",
       "email": "enrigue@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "TAX",
-      "id": "f936"
+      "id": "f936",
+      "avatar":""
     },
     {
       "emp_id": "QE1010",
@@ -802,9 +821,10 @@
       "emp_mname": "",
       "emp_lname": "david",
       "email": "pauldavid@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "TAX",
-      "id": "15dc"
+      "id": "15dc",
+      "avatar":""
     }
   ],
   "User_detial": [
@@ -814,7 +834,7 @@
       "emp_mname": "",
       "emp_lname": "miller",
       "email": "david@qentelli.com",
-      "desiganation": "Senior Software Developer",
+      "designation": "Senior Software Developer",
       "Project": "TAX",
       "repoting_manager": "Gowri",
       "repoting_manager_id": "QE1002",
@@ -828,7 +848,7 @@
       "emp_mname": "",
       "emp_lname": "shankar",
       "email": "gowrishankar@qentelli.com",
-      "desiganation": "manager",
+      "designation": "manager",
       "Project": "TAX",
       "id": "3a30"
     }

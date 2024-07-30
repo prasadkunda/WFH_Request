@@ -180,7 +180,7 @@ export class CommonService {
         this.userDetails = res;
         // console.log('this.userDetails', this.userDetails);
         this.userId = this.userDetails[0].emp_id;
-        this.uesrRole = this.userDetails[0].desiganation;
+        this.uesrRole = this.userDetails[0].designation;
         if (this.userRole === 'manager') {
           this.router.navigate(['manager']);
         }

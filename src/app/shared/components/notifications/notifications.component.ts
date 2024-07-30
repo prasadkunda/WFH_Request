@@ -32,7 +32,7 @@ export class NotificationsComponent implements OnInit{
     // console.log('user details not',this.userDetails[0]);
     if(this.userDetails){
       this.userId = this.userDetails[0]?.emp_id;
-    this.uesr_role = this.userDetails[0]?.desiganation;
+    this.uesr_role = this.userDetails[0]?.designation;
     }
     this.loadNotifications();   
     // console.log('this.userId notification comp', this.userId);

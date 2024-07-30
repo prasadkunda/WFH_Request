@@ -121,7 +121,7 @@ export class AppComponent {
       if(res && Array.isArray(res)){
       this.userDetails = res;
       this.userName = `${this.userDetails[0]?.emp_fname} ${this.userDetails[0]?.emp_mname} ${this.userDetails[0]?.emp_lname}`;
-      this.user_role = this.userDetails[0]?.desiganation;
+      this.user_role = this.userDetails[0]?.designation;
       if(this.user_role === 'manager'){
         this.router.navigate(['manager']);
       }else if(this.user_role === 'Senior Software Developer'){

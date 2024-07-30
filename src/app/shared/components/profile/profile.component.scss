@@ -1,54 +1,79 @@
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .profile-details {
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 8px;
-    border-radius: 4px;
-  }
-  
-  .profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 8px;
-  }
-  
-  .profile-initials {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #1976d2;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8px;
-    font-weight: bold;
-  }
-  
-  .profile-name {
-    flex-grow: 1;
-  }
-  
-  .dropdown-icon {
-    margin-left: auto;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: lightgray;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-  }
-  
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+
+.profile-initials, .profile-initials-large {
+  width: 32px; /* Adjust size for small initials */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc; /* Background color for initials */
+  border-radius: 50%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.profile-initials-large {
+  width: 64px; /* Adjust size for large initials */
+  height: 64px;
+}
+
+.profile-name {
+  font-weight: 500;
+}
+
+.profile-menu-content {
+  padding: 16px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-role,
+.profile-email {
+  margin: 4px 0;
+}
+
+.mat-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

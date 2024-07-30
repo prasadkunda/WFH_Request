@@ -35,10 +35,11 @@ export interface IUserDetails {
   emp_mname: string;
   emp_lname: string;
   email: string;
-  desiganation: string;
+  designation: string;
   Project: string;
   repoting_manager: string;
   repoting_manager_id: string;
+  avatar: string;
 }
 
 export interface IUsesrAllDetals {
