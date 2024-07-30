@@ -27,7 +27,7 @@ export class ProfileComponent {
   ngOnInit() {
     this.userDetails = [
       {
-        avatar: 'https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-512.png'
+        avatar:this.sanitizer.bypassSecurityTrustResourceUrl('https://cdn3.iconfinder.com/data/icons/avatars-flat/33/man_5-512.png') 
  
       }
     ];
