@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,15 +19,17 @@ $WFH_Request-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$WFH_Request-theme: mat.define-light-theme((
-  color: (
-    primary: $WFH_Request-primary,
-    accent: $WFH_Request-accent,
-    warn: $WFH_Request-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
+$WFH_Request-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $WFH_Request-primary,
+      accent: $WFH_Request-accent,
+      warn: $WFH_Request-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -37,5 +38,38 @@ $WFH_Request-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #f0f0f0;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f0f0;
+}
+.employee-view {
+  .mat-mdc-header-cell {
+    background-color: #979292 !important;
+    color: white;
+  }
+  .mat-mdc-header-cell:first-child {
+    border-top-left-radius: 5px;
+  }
+  .mat-mdc-header-cell:last-child {
+    border-top-right-radius: 5px;
+  }
+  .mat-mdc-row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .mat-sort-header-arrow {
+    color: #fff !important;
+  }
+  .btn {
+    --bs-btn-padding-x: 0.35rem;
+  }
+}
+.request-tab-group {
+  .mat-mdc-tab-body-wrapper .mat-mdc-tab-body-content {
+    overflow: hidden !important;
+  }
+}

@@ -9,14 +9,14 @@
     },
     {
       "id": "2",
-      "icon": "check_circle_outline",
+      "icon": "check_outline",
       "title": "Approved",
       "number": "2",
       "backgroundcolor": "#28a745"
     },
     {
       "id": "3",
-      "icon": "highlight_off",
+      "icon": "disabled_by_default",
       "title": "Rejected",
       "number": "1",
       "backgroundcolor": "#dc3545"
@@ -539,7 +539,7 @@
       "sl_no": "3",
       "project": "Request",
       "id": "P_3",
-      "icon": "open_in_new"
+      "icon": "new_releases"
     },
     {
       "sl_no": "4",

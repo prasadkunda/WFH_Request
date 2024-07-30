@@ -91,4 +91,5 @@ export class MatTableComponent implements OnInit {
   //   // this.onSearchChange.emit(input.value);
 
   // }
+  public onClickFilter(event: any): void {}
 }

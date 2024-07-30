@@ -1,1 +1,122 @@
-<p>request works!</p>
+<!-- <mat-form-field class="example-chip-list">
+    <mat-chip-grid #chipGrid aria-label="Enter values">
+      @for (value of avaliableRequests; track value) {
+        <mat-chip-row
+          [aria-description]="'press enter to edit ' + value.name"
+        >
+          {{value.name}}
+        </mat-chip-row>
+      }
+       <input
+        placeholder="New value..."
+        [matChipInputFor]="chipGrid"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      /> 
+    </mat-chip-grid> -->
+<!-- </mat-form-field>  -->
+
+<mat-tab-group class="request-tab-group"
+  [selectedIndex]="selected.value"
+  (selectedIndexChange)="selected.setValue($event)"
+>
+  @for (tab of avaliableRequests; track tab) {
+  <mat-tab [label]="tab.name" class="tab-classes">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <!-- <button
+        mat-icon-button
+        class="close-button col-md-1"
+        [mat-dialog-close]="true"
+      > -->
+      <!-- <mat-icon class="close-icon" color="warn" (click)="onSubmit()"
+            >close</mat-icon
+          > -->
+      <!-- </button> -->
+      <form
+        class="form col-md-10"
+        [formGroup]="dateRangeForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <mat-form-field class="col-md-4" appearance="fill">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="startPicker"
+              formControlName="startDate"
+              [matDatepickerFilter]="dateFilter"
+              (dateChange)="onDateChange($event)"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="startPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+            @if(dateRangeForm.get('startDate')?.hasError('required')){
+            <mat-error>Start date is required</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field class="col-md-4" appearance="fill">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="endPicker"
+              formControlName="endDate"
+              [matDatepickerFilter]="dateFilter"
+              (dateChange)="onDateChange($event)"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+            <mat-error
+              *ngIf="dateRangeForm.get('endDate')?.hasError('required')"
+              >End date is required</mat-error
+            >
+          </mat-form-field>
+          @if(dateRangeForm.hasError('dateRangeInvalid')){
+          <mat-error>Date range must be within 5 days</mat-error>
+          }
+          <mat-form-field class="col-md-4" appearance="fill">
+            <mat-label>Comments</mat-label>
+            <textarea
+              matInput
+              placeholder="Mention the Reason for WFH..."
+              formControlName="comments"
+            ></textarea>
+            <mat-error
+              *ngIf="dateRangeForm.get('comments')?.hasError('required')"
+              >Comments are required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <button
+            class="form-button col-md-4"
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="dateRangeForm.invalid"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
+          <div class="col-md-4"></div>
+        </div>
+      </form>
+      <div class="col-md-1"></div>
+    </div>
+
+    <!-- <button mat-raised-button
+            class="example-delete-tab-button"
+            [disabled]="avaliableRequests.length === 1"
+            (click)="removeTab(index)">
+      Delete Tab
+    </button> -->
+  </mat-tab>
+  }
+</mat-tab-group>

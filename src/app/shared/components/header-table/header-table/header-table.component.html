@@ -3,7 +3,8 @@
     {{ title }}
   </div>
   <div class="col-md-1">
-    <span class="align-middle" (click)="onExportClick()">
+    <span class="align-middle" tooltip matTooltip="export excel" (click)="onExportClick()">
+      <span>Excel export</span>
       <img
         class="export_excel_img"
         src="../../../assets/images/export-excel.png"

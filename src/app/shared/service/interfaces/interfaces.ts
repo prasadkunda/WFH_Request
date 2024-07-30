@@ -76,7 +76,7 @@ export interface IInnovations {
 }
 
 export interface IInnovationDashboard {
-  id:string;
+  id: string;
   title: string;
   idea_description: string;
   benifits: string;
@@ -84,5 +84,27 @@ export interface IInnovationDashboard {
   estimated_effort: string;
   status: string;
   emp_id: string;
-  emp_name:string;
+  emp_name: string;
+}
+
+export interface FilterDescription {
+  getDescription(): string;
+}
+
+export interface TableFilter {
+  getFilter(): object;
+}
+
+export declare class ColumnConfig {
+  name?: string;
+  displayName?: string;
+  type: string;
+  options?: any;
+  sticky?: string;
+  sort?: boolean;
+}
+
+export declare class ColumnFilter {
+  column: ColumnConfig | any;
+  filter: any;
 }

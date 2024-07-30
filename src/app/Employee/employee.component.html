@@ -1,13 +1,13 @@
-<div class="p-2">
+<div class="p-2 employee-view">
   <div class="row">
     <div class="row">
-      <h4 class="col-md-10 mt-2 fancy"><b>WFH Dashboard</b></h4>
-      <span class="col-md-2 properties_wfh_button">
+      <h4 class="col-md-10 mt-2 fancy title-holder"><b>WFH Dashboard</b></h4>
+      <!-- <span class="col-md-2 properties_wfh_button"> -->
         <!-- <button type="button" class="btn btn-primary btn-round" (click)="openDialog()">
           <span class="">Request</span> <mat-icon class="add-icon-employee">add_box</mat-icon>
         </button> -->
-        <button class="btn btn-primary btn-round" type="button" (click)="openDialog()"><mat-icon class="add-icon-employee" >add_box</mat-icon> Request </button>
-      </span>
+        <!-- <button class="btn btn-primary btn-round" type="button" (click)="openDialog()"><mat-icon class="add-icon-employee" >add_box</mat-icon> Request </button> -->
+      <!-- </span> -->
      
     </div>
     @for(card of cardDetails;track card;let i = $index){
@@ -21,8 +21,7 @@
           <div class="card_content col-md-8">
             <h5 class="m-0 heading">{{ card.number }}</h5>
             <p class="paragraph-text text-muted m-0">{{ card.title }}</p>
-            <mat-icon
-              class="arrow-icon-color"
+            <mat-icon class="arrow-icon-color"
               style="color: #ff5733; margin-left: -33px"
               >keyboard_arrow_up</mat-icon>
             <span class="count_text">3% from last month</span>

@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { UserData, cardData } from '../../Employee/employee.component';
-import { RouterModule ,Router} from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import {
   IInnovationDashboard,
   IUserDetails,
   IUsesrAllDetals,
   IUsesrRequestsDetails,
 } from './interfaces/interfaces';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ import {
 export class CommonService {
   userDetails!: IUserDetails[];
   userId!: string;
-  public userRole!:string;
+  public userRole!: string;
   private apiUrl = 'http://localhost:3000/AllRequests';
   // [
   //   'http://localhost:3000/Created',
@@ -25,7 +26,11 @@ export class CommonService {
   filteredData: any[] = [];
   uesrRole!: string;
 
-  constructor(private http: HttpClient,private router:Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {
     this.getUserID();
   }
 
@@ -34,12 +39,15 @@ export class CommonService {
     // mock API
     // return this.http.get<cardData[]>('https://mocki.io/v1/9b15e17b-f681-4516-9dd4-77454a84cd93')
     // Json server API
-    return this.http.get<cardData[]>('http://localhost:3000/cards')
-    // return this.http.get<cardData[]>('https://localhost:7236/api/Users/getCardsByEmployeeId?employeeId='+userId)
-    .pipe(
-      catchError((err) => {
-        throw new Error(err);
-      })
+    return (
+      this.http
+        .get<cardData[]>('http://localhost:3000/cards')
+        // return this.http.get<cardData[]>('https://localhost:7236/api/Users/getCardsByEmployeeId?employeeId='+userId)
+        .pipe(
+          catchError((err) => {
+            throw new Error(err);
+          })
+        )
     );
   }
   //to get All the requests details
@@ -47,13 +55,16 @@ export class CommonService {
     //Mock API
     // return this.http.get<UserData>('https://mocki.io/v1/4b512c53-a6d2-42e0-b959-0419c9c5b451')
     // Json server API
-    return (this.http.get<UserData>('http://localhost:3000/AllRequests'))
-    // return this.http.get<UserData>('https://localhost:7236/api/Users/getAllRequestsByEmployeeId?employeeId='+userId)
+    return (
+      this.http
+        .get<UserData>('http://localhost:3000/AllRequests')
+        // return this.http.get<UserData>('https://localhost:7236/api/Users/getAllRequestsByEmployeeId?employeeId='+userId)
         .pipe(
           catchError((err) => {
             throw new Error(err);
           })
         )
+    );
     // );
   }
   //to get All the Approved requests details
@@ -100,15 +111,18 @@ export class CommonService {
     // team member API
     this.userRole = '';
     // return (this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
-     return this.http.get<IUserDetails[]>('http://localhost:3000/User_detial')
-    //Manager API
-    // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
-    // return this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
-      .pipe(
-        catchError((err) => {
-          throw new Error(err);
-        })
-      )
+    return (
+      this.http
+        .get<IUserDetails[]>('http://localhost:3000/User_detial')
+        //Manager API
+        // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
+        // return this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
+        .pipe(
+          catchError((err) => {
+            throw new Error(err);
+          })
+        )
+    );
   }
   // to get list of employees and projects under the manager. based on the manager employee id need to fetch the data from DB.
   public getEmployeesandProjects(): Observable<IUsesrAllDetals[]> {
@@ -128,19 +142,16 @@ export class CommonService {
     // Mock API
     // return this.http.get<IUsesrRequestsDetails[]>('https://mocki.io/v1/4e527a0b-9a27-4f02-88b0-34d46de0b26e')
     // Json Server API
-    return this.http
-      .get<UserData[]>('http://localhost:3000/AllRequests')
-      .pipe(
-        catchError((err) => {
-          throw new Error(err);
-        })
-      );
+    return this.http.get<UserData[]>('http://localhost:3000/AllRequests').pipe(
+      catchError((err) => {
+        throw new Error(err);
+      })
+    );
   }
 
   public addItem(item: any): any {
     console.log(item);
-    return this.http.post('http://localhost:3000/AllRequests', item)
-    .pipe(
+    return this.http.post('http://localhost:3000/AllRequests', item).pipe(
       catchError((err) => {
         throw new Error(err);
       })
@@ -170,7 +181,7 @@ export class CommonService {
         // console.log('this.userDetails', this.userDetails);
         this.userId = this.userDetails[0].emp_id;
         this.uesrRole = this.userDetails[0].desiganation;
-        if(this.userRole === 'manager'){
+        if (this.userRole === 'manager') {
           this.router.navigate(['manager']);
         }
       }
@@ -198,11 +209,10 @@ export class CommonService {
       );
   }
 
-  // to add innovations in DB 
+  // to add innovations in DB
   public addInnovationItem(item: any): any {
     console.log(item);
-    return this.http.post('http://localhost:3000/innovations', item)
-    .pipe(
+    return this.http.post('http://localhost:3000/innovations', item).pipe(
       catchError((err) => {
         throw new Error(err);
       })
@@ -217,22 +227,27 @@ export class CommonService {
   // to get Innovations
   public getInnovations(): Observable<IInnovationDashboard[]> {
     return this.http
-    .get<IInnovationDashboard[]>('http://localhost:3000/innovations')
-    .pipe(
-      catchError((err) => {
-        throw new Error(err);
-      })
-    );
+      .get<IInnovationDashboard[]>('http://localhost:3000/innovations')
+      .pipe(
+        catchError((err) => {
+          throw new Error(err);
+        })
+      );
   }
 
   // to get innovation card details in innovation dashboard
   public getInnovationCardDetails(): Observable<cardData[]> {
     return this.http
-    .get<cardData[]>('http://localhost:3000/innnovationcards')
-    .pipe(
-      catchError((err) => {
-        throw new Error(err);
-      })
-    );
+      .get<cardData[]>('http://localhost:3000/innnovationcards')
+      .pipe(
+        catchError((err) => {
+          
+          throw new Error(err);
+        })
+      );
+  }
+
+  public openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 }

@@ -1,6 +1,13 @@
 .container_icon {
   transform: translateY(4px);
 }
+.mat-mdc-header-cell {
+  background-color: #393939 !important;
+  // color: white;
+}
+.mat-header-cell :first-child {
+  border-top-left-radius: 5px;
+}
 .icon-circle {
   width: 3.125rem;
   height: 3.125rem;
@@ -59,9 +66,11 @@ mat-card {
 .card-container {
   padding-right: 50px;
 }
+
 .count_text {
   font-size: x-small;
-  color: gray;
+  color: #131212;
+  font-weight: 600;
 }
 .arrow-icon-color {
   font-size: 20px;
@@ -113,5 +122,7 @@ mat-card {
   background: white;
   // font-weight: 600;
 }
-
-
+.title-holder {
+  border-bottom: 2px solid #f2f2f2;
+  margin-bottom: 10px;
+}
