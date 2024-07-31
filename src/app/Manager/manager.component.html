@@ -186,7 +186,7 @@
           <table mat-table [dataSource]="dataSourceInnovations" matSort>
             <ng-container matColumnDef="title">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
-              <td mat-cell *matCellDef="let request">{{ request.title }}</td>
+              <td mat-cell *matCellDef="let request" (click)="openWorkFlowDialog()">{{ request.title }}</td>
             </ng-container>
             <ng-container matColumnDef="idea_description">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Idea Description</th>
@@ -239,7 +239,7 @@
             </td>
           </ng-container> -->
             <tr mat-header-row *matHeaderRowDef="displayedColumnsInnovations"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsInnovations"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsInnovations" ></tr>
           </table>
           <mat-paginator [pageSize]="5" showFirstLastButtons></mat-paginator>
         </div>

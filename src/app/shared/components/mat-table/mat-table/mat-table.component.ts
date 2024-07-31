@@ -5,6 +5,7 @@ import {
   Input,
   OnInit,
   Output,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,6 +15,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ExportExcelService } from '../../../utils/export-excel.service';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
+import { WorkflowStepperComponent } from '../../workflow-stepper/workflow-stepper.component';
 
 @Component({
   selector: 'app-mat-table',
@@ -24,6 +27,9 @@ import { MatIconModule } from '@angular/material/icon';
 })
 
 export class MatTableComponent implements OnInit {
+  public modalOpen: boolean = false;
+  public dialogRef!: MatDialog;
+  @Input() valid_screen: boolean = false;
   @Input() dataSource!: MatTableDataSource<any>;
   @Output() filterChanged = new EventEmitter<any>();
   @Input() displayedColumns!: string[];
@@ -44,8 +50,9 @@ export class MatTableComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private exportexcelservice: ExportExcelService
-  ) {}
+    private exportexcelservice: ExportExcelService,
+    public dialog: MatDialog
+  ) {  this.dialogRef = dialog; }
 
   ngOnInit() {
     if (this.dataSource?.paginator && this.dataSource.sort) {
@@ -53,6 +60,10 @@ export class MatTableComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.cdr.detectChanges();
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
   }
 
   public getStatusClass(status: string): string {
@@ -92,4 +103,28 @@ export class MatTableComponent implements OnInit {
 
   // }
   public onClickFilter(event: any): void {}
+
+  public openDialog(): void {
+    if (!this.modalOpen) {
+      this.dialog
+        .open(WorkflowStepperComponent, {
+          width: '648px',
+          panelClass: 'custom_class',
+          autoFocus: true,
+          ariaLabel: 'Innovation Request-modal',
+          hasBackdrop: true,
+        })
+        .afterClosed()
+        .subscribe((result: any) => {
+          // console.log('The dialog was closed');
+          // if (result) {
+          //   console.log('Form data:', result);
+          //   this.generateRandomNumbers();
+          //   this.saveinnvations(result);
+          // }
+        });
+    }
+    this.modalOpen = true;
+  }
+
 }

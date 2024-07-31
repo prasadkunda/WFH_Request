@@ -73,6 +73,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   userDetails!: IUserDetails[];
   public dialogRef!: MatDialog;
   public modalOpen: boolean = false;
+  // valid_screen !: boolean;
   displayedColumns = [
     'project',
     'requested_date',
@@ -97,6 +98,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
+    // this.valid_screen = true;
     this.getUserDetails();
     this.commonService.getAllRequest().subscribe((res) => {
       if (res && Array.isArray(res)) {

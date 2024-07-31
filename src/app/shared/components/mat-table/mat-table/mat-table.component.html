@@ -75,7 +75,7 @@
           </svg>
         </button>
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let element" (click)="valid_screen ? openDialog():''">
         <span *ngIf="columnName === 'actions' && element['status'] !== 'rejected'">
           <mat-icon tooltip matTooltip="cancel your request">touch_app</mat-icon>
         </span>

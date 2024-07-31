@@ -46,6 +46,7 @@ export class InnovationsComponent implements OnInit {
   dataSource!: MatTableDataSource<IInnovationDashboard>;
   headerTitle: string = 'Ideation';
   innovationRecords!: any[];
+  valid_screen !: boolean;
 
   displayedColumns = [
     'title',
@@ -64,6 +65,7 @@ export class InnovationsComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.valid_screen = true;
     this.commonService.getUserdetails().subscribe((res) => {
       if (res) {
         this.userDetails = res;

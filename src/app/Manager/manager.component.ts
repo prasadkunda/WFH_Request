@@ -39,6 +39,7 @@ import { ExportExcelService } from '../shared/utils/export-excel.service';
 import { SharedUiDesignSystemModule } from '../shared/utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
+import { WorkflowStepperComponent } from '../shared/components/workflow-stepper/workflow-stepper.component';
 @Component({
   selector: 'app-manager',
   standalone: true,
@@ -80,6 +81,8 @@ export class ManagerComponent implements OnInit,AfterViewInit {
   st_date = new Date();
   userDetails!: any;
   projects_List!: any[];
+  public modalOpen: boolean = false;
+  public dialogRef!: MatDialog;
 
   displayedColumnsRequests: string[] = [
     'emp_id',
@@ -115,8 +118,10 @@ export class ManagerComponent implements OnInit,AfterViewInit {
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef,
     private notificationService: NotificationService,
-    private router : Router
+    private router : Router,
+    public dialog: MatDialog
   ) {
+    this.dialogRef = dialog;
     this.filterForm = this.fb.group({
       start: new FormControl(this.st_date, [Validators.required]),
       end: [''],
@@ -231,7 +236,7 @@ export class ManagerComponent implements OnInit,AfterViewInit {
   // mat dailog related code
   readonly animal = signal('');
   readonly name = model('');
-  readonly dialog = inject(MatDialog);
+  // readonly dialog = inject(MatDialog);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PopUpComponent, {
@@ -346,4 +351,28 @@ export class ManagerComponent implements OnInit,AfterViewInit {
       }
     })
   }
+
+  public openWorkFlowDialog(): void {
+    if (!this.modalOpen) {
+      this.dialog
+        .open(WorkflowStepperComponent, {
+          width: '800px',
+          panelClass: 'custom_class',
+          autoFocus: true,
+          ariaLabel: 'Innovation Request-modal',
+          hasBackdrop: true,
+        })
+        .afterClosed()
+        .subscribe((result: any) => {
+          // console.log('The dialog was closed');
+          // if (result) {
+          //   console.log('Form data:', result);
+          //   this.generateRandomNumbers();
+          //   this.saveinnvations(result);
+          // }
+        });
+    }
+    this.modalOpen = true;
+  }
+  
 }

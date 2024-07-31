@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-workflow-stepper',
   standalone: true,
-  imports: [],
+  imports: [MatStepperModule,  FormsModule, ReactiveFormsModule],
   templateUrl: './workflow-stepper.component.html',
   styleUrl: './workflow-stepper.component.scss'
 })

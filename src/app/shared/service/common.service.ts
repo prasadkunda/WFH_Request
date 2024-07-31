@@ -116,7 +116,8 @@ export class CommonService {
         .get<IUserDetails[]>('http://localhost:3000/User_detial')
         //Manager API
         // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
-        // return this.http.get<IUserDetails[]>('http://localhost:3000/Manager_details')
+        // return this.http.
+        // .get<IUserDetails[]>('http://localhost:3000/Manager_details')
         .pipe(
           catchError((err) => {
             throw new Error(err);
