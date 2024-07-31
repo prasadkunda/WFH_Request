@@ -21,6 +21,7 @@ export class SidenavbarComponent {
   @Input() isExpanded: boolean = false;
   @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() projects!: any[];
+  public myInnovationFlag: boolean = false;
   constructor(private router: Router) {}
 
   handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
@@ -34,20 +35,20 @@ export class SidenavbarComponent {
       this.router.navigate(['/employee']);
     } else if (value.project === 'Operations') {
       this.router.navigate(['/operations']);
-    }else if (value.project === 'Request') {
+    } else if (value.project === 'Request') {
       this.router.navigate(['/request']);
-    }else if (value.project === 'Trainings') {
+    } else if (value.project === 'Trainings') {
       this.router.navigate(['/trainings']);
-    }else if (value.project === 'Home') {
+    } else if (value.project === 'Home') {
       this.router.navigate(['/manager']);
-    }else if(value.project === 'About Us'){
-      this.router.navigate(['/about-us'])
-    }else if(value.project === 'Contact Us'){
-      this.router.navigate(['/contact-us'])
-    }else if(value.project === 'Admin'){
-      this.router.navigate(['/admin'])
-    }else if(value.project === 'Login'){
-      this.router.navigate(['/login'])
+    } else if (value.project === 'About Us') {
+      this.router.navigate(['/about-us']);
+    } else if (value.project === 'Contact Us') {
+      this.router.navigate(['/contact-us']);
+    } else if (value.project === 'Admin') {
+      this.router.navigate(['/admin']);
+    } else if (value.project === 'Login') {
+      this.router.navigate(['/login']);
     }
   }
 }

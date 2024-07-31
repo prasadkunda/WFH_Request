@@ -17,6 +17,9 @@ import { ExportExcelService } from '../../../utils/export-excel.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkflowStepperComponent } from '../../workflow-stepper/workflow-stepper.component';
+import { IUserDetails } from '../../../service/interfaces/interfaces';
+import { CommonService } from '../../../service/common.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mat-table',
@@ -25,16 +28,18 @@ import { WorkflowStepperComponent } from '../../workflow-stepper/workflow-steppe
   templateUrl: './mat-table.component.html',
   styleUrl: './mat-table.component.scss',
 })
-
 export class MatTableComponent implements OnInit {
   public modalOpen: boolean = false;
   public dialogRef!: MatDialog;
   @Input() valid_screen: boolean = false;
+  @Input() myInnovationFlag!: boolean;
   @Input() dataSource!: MatTableDataSource<any>;
   @Output() filterChanged = new EventEmitter<any>();
   @Input() displayedColumns!: string[];
   @Input() searchedValue!: string;
   @Input() title: string = 'Total Request';
+  public userDetails!: IUserDetails[];
+  public params: any;
   @ViewChild(MatPaginator, { static: false })
   set paginator(value: MatPaginator) {
     if (this.dataSource && value) {
@@ -49,12 +54,18 @@ export class MatTableComponent implements OnInit {
   }
 
   constructor(
+    private commonService: CommonService,
     private cdr: ChangeDetectorRef,
     private exportexcelservice: ExportExcelService,
-    public dialog: MatDialog
-  ) {  this.dialogRef = dialog; }
+    public dialog: MatDialog){   
+    this.dialogRef = dialog;
+  }
 
   ngOnInit() {
+    console.log('myInnvationFlag', this.myInnovationFlag);
+    this.commonService.getUserdetails().subscribe((response) => {
+      this.userDetails = response;
+    });
     if (this.dataSource?.paginator && this.dataSource.sort) {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -127,4 +138,13 @@ export class MatTableComponent implements OnInit {
     this.modalOpen = true;
   }
 
+  public filterMyInnovations(): void {
+    // console.log('this.dataSource', this.dataSource);
+    if (this.dataSource) {
+      this.dataSource.data = this.dataSource.data.filter(
+        (item) => item.emp_id === this.userDetails[0].emp_id
+      );
+      console.log('this.dataSource', this.dataSource);
+    }
+  }
 }

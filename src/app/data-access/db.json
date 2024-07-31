@@ -735,7 +735,7 @@
       "email": "alk@qentelli.com",
       "designation": "Team Lead",
       "Project": "TAX",
-      "avatar":"",
+      "avatar": "",
       "id": "9658"
     },
     {
@@ -746,7 +746,7 @@
       "email": "rajas@qentelli.com",
       "designation": "Senior Software Developer",
       "Project": "SWA",
-      "avatar":"",
+      "avatar": "",
       "id": "859c"
     },
     {
@@ -758,7 +758,7 @@
       "designation": "Senior Software Developer",
       "Project": "SWA",
       "id": "c3fa",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1005",
@@ -769,7 +769,7 @@
       "designation": "Senior Software Developer",
       "Project": "Immigration",
       "id": "8869",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1006",
@@ -780,7 +780,7 @@
       "designation": "Senior Software Developer",
       "Project": "TAX",
       "id": "201c",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1007",
@@ -791,7 +791,7 @@
       "designation": "Senior Software Developer",
       "Project": "Immigration",
       "id": "c0c8",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1008",
@@ -802,7 +802,7 @@
       "designation": "Senior Software Developer",
       "Project": "TAX",
       "id": "ee93",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1009",
@@ -813,7 +813,7 @@
       "designation": "Senior Software Developer",
       "Project": "TAX",
       "id": "f936",
-      "avatar":""
+      "avatar": ""
     },
     {
       "emp_id": "QE1010",
@@ -824,7 +824,7 @@
       "designation": "Senior Software Developer",
       "Project": "TAX",
       "id": "15dc",
-      "avatar":""
+      "avatar": ""
     }
   ],
   "User_detial": [
@@ -890,6 +890,22 @@
       "id": "1",
       "emp_id": "QE1001",
       "message": "New WFH request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_33",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_3",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
@@ -960,6 +976,26 @@
       "emp_id": "QE1003",
       "approver": "QE1002",
       "emp_name": "David Miller"
+    },
+    {
+      "id": "Innovation_33",
+      "sl_no": "",
+      "idea_type": "Innovation",
+      "emp_id": "QE1001",
+      "emp_name": "Davidmiller",
+      "project": "TAX",
+      "approver": "QE1002",
+      "status": "created"
+    },
+    {
+      "id": "Innovation_3",
+      "sl_no": "",
+      "idea_type": "Innovation",
+      "emp_id": "QE1001",
+      "emp_name": "Davidmiller",
+      "project": "TAX",
+      "approver": "QE1002",
+      "status": "created"
     }
   ],
   "innnovationcards": [

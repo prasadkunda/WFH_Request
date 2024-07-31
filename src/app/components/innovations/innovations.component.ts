@@ -57,14 +57,17 @@ export class InnovationsComponent implements OnInit {
     'status',
     'emp_name'
   ];
+  public myInnovationFlag: boolean = true;
   
   constructor(public dialog: MatDialog,private commonService:CommonService,private notificationService:NotificationService) {
     this.dialogRef = dialog;
     this.dialogRef.afterAllClosed.subscribe(() => {
       this.modalOpen = false;
     });
+    
   }
   ngOnInit(): void {
+    // this.myInnovationFlag = true;?
     this.valid_screen = true;
     this.commonService.getUserdetails().subscribe((res) => {
       if (res) {
@@ -86,7 +89,7 @@ export class InnovationsComponent implements OnInit {
     if (!this.modalOpen) {
       this.dialog
         .open(InnovationPopupComponent, {
-          width: '648px',
+          width: '600px',
           panelClass: 'custom_class',
           autoFocus: true,
           ariaLabel: 'Innovation Request-modal',

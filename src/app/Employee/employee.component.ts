@@ -219,7 +219,7 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
     if (!this.modalOpen) {
       this.dialog
         .open(PopOverComponent, {
-          width: '648px',
+          width: '600px',
           panelClass: 'custom_class',
           autoFocus: true,
           ariaLabel: 'WFH Request-modal',

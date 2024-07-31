@@ -3,7 +3,7 @@
   <h4 class="col-md-10 mt-2 fancy"><b>Innovation Dashboard</b></h4>
   <span class="col-md-2 properties_wfh_button">
     <button type="button" class="btn btn-primary innovation" (click)="openDialog()">
-      Innovation<mat-icon class="add-icon">add_box</mat-icon>
+      New<mat-icon class="add-icon">add_box</mat-icon>
     </button>
   </span>
 </div>
@@ -42,10 +42,12 @@
     <mat-card class="row">
       <mat-card-actions>
         <app-mat-table
+        class="innovation-view"
           [title]="headerTitle"
           [dataSource]="dataSource"
           [displayedColumns]="displayedColumns"
           [valid_screen]="valid_screen"
+          [myInnovationFlag]="myInnovationFlag"
         ></app-mat-table>
       </mat-card-actions>
     </mat-card>
