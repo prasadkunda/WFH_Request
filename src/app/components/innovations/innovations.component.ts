@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { PopOverComponent } from '../../shared/components/pop-over/pop-over.component';
@@ -13,8 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTableComponent } from '../../shared/components/mat-table/mat-table/mat-table.component';
@@ -32,7 +32,8 @@ import { MatTableComponent } from '../../shared/components/mat-table/mat-table/m
     MatSortModule,
     MatPaginatorModule,
     MatTooltipModule,
-    MatTableComponent,],
+    MatTableComponent,
+    MatCardModule],
   templateUrl: './innovations.component.html',
   styleUrl: './innovations.component.scss',
 })
@@ -47,6 +48,8 @@ export class InnovationsComponent implements OnInit {
   headerTitle: string = 'Ideation';
   innovationRecords!: any[];
   valid_screen !: boolean;
+  // @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  // @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   displayedColumns = [
     'title',
@@ -85,11 +88,17 @@ export class InnovationsComponent implements OnInit {
     this.getCardDetails();
   }
 
+  // ngAfterViewInit(): void {
+  //   // this.dataSource.paginator = this.paginator;
+  //   // this.dataSource.sort = this.sort;
+  // }
+
   public openDialog(): void {
     if (!this.modalOpen) {
       this.dialog
         .open(InnovationPopupComponent, {
-          width: '600px',
+          width: '650px',
+          height:'450px',
           panelClass: 'custom_class',
           autoFocus: true,
           ariaLabel: 'Innovation Request-modal',

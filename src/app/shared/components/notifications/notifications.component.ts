@@ -5,6 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { NotificationService } from '../../service/notification/notification.service';
 import { CommonService } from '../../service/common.service';
 import { INotifications, IUserDetails } from '../../service/interfaces/interfaces';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class NotificationsComponent implements OnInit{
  uesr_role !: string;
  projects!: string[];
 
-  constructor(private notificationService: NotificationService,private commonService: CommonService) {}
+  constructor(private notificationService: NotificationService,private commonService: CommonService,private router:Router) {}
   ngOnInit(): void {
     this.getUserDetails();
     this.getProjects();
@@ -99,4 +100,8 @@ export class NotificationsComponent implements OnInit{
   public announcementsTile(item:any,i:any) {}
   public removeAnnouncementTile(item:any,i:any) {}
   public viewAllAnnouncements(){}
+
+  navigateviewall() {
+    this.router.navigate(['viewall-notifications']);
+  }
 }

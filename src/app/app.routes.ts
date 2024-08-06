@@ -5,6 +5,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { ViewallTrainingsComponent } from './components/trainings/viewall-trainings/viewall-trainings.component';
 
 export const routes: Routes = [
   { path: 'innovations',  loadComponent: () => import("../app/components/innovations/innovations.component").then((m) => m.InnovationsComponent)},
@@ -18,5 +19,7 @@ export const routes: Routes = [
   {path:'about-us',component:AboutUsComponent},
   {path:'contact-us',component:ContactUsComponent},
   {path:'admin',component:AdminComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path: 'viewall-trainings',loadComponent: () => import("../app/components/trainings/viewall-trainings/viewall-trainings.component").then((m) => m.ViewallTrainingsComponent)},
+  {path: 'viewall-notifications',loadComponent: () => import("../app/shared/components/view-all-notifications/view-all-notifications.component").then((m) => m.ViewAllNotificationsComponent)},
 ];

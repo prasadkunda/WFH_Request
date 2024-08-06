@@ -125,7 +125,7 @@ export class AppComponent {
       if(this.user_role === 'manager'){
         this.router.navigate(['manager']);
       }else if(this.user_role === 'Senior Software Developer'){
-        this.router.navigate(['employee']);
+        this.router.navigate(['innovations']);
       }
       }
     });

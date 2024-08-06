@@ -109,3 +109,13 @@ export declare class ColumnFilter {
   column: ColumnConfig | any;
   filter: any;
 }
+
+export declare class ITrainings {
+  title: string;
+  content: string;
+  button: string;
+  trainer: string;
+  duration: string;
+  type_of_training: string;
+}
+

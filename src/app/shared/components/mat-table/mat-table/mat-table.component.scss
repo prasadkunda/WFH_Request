@@ -65,7 +65,7 @@ th {
   height: 35px;
   width: 35px;
   position: relative;
-  left: 3rem;
+  // left: 3rem;
   font-size: 2.3rem;
 }
 .container_header {
@@ -90,3 +90,19 @@ th {
   border-bottom: 2px solid #f2f2f2;
   margin-bottom: 10px;
 }
+.search-container {
+  display: flex;
+  align-items: center;
+}
+// .search-form {
+//   flex-grow: 1;
+// }
+.export-icon {
+  // margin-left: 10px; /* Adjust spacing as needed */
+  cursor: pointer;
+}
+.filter-my-innovation {
+  display: flex;
+    justify-content: end;
+}
+

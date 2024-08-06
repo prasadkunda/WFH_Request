@@ -103,8 +103,9 @@ mat-card {
 }
 .btn-round {
   border-width: 1px;
-  border-radius: 30px !important;
-  padding: 2px 18px 5px 18px;
+  border-radius: 4px !important;
+  display: flex;
+  // padding: 2px 18px 5px 18px;
 }
 .add-icon-employee {
   position: relative;

@@ -5,6 +5,7 @@ import { UserData, cardData } from '../../Employee/employee.component';
 import { RouterModule, Router } from '@angular/router';
 import {
   IInnovationDashboard,
+  ITrainings,
   IUserDetails,
   IUsesrAllDetals,
   IUsesrRequestsDetails,
@@ -246,6 +247,18 @@ export class CommonService {
           throw new Error(err);
         })
       );
+  }
+
+  // to get trainings details
+  public getUpCommingTrainingsDetails(): Observable<ITrainings[]> {
+    return this.http
+    .get<ITrainings[]>('http://localhost:3000/training-card')
+    .pipe(
+      catchError((err) => {
+        
+        throw new Error(err);
+      })
+    );
   }
 
   public openSnackBar(message: string, action: string) {

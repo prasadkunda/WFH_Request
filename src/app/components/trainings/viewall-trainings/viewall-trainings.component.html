@@ -1,0 +1,23 @@
+
+<div class="row">
+    <h4 class="col-md-10 mt-2 fancy"><b>All Trainings</b></h4>
+    <span class="col-md-2 properties_wfh_button">
+      <!-- <button type="button" class="btn btn-primary innovation" (click)="openDialog()">
+        New<mat-icon class="add-icon">add_box</mat-icon>
+      </button> -->
+    </span>
+  </div>
+<div class="row mt-2 p-2">
+    <div class="table_grid col-md-12">
+      <mat-card class="row">
+        <mat-card-actions>
+          <app-mat-table
+          class="innovation-view"
+            [title]="'Trainings List'"
+            [dataSource]="dataSource"
+            [displayedColumns]="displayedColumns"
+          ></app-mat-table>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>

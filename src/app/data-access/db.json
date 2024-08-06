@@ -541,56 +541,8 @@
     },
     {
       "sl_no": "2",
-      "project": "WFH",
-      "id": "P_2",
-      "icon": "home_work"
-    },
-    {
-      "sl_no": "3",
-      "project": "Request",
-      "id": "P_3",
-      "icon": "new_releases"
-    },
-    {
-      "sl_no": "4",
-      "project": "Operations",
-      "id": "P_4",
-      "icon": "view_kanban"
-    },
-    {
-      "sl_no": "5",
-      "project": "Facilities",
-      "id": "P_5",
-      "icon": "manage_accounts"
-    },
-    {
-      "sl_no": "6",
       "project": "Trainings",
-      "id": "P_6",
-      "icon": "model_training"
-    },
-    {
-      "sl_no": "7",
-      "project": "About Us",
-      "id": "P_7",
-      "icon": "model_training"
-    },
-    {
-      "sl_no": "8",
-      "project": "Contact Us",
-      "id": "P_8",
-      "icon": "model_training"
-    },
-    {
-      "sl_no": "9",
-      "project": "Admin",
-      "id": "P_9",
-      "icon": "model_training"
-    },
-    {
-      "sl_no": "10",
-      "project": "Login",
-      "id": "P_10",
+      "id": "P_2",
       "icon": "model_training"
     }
   ],
@@ -871,39 +823,7 @@
       "approver": "QE1002"
     },
     {
-      "id": "innovation_35",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "innovation_6",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "1",
-      "emp_id": "QE1001",
-      "message": "New WFH request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "innovation_33",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "innovation_3",
+      "id": "innovation_91",
       "emp_id": "QE1001",
       "message": "New Innovation request has been raised by QE1001 ",
       "read": false,
@@ -978,17 +898,7 @@
       "emp_name": "David Miller"
     },
     {
-      "id": "Innovation_33",
-      "sl_no": "",
-      "idea_type": "Innovation",
-      "emp_id": "QE1001",
-      "emp_name": "Davidmiller",
-      "project": "TAX",
-      "approver": "QE1002",
-      "status": "created"
-    },
-    {
-      "id": "Innovation_3",
+      "id": "Innovation_91",
       "sl_no": "",
       "idea_type": "Innovation",
       "emp_id": "QE1001",
@@ -1026,6 +936,88 @@
       "title": "Cancelled",
       "number": "0",
       "backgroundcolor": "red"
+    }
+  ],
+  "training-card": [
+    {
+      "title": "Angular",
+      "content": "Beginer level training for UI developers. which includes Html,CSS,Bootstrap,Typescript,javaScript and Angular Material,...etc topics.",
+      "button": "Register",
+      "trainer": "Adhitya",
+      "duration": "2 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "Python",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Adhitya",
+      "duration": "4 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "SQL",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Samim",
+      "duration": "3 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": ".Net",
+      "content": "Beginer level training for .Net developers. which includes ASP,C-sharp,MVC,.Net Core and WEB API,ADO,J-sharp,...etc topics.",
+      "button": "Register",
+      "trainer": "Ravi",
+      "duration": "4 weeks",
+      "type_of_training": "in person/room training"
+    },
+    {
+      "title": "Javascript",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Adhitya",
+      "duration": "2 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "Typescript",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Adhitya",
+      "duration": "2 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "Mongo DB",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Samim",
+      "duration": "2 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "AWS",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Raga Sudha",
+      "duration": "3 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "Devops",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Raga Sudha",
+      "duration": "2 weeks",
+      "type_of_training": "virtual"
+    },
+    {
+      "title": "AI",
+      "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
+      "button": "Register",
+      "trainer": "Raga Sudha",
+      "duration": "3 weeks",
+      "type_of_training": "virtual"
     }
   ]
 }

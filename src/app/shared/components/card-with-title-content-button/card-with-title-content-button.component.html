@@ -1,0 +1,13 @@
+<div class="row mt-1">
+    @for(card of upCommingTrainings|slice:0:4;track card;let i = $index;){
+        <div class="col-lg-3 col-md-3 mb-4">    
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.content | truncateString:100 }}</p>
+                <a class="inline btn btn-primary" (click)="openDialog()">{{ card.button }}</a>
+            </div>
+            </div>
+        </div>
+    }
+</div>

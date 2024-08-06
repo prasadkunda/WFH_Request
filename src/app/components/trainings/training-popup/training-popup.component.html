@@ -1,0 +1,52 @@
+<mat-dialog-content class="training-view">
+    <div class="row ">
+        <h5 class="col-md-10">Taining Request</h5>
+        <button mat-icon-button class="close-button col-md-1" [mat-dialog-close]="true">
+            <mat-icon class="close-icon" color="warn" (click)="dialogRef.close()">close</mat-icon>
+        </button>
+    </div>
+    <hr>
+    <form class=" row col-md-12" [formGroup]="trainingForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>EMP ID</mat-label>
+                    <input type="text" matInput placeholder="Ex. QE1001"
+                        formControlName="empid" />
+                </mat-form-field>
+            </div>
+            <span>Need to implement required fields</span>
+            <!-- <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Benifits</mat-label>
+                    <input type="text" matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits" />
+                </mat-form-field>
+            </div> -->
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Technology</mat-label>
+                    <input type="text" matInput placeholder="Ex. Java,Angular..." formControlName="technology" />
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Estimated Efforts</mat-label>
+                    <input type="text" matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts" />
+                </mat-form-field>
+            </div>
+        </div>
+         -->
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <button class="form-button" mat-raised-button color="primary" type="submit"
+                    [disabled]="trainingForm.invalid" (click)="dialogRef.close()">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>

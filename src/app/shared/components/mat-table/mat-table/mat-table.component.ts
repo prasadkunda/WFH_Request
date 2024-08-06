@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SharedUiDesignSystemModule } from '../../../utils/shared-ui-design-system.module.ts/shared-ui-design-system/shared-ui-design-system.module';
 import { CommonModule } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { ExportExcelService } from '../../../utils/export-excel.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,7 +24,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-mat-table',
   standalone: true,
-  imports: [SharedUiDesignSystemModule, CommonModule, MatIconModule],
+  imports: [SharedUiDesignSystemModule, CommonModule, MatIconModule,MatSortModule],
   templateUrl: './mat-table.component.html',
   styleUrl: './mat-table.component.scss',
 })
@@ -40,18 +40,20 @@ export class MatTableComponent implements OnInit {
   @Input() title: string = 'Total Request';
   public userDetails!: IUserDetails[];
   public params: any;
-  @ViewChild(MatPaginator, { static: false })
-  set paginator(value: MatPaginator) {
-    if (this.dataSource && value) {
-      this.dataSource.paginator = value;
-    }
-  }
+  // @ViewChild(MatPaginator, { static: false })
+  // set paginator(value: MatPaginator) {
+  //   if (this.dataSource && value) {
+  //     this.dataSource.paginator = value;
+  //   }
+  // }
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  @ViewChild(MatSort) set sort(value: MatSort) {
-    if (this.dataSource?.sort && value) {
-      this.dataSource.sort = value;
-    }
-  }
+  // @ViewChild(MatSort) set sort(value: MatSort) {
+  //   if (this.dataSource?.sort && value) {
+  //     this.dataSource.sort = value;
+  //   }
+  // }
 
   constructor(
     private commonService: CommonService,
@@ -73,6 +75,11 @@ export class MatTableComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
   }
@@ -85,7 +92,13 @@ export class MatTableComponent implements OnInit {
       case 'rejected':
         return 'badge badge-danger';
       case 'created':
-        return 'badge badge-info';
+        return 'badge badge-info';        
+        case 'cancelled':
+          return 'badge badge-danger';
+        case 'completed':
+          return 'badge badge-success';
+        case 'inprogress':
+          return 'badge badge-dark';
       default:
         return '';
     }
@@ -113,7 +126,9 @@ export class MatTableComponent implements OnInit {
   //   // this.onSearchChange.emit(input.value);
 
   // }
-  public onClickFilter(event: any): void {}
+  public onClickFilter(event: any): void {
+
+  }
 
   public openDialog(): void {
     if (!this.modalOpen) {

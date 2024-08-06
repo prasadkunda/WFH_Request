@@ -1,6 +1,15 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
     {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
+  </button> -->
+  <button
+      mat-icon-button
+      class="close-button col-md-1"
+      [mat-dialog-close]="true"
+    >
+      <mat-icon class="close-icon" color="warn" (click)="dialogRef.close()"
+        >close</mat-icon
+      >
+    </button>
   <mat-vertical-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">

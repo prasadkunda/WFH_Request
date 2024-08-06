@@ -1,0 +1,22 @@
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    // height: 100px;
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 767px) {
+    .card-img-top {
+      height: 150px;
+    }
+  }
+
+  .inline {
+    float: inline-end;
+    background-color: #5f90d9;
+  }

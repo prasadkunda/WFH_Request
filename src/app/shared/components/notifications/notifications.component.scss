@@ -28,8 +28,20 @@
       line-height: 1.5rem;
       cursor: pointer;
     }
+   
   }
-
+  .view_all {
+    display: flex;
+    grid-column: span 6;
+    justify-content: flex-end;
+    color: black;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    cursor: pointer;
+    padding-right: 10px;
+  }
   .mat_menu_main_content {
     display: grid;
     row-gap: 1rem;

@@ -1,60 +1,81 @@
 <mat-dialog-content>
+ 
     <div class="row">
-      <h4 class="col-md-11">Innovation Request</h4>
-      <button
-        mat-icon-button
-        class="close-button col-md-1"
-        [mat-dialog-close]="true"
-      >
-        <mat-icon class="close-icon" color="warn" (click)="dialogRef.close()"
-          >close</mat-icon
-        >
+      <h5 class="col-md-10">Innovation Request</h5>
+      <button mat-icon-button class="close-button col-md-1" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" color="warn" (click)="dialogRef.close()">close</mat-icon>
       </button>
     </div>
-    <form class="form" [formGroup]="innovationForm" (ngSubmit)="onSubmit()">
-      <mat-form-field >
-        <mat-label>Select Innovation Type</mat-label>
-        <mat-select matNativeControl required formControlName="requesttype">
-          <!-- <mat-option value="wfh">WFH</mat-option> -->
-          <mat-option value="product">Product</mat-option>
-          <mat-option value="automation">Automation</mat-option>
-          <mat-option value="reuseble_library">Re Useble Library</mat-option>
-        </mat-select>
-      </mat-form-field>
+  <hr>
+  <form class=" row col-md-12" [formGroup]="innovationForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Select Innovation Type</mat-label>
+          <mat-select matNativeControl required formControlName="requesttype">
+            <!-- <mat-option value="wfh">WFH</mat-option> -->
+            <mat-option value="product">Product</mat-option>
+            <mat-option value="automation">Automation</mat-option>
+            <mat-option value="reuseble_library">Re Useble Library</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Ex. Type/Use of Innovation..." formControlName="title">
+        </mat-form-field>
+      </div>
+    </div>
 
-      <mat-form-field>
-        <mat-label>Title</mat-label>
-        <input  matInput placeholder="Ex. Type/Use of Innovation..." formControlName="title">
-      </mat-form-field>
+    <div class="row">
+<div class="col-md-6">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Ex. High level explanation of innovation..." formControlName="description">
+    </mat-form-field>
+  </div>
+<div class="col-md-6">
+    <mat-form-field>
+      <mat-label>Benifits</mat-label>
+      <input matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits">
+    </mat-form-field>
+  </div>
+    </div>
 
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input  matInput placeholder="Ex. High level explanation of innovation..." formControlName="description">
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Benifits</mat-label>
-        <input  matInput placeholder="Ex. Benifits of innovation..." formControlName="benifits">
-      </mat-form-field>
-
+<div class="row">
+  <div class="col-md-6">
       <mat-form-field>
         <mat-label>Technology</mat-label>
-        <input  matInput placeholder="Ex. Java,Angular..." formControlName="technology">
+        <input matInput placeholder="Ex. Java,Angular..." formControlName="technology">
       </mat-form-field>
 
+    </div>
+  <div class="col-md-6">
       <mat-form-field>
         <mat-label>Estimated Efforts</mat-label>
-        <input  matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts">
+        <input matInput placeholder="Ex. 1 month..." formControlName="estimatedefforts">
       </mat-form-field>
-      <button
-        class="form-button"
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="innovationForm.invalid"
-        (click)="dialogRef.close()"
-      >
-        Submit
-      </button>
-    </form>
-  </mat-dialog-content>
+    </div>
+</div>
+   
+    
+<div class="row">
+  <div class="col-md-6"></div>
+  <div class="col-md-6">
+    <button class="form-button" mat-raised-button color="primary" type="submit" [disabled]="innovationForm.invalid"
+    (click)="dialogRef.close()">
+    Submit
+  </button>
+  </div>
+</div>
+ 
+  
+
+
+
+
+
+    
+  </form>
+</mat-dialog-content>
