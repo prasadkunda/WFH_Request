@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class CardWithTitleContentButtonComponent {
  @Input() upCommingTrainings: ITrainings[] = [];
+ @Input() accept_bool: boolean = true;
  public modalOpen: boolean = false;
  public dialogRef!: MatDialog;
 

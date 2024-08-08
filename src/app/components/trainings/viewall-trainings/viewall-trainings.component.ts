@@ -4,6 +4,7 @@ import { ITrainings } from '../../../shared/service/interfaces/interfaces';
 import { CommonService } from '../../../shared/service/common.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableComponent } from '../../../shared/components/mat-table/mat-table/mat-table.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-viewall-trainings',
@@ -16,18 +17,24 @@ export class ViewallTrainingsComponent implements OnInit {
 
   dataSource!: MatTableDataSource<ITrainings>;
   upCommingTrainings!: ITrainings[];
-
-constructor(private commonService:CommonService) {}
+  training_title!: string;
+constructor(private commonService:CommonService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.commonService.getUpCommingTrainingsDetails().subscribe(resp => {
-      if(resp){
-        this.upCommingTrainings = resp;
-        this.dataSource = new MatTableDataSource(this.upCommingTrainings);
-      }else {
-        console.error('Unexpected response :', resp);
-      }
-    })
+    this.route.paramMap.subscribe(params => {
+      let trainingId = params.get('id');
+      trainingId === 'upcoming'? this.training_title = 'Up Comming Trainings': trainingId === 'opted' ? this.training_title = 'Opted Trainings' : 'Completed Trainings'
+      this.commonService.getUpCommingTrainingsDetails().subscribe(resp => {
+        if(resp){
+          this.upCommingTrainings = resp.filter((x)=> x.status === trainingId);
+          this.dataSource = new MatTableDataSource(this.upCommingTrainings);
+        }else {
+          console.error('Unexpected response :', resp);
+        }
+      })
+      // Now you can use this.trainingId in your component
+    });
+   
   } 
 
   displayedColumns = [

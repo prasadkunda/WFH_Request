@@ -75,3 +75,25 @@ body {
     overflow: hidden !important;
   }
 }
+
+
+
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgb(152, 147, 147) rgb(253, 253, 252); /* Firefox */
+}
+
+/* WebKit browsers */
+*::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(253, 253, 252); /* Background of the scrollbar track */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color:  rgb(152, 147, 147); /* Color of the draggable thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+  border: 3px solid  rgb(253, 253, 252); /* Padding around the thumb */
+}

@@ -116,6 +116,7 @@ export declare class ITrainings {
   button: string;
   trainer: string;
   duration: string;
+  status:string;
   type_of_training: string;
 }
 

@@ -31,8 +31,8 @@ export class TrainingsComponent implements OnInit {
     })
   }
 
-  navigateviewall() {
-    this.router.navigate(['viewall-trainings']);
+  navigateviewall(trainingId: any) {
+    this.router.navigate(['viewall-trainings', trainingId]);
   }
 
   public openDialog(): void {

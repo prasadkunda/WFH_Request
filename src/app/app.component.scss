@@ -98,9 +98,25 @@ app-sidenavbar {
   flex-shrink: 0;
 }
 
+.side_nav {
+      /* position: relative; */
+    /* width: 25%; */
+    // height: 100vh;
+    /* background: #a7e9c5; */
+    // position: fixed;
+    // top: 4rem;
+    /* left: 0; */
+    /* overflow-y: auto;*/
+}
+
 .main_content {
   flex: 1;
   padding: 1rem;
+  // margin-left: 15%;
+  // padding: 20px;
+  // height: 200vh;
+  // background: #fff;
+  border: 1px solid #b8b1b1;
 }
 
 .container {

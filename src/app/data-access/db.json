@@ -567,7 +567,7 @@
     },
     {
       "sl_no": "4",
-      "project": "CEO Operations",
+      "project": "COE Operations",
       "id": "P_4",
       "icon": "person_play"
     }
@@ -587,9 +587,9 @@
     },
     {
       "sl_no": "3",
-      "project": "CEO Operations",
+      "project": "COE Activities",
       "id": "P_3",
-      "icon": "person_play"
+      "icon": "token"
     }
   ],
   "Project_TAX": [
@@ -891,6 +891,22 @@
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
+    },
+    {
+      "id": "innovation_63",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_93",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
     }
   ],
   "innovations": [
@@ -958,6 +974,26 @@
       "emp_id": "QE1003",
       "approver": "QE1002",
       "emp_name": "David Miller"
+    },
+    {
+      "sl_no": "",
+      "idea_type": "Innovation",
+      "emp_id": "QE1001",
+      "emp_name": "Davidmiller",
+      "project": "TAX",
+      "approver": "QE1002",
+      "status": "created",
+      "id": "Innovation_63"
+    },
+    {
+      "sl_no": "",
+      "idea_type": "Innovation",
+      "emp_id": "QE1001",
+      "emp_name": "Davidmiller",
+      "project": "TAX",
+      "approver": "QE1002",
+      "status": "created",
+      "id": "Innovation_93"
     }
   ],
   "innnovationcards": [
@@ -994,81 +1030,91 @@
     {
       "title": "Angular",
       "content": "Beginer level training for UI developers. which includes Html,CSS,Bootstrap,Typescript,javaScript and Angular Material,...etc topics.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Adhitya",
       "duration": "2 weeks",
+      "status": "upcoming",
       "type_of_training": "virtual"
     },
     {
       "title": "Python",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Adhitya",
       "duration": "4 weeks",
+      "status": "upcoming",
       "type_of_training": "virtual"
     },
     {
       "title": "SQL",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Samim",
       "duration": "3 weeks",
+      "status": "upcoming",
       "type_of_training": "virtual"
     },
     {
       "title": ".Net",
       "content": "Beginer level training for .Net developers. which includes ASP,C-sharp,MVC,.Net Core and WEB API,ADO,J-sharp,...etc topics.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Ravi",
       "duration": "4 weeks",
-      "type_of_training": "in person/room training"
+      "status": "opted",
+      "type_of_training": "in-person"
     },
     {
       "title": "Javascript",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Adhitya",
       "duration": "2 weeks",
-      "type_of_training": "virtual"
+      "status": "opted",
+      "type_of_training": "in-person"
     },
     {
       "title": "Typescript",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Adhitya",
       "duration": "2 weeks",
+      "status": "opted",
       "type_of_training": "virtual"
     },
     {
       "title": "Mongo DB",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Samim",
       "duration": "2 weeks",
+      "status": "completed",
       "type_of_training": "virtual"
     },
     {
       "title": "AWS",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Raga Sudha",
       "duration": "3 weeks",
+      "status": "completed",
       "type_of_training": "virtual"
     },
     {
       "title": "Devops",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Raga Sudha",
       "duration": "2 weeks",
+      "status": "completed",
       "type_of_training": "virtual"
     },
     {
       "title": "AI",
       "content": "Beginer level training for DB developers. which includes DML,DDL,Views,Joins,Stored proceedures,Tables and Relationships...etc.",
-      "button": "Register",
+      "button": "register",
       "trainer": "Raga Sudha",
       "duration": "3 weeks",
+      "status": "completed",
       "type_of_training": "virtual"
     }
   ]

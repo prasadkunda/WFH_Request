@@ -5,76 +5,31 @@
         <img src="../assets/images/logo.png" class="logo" alt="Logo" /><span style="text-shadow: 0 0 20px #fff;">REQUEST</span>
       </div>
       <div class="icon" style="padding-right: 2rem;">
-        <form class="d-flex">
-          <!-- <input class="form-control shadow-none me-2 " style="border-radius: 5rem;" type="search" placeholder="Search" aria-label="Search"> -->
-          
-        </form>
-        <!-- <span class="empid badge text-bg-secondary" *ngIf="userDetails"
-          ><b>{{ userDetails[0].emp_id }}</b></span
-        > -->
+      
         <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>notifications</mat-icon>
         </button>
         <mat-menu #menu="matMenu" class="menu_container">
           <app-notifications></app-notifications>
         </mat-menu>
-        <!-- <mat-icon class="bell-icon grow">logout</mat-icon> -->
          <app-profile></app-profile>
       </div>
     </div>
-    <!-- <div class="employee_details">
-      <div class="section_empdetails">
-        <div class="employee_name">
-          <span class="properties"><b>Hello</b>, {{ userName }}</span>
-          <br />
-          <span class="employee_greeting">{{ greeting }}</span>
-        </div>
-      </div>
-      <div class="section_wfh">
-        <span class="property_date">{{ currentDate }}</span>
-        <span class="properties_wfh_button">
-          <button
-            mat-flat-button
-            color="warn"
-            type="button"
-            (click)="openDialog()"
-          >
-            Request WFH
-          </button>
-        </span>
-      </div>
-    </div> -->
   </div>
   <div class="body_container">
-    <!-- <app-sidenavbar *ngIf="user_role === 'manager'" 
-      [isExpanded]="sidebarExpanded" 
-      [projects]="projects_List"
-      (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
-    ></app-sidenavbar> -->
+  
     <app-sidenavbar
-    
+    class="side_nav"
     [isExpanded]="sidebarExpanded" 
     [projects]="projects_List"
     (toggleSidebar)="sidebarExpanded = !sidebarExpanded"
   ></app-sidenavbar>
     <div class="main_content" [ngClass]="{ sidebarExpanded: sidebarExpanded }">
-      <!-- <div *ngIf="user_role === 'Senior Software Developer'" class="container-fluid">
-        <app-employee></app-employee>
-      </div>
-      <div *ngIf="user_role === 'manager'" class="container">
-        <app-manager></app-manager>
-      </div> -->
+    
       <div class="content">
         <router-outlet></router-outlet>
       </div>
     </div>
   </div>
-  <!-- <div class="footer">
-    Footer content
-  </div> -->
 
 </div>
-<!-- 
-<div *ngIf="isOffCanvasVisible" class="pop_over">
-  <app-pop-over [id]="'demo'"  (close)="hideOffCanvas()"></app-pop-over>
-</div> -->

@@ -18,5 +18,20 @@
 
   .inline {
     float: inline-end;
-    background-color: #5f90d9;
+    background-color: #056b10;
+    text-decoration: none;
   }
+
+  .blinking-dot {
+    animation: blink 1s infinite;
+    color: green; /* You can change the color of the dot */
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Fully transparent */
+    }
+}

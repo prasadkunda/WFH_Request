@@ -1,31 +1,13 @@
 <div class="p-2">  
   <div class="row">
-  <h4 class="col-md-10 mt-2 fancy"><b>Innovation Dashboard</b></h4>
+  <h4 class="col-md-10 mt-2 fancy"><b>Innovations</b></h4>
   <span class="col-md-2 properties_wfh_button">
     <button type="button" class="btn btn-primary innovation" (click)="openDialog()">
       New<mat-icon class="add-icon">add_box</mat-icon>
     </button>
   </span>
 </div>
-<!-- <div class="row mt-2" style="display: flex;justify-content: space-between; padding: 15px;">
-  <mat-card appearance="outlined" class="info_card">
-    <mat-card-content>
-      <span class="innovation-content">My Innovations :</span><br>
-      <span class="innovation-content">Total :</span><br>
-      <span class="innovation-content">Inprogress :</span><br>
-      <span class="innovation-content">Completed :</span><br>
-      <span class="innovation-content">Cancelled :</span>
-    </mat-card-content>
-  </mat-card>
-  <mat-card appearance="outlined" class="info_card">
-    <mat-card-content>
-      <span class="innovation-content">All Innovations :</span><br>
-      <span class="innovation-content">Inprogress :</span><br>
-      <span class="innovation-content">Completed :</span><br>
-      <span class="innovation-content">Cancelled :</span>
-    </mat-card-content>
-  </mat-card>    
-</div> -->
+
 <div class="row p-2">
   @for(card of cardDetails;track card;let i = $index){
     <div class="col-md-3 p-2" (click)="onCardClick(i, card.title)" >

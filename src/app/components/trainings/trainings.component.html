@@ -1,54 +1,42 @@
 <div class="p-2">  
     <div class="row">
-    <h4 class="col-md-10 mt-2 fancy"><b>Training Dashboard</b></h4>
+    <h4 class="col-md-10 mt-2 fancy"><b>Trainings</b></h4>
   </div>
   <div class="container mt-1">
-    <div class="card-group" style="padding:2rem;padding-left:1rem">
+    <div class="card-group" style="padding:1rem;padding-left:1rem;border-radius: 0.5rem;">
       <div class="card-group-label">Upcomming Trainings</div>
       <div class="row col-md-12" style="display: inline-flex;">
         <div class="col-md-10"></div>
         <div class="col-md-2" style="display: inline-flex;justify-content: flex-end;">
-            <a style="text-decoration: none;cursor: pointer;" (click)="navigateviewall()">View All Trainings</a>
+            <a class="p-0" style="text-decoration: none;cursor: pointer;font-weight: 700;color: black;" (click)="navigateviewall('upcoming')">View All Trainings</a>
         </div>
       </div>
-        <app-card-with-title-content-button [upCommingTrainings]="upCommingTrainings"></app-card-with-title-content-button>     
+        <app-card-with-title-content-button [upCommingTrainings]="upCommingTrainings"  [accept_bool]="true"></app-card-with-title-content-button>     
     </div>
   </div>
 
   <div class="container mt-1">
-    <div class="card-group" style="padding:2rem;padding-left:1rem">
-      <div class="card-group-label">My Trainings</div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card Title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="inline btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card Title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="inline btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card Title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class=" inline btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+    <div class="card-group" style="padding:1rem;padding-left:1rem;border-radius: 0.5rem">
+      <div class="card-group-label">Opted Trainings</div>
+      <div class="row col-md-12" style="display: inline-flex;">
+        <div class="col-md-10"></div>
+        <div class="col-md-2" style="display: inline-flex;justify-content: flex-end;">
+            <a class="p-0" style="text-decoration: none;cursor: pointer;font-weight: 700;color: black;" (click)="navigateviewall('opted')">View All Trainings</a>
         </div>
       </div>
+      <app-card-with-title-content-button [upCommingTrainings]="upCommingTrainings" [accept_bool]="false"></app-card-with-title-content-button> 
+    </div>
+  </div>
+  <div class="container mt-1">
+    <div class="card-group" style="padding:1rem;padding-left:1rem;border-radius: 0.5rem">
+      <div class="card-group-label">Completed Trainings</div>
+      <div class="row col-md-12" style="display: inline-flex;">
+        <div class="col-md-10"></div>
+        <div class="col-md-2" style="display: inline-flex;justify-content: flex-end;">
+            <a class="p-0" style="text-decoration: none;cursor: pointer;font-weight: 700;color: black;" (click)="navigateviewall('completed')">View All Trainings</a>
+        </div>
+      </div>
+      <app-card-with-title-content-button [upCommingTrainings]="upCommingTrainings" [accept_bool]="false"></app-card-with-title-content-button> 
     </div>
   </div>
 </div>

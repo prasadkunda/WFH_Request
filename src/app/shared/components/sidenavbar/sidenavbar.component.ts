@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Router } from '@angular/router';
+import { routesGetter } from '../../../app.routesjosn';
 
 export interface IMenuItems {
   sl_no: string;
@@ -20,6 +21,7 @@ export interface IMenuItems {
 })
 export class SidenavbarComponent {
   @Input() isExpanded: boolean = false;
+  private getroutes:any = routesGetter;
   @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() projects!: any[];
   public myInnovationFlag: boolean = false;
@@ -28,33 +30,9 @@ export class SidenavbarComponent {
   handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 
   public navigatingToComponents(index: number, value: IMenuItems): void {
-    if (value.project === 'Innovations') {
-      this.router.navigate(['/innovations']);
-    } else if (value.project === 'Facilities') {
-      this.router.navigate(['/facility']);
-    } else if (value.project === 'WFH') {
-      this.router.navigate(['/employee']);
-    } else if (value.project === 'Operations') {
-      this.router.navigate(['/operations']);
-    } else if (value.project === 'Request') {
-      this.router.navigate(['/request']);
-    } else if (value.project === 'Trainings') {
-      this.router.navigate(['/trainings']);
-    } else if (value.project === 'Home') {
-      this.router.navigate(['/manager']);
-    } else if (value.project === 'About Us') {
-      this.router.navigate(['/about-us']);
-    } else if (value.project === 'Contact Us') {
-      this.router.navigate(['/contact-us']);
-    } else if (value.project === 'Admin') {
-      this.router.navigate(['/admin']);
-    } else if (value.project === 'Login') {
-      this.router.navigate(['/login']);
-    }else if (value.project === 'Innovation') {
-      this.router.navigate(['/innovation-dashboard']);
-    }else if (value.project === 'Training') {
-      this.router.navigate(['/training-dashboard']);
-    }
+    const get_routes = this.getroutes[value.project];
+     this.router.navigate(['/'+ get_routes]);
+    
   }
 
   navigatingToChildComponent(index: number, child: any) {
