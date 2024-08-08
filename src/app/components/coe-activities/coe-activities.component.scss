@@ -5,3 +5,99 @@
     line-height: 1.5;
     letter-spacing: 0.5px;
   }
+  .innovation {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+.add-icon{
+    position: relative;
+    left: 4px;
+    color: white;
+}
+.fancy {
+    font-size: 20px;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  .container_icon {
+    transform: translateY(4px);
+  }
+  .icon-circle {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+  }
+  
+ .mat-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    font-weight: 600;
+    text-align: start;
+    padding-left: 14px;
+  }
+  
+  .paragraph-text {
+    font-size: 1rem;
+    color: gray !important;
+    text-align: start;
+    padding-left: 16px;
+  }
+  
+  .icon {
+    color: white; /* Example color, adjust as needed */
+  }
+  .card_content {
+    padding-top: 4px;
+  }
+  
+  .card-container {
+    padding-right: 50px;
+  }
+  .count_text {
+    font-size: x-small;
+    color: gray;
+  }
+  .arrow-icon-color {
+    font-size: 20px;
+    height: 20px;
+  }
+  
+  .active-card {
+    border-color: #007bff;
+    background-color: #bec2c5;
+  }
+  .border-style {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.2); /* Adjust transparency here */
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 14px;
+    color: black;
+    background: white;
+    // font-weight: 600;
+  }
+  .info_card {
+    width: 285px;
+    height: auto;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .innovation-content {
+    font-weight: 600;
+  }
+  
+  
+  
