@@ -17,9 +17,10 @@ import { ExportExcelService } from '../../../utils/export-excel.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkflowStepperComponent } from '../../workflow-stepper/workflow-stepper.component';
-import { IUserDetails } from '../../../service/interfaces/interfaces';
+import { INotifications, IUserDetails, UserData } from '../../../service/interfaces/interfaces';
 import { CommonService } from '../../../service/common.service';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from '../../../service/notification/notification.service';
 
 @Component({
   selector: 'app-mat-table',
@@ -38,6 +39,7 @@ export class MatTableComponent implements OnInit {
   @Input() displayedColumns!: string[];
   @Input() searchedValue!: string;
   @Input() title: string = 'Total Request';
+  @Input() role:string = ''
   public userDetails!: IUserDetails[];
   public params: any;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -48,7 +50,8 @@ export class MatTableComponent implements OnInit {
     private commonService: CommonService,
     private cdr: ChangeDetectorRef,
     private exportexcelservice: ExportExcelService,
-    public dialog: MatDialog){   
+    public dialog: MatDialog,
+    private notificationService: NotificationService,){   
     this.dialogRef = dialog;
   }
 
@@ -149,6 +152,40 @@ export class MatTableComponent implements OnInit {
         (item) => item.emp_id === this.userDetails[0].emp_id
       );
       console.log('this.dataSource', this.dataSource);
+    }
+  }
+  
+  approveRequest(request:any){
+    request.status = 'inprogress';
+    request.approved_date = new Date().toString();
+    this.commonService.updateInnovationRequest(request).subscribe((updateRequest) => {
+      this.sendNotification(updateRequest, `Your innovation has been approved by BU Head`);
+    });
+  }
+
+  rejectRequest(request:any){
+    request.status = 'rejected';
+    this.commonService.updateInnovationRejectRequest(request).subscribe((updateRequest) => {
+      this.sendNotification(updateRequest, `Your innovation has been rejected by BU Head`);
+    },error=>{
+      console.log(error);
+    });
+  }
+
+  // to send the status request
+  private sendNotification(request: UserData, message: string) {
+    const notification: INotifications = {
+      id: '1',
+      emp_id: request?.emp_id,
+      message: message,
+      read: false,
+      project: request?.project,
+      approver: 'QE1002',
+    };
+    if (request.status === 'inprogress' || request.status === 'rejected') {
+      this.notificationService.updateNotification(notification).subscribe();
+    } else {
+      this.notificationService.createNotification(notification).subscribe();
     }
   }
 }

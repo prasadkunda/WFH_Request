@@ -6,7 +6,7 @@
     </p>
   </div>
   <div id="menu_content_gird">
-    <div *ngFor="let item of notifications; let i = index"  mat-menu-item class="menu_content">
+    <div *ngFor="let item of notifications | slice:0:4; let i = index"  mat-menu-item class="menu_content">
       <!-- [status]="item.IsRead ? 'read' : 'unread'" -->
       <div messageStatus class="mat_menu_main_content">
         <div class="title" (click)="announcementsTile(item, i)">
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div>
-  <p class="view_all">
+  <!-- <p class="view_all">
     <span (click)="navigateviewall()"><u>View all</u> </span>
-</p>
+</p> -->
 </div>

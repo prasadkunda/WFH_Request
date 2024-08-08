@@ -25,4 +25,5 @@ export const routes: Routes = [
   {path: 'viewall-notifications',loadComponent: () => import("../app/shared/components/view-all-notifications/view-all-notifications.component").then((m) => m.ViewAllNotificationsComponent)},
   {path: 'innovation-dashboard',loadComponent: () => import("../app/components/dashboard/innovation-dashboard/innovation-dashboard.component").then((m) => m.InnovationDashboardComponent)},
   {path: 'training-dashboard',loadComponent: () => import("../app/components/dashboard/training-dashboard/training-dashboard.component").then((m) => m.TrainingDashboardComponent)},
+  {path: 'admin-innovation-dashboard',loadComponent: () => import("../app/components/admin-dashboard/admin-innovation-dashboard/admin-innovation-dashboard.component").then((m) => m.AdminInnovationDashboardComponent)},
 ];

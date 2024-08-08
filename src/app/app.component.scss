@@ -22,10 +22,18 @@
 .header_title {
   display: flex;
   align-items: center;
+  .logo__text{
+    text-shadow: 0 0 20px #fff; 
+    align-self: flex-end;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 19px;
+    margin-left: 2px;
+  }
 }
 
 .logo {
-  width: 3.5rem;
+  width: 2.5rem;
 }
 
 .icon {

@@ -12,5 +12,6 @@ export const routesGetter = {
     'Login':'login',
     'Innovation':'innovation-dashboard',
     'Training':'training-dashboard',
-    'COE Activities':'coe-act'
+    'COE Activities':'coe-act',
+    'adminInnovation':'admin-innovation-dashboard'
 }

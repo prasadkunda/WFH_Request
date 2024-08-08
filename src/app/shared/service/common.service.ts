@@ -114,11 +114,11 @@ export class CommonService {
     // return (this.http.get<IUserDetails>('https://mocki.io/v1/3d7f801d-9093-4f64-a459-12ae677cbe78')
     return (
       this.http
-        .get<IUserDetails[]>('http://localhost:3000/User_detial')
+        // .get<IUserDetails[]>('http://localhost:3000/User_detial')
         //Manager API
         // return (this.http.get<IUserDetails>('https://mocki.io/v1/86756d55-a72f-4ab6-8009-6fc173361532')
         // return this.http.
-        // .get<IUserDetails[]>('http://localhost:3000/Manager_details')
+        .get<IUserDetails[]>('http://localhost:3000/Manager_details')
         .pipe(
           catchError((err) => {
             throw new Error(err);
@@ -263,5 +263,29 @@ export class CommonService {
 
   public openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+  public updateInnovationRequest(request: UserData): Observable<UserData> {
+    console.log(request);
+    console.log(`'http://localhost:3000/innovations/${request.id}`);
+    return this.http
+      .put<UserData>(`http://localhost:3000/innovations/${request.id}`, request)
+      .pipe(
+        catchError((err) => {
+          throw new Error(err);
+        })
+      );
+  }
+
+  public updateInnovationRejectRequest(request: UserData): Observable<UserData> {
+    console.log(request);
+    console.log(`'http://localhost:3000/innovations/${request.id}`);
+    return this.http
+      .put<UserData>(`'http://localhost:3000/innovations/${request.id}`, request)
+      .pipe(
+        catchError((err) => {
+          throw new Error(err);
+        })
+      );
   }
 }

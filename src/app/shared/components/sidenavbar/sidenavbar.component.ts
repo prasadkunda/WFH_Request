@@ -10,6 +10,7 @@ export interface IMenuItems {
   project: string;
   id: string;
   icon: string;
+  navigation_name:string;
 }
 
 @Component({

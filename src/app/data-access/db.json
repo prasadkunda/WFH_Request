@@ -567,8 +567,30 @@
     },
     {
       "sl_no": "4",
-      "project": "COE Operations",
+      "project": "Admin",
       "id": "P_4",
+      "icon": "admin_panel_settings",
+      "children": [
+        {
+          "sl_no": "1",
+          "project": "Innovation",
+          "id": "P_1",
+          "icon": "batch_prediction",
+          "navigation_name": "adminInnovation"
+        },
+        {
+          "sl_no": "2",
+          "project": "Training",
+          "id": "P_2",
+          "icon": "move_up",
+          "navigation_name": "adminTraining"
+        }
+      ]
+    },
+    {
+      "sl_no": "5",
+      "project": "COE",
+      "id": "P_5",
       "icon": "person_play"
     }
   ],
@@ -869,27 +891,11 @@
       "approver": "QE1002"
     },
     {
-      "id": "innovation_91",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
+      "id": "1",
+      "emp_id": "QE1003",
+      "message": "Your innovation has been approved.",
       "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "innovation_73",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
-      "approver": "QE1002"
-    },
-    {
-      "id": "innovation_86",
-      "emp_id": "QE1001",
-      "message": "New Innovation request has been raised by QE1001 ",
-      "read": false,
-      "project": "TAX",
+      "project": "IMMIGRATION",
       "approver": "QE1002"
     },
     {
@@ -921,12 +927,13 @@
       "estimated_effort": "1 month",
       "actual_affort": "",
       "annual_saving": "",
-      "status": "completed",
+      "status": "inprogress",
       "resource_name": "David",
       "emp_id": "QE1003",
       "project": "IMMIGRATION",
       "approver": "QE1002",
-      "emp_name": "David Miller"
+      "emp_name": "David Miller",
+      "approved_date": "Thu Aug 08 2024 20:01:04 GMT+0530 (India Standard Time)"
     },
     {
       "id": "Innovation_84",
