@@ -40,20 +40,9 @@ export class MatTableComponent implements OnInit {
   @Input() title: string = 'Total Request';
   public userDetails!: IUserDetails[];
   public params: any;
-  // @ViewChild(MatPaginator, { static: false })
-  // set paginator(value: MatPaginator) {
-  //   if (this.dataSource && value) {
-  //     this.dataSource.paginator = value;
-  //   }
-  // }
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  // @ViewChild(MatSort) set sort(value: MatSort) {
-  //   if (this.dataSource?.sort && value) {
-  //     this.dataSource.sort = value;
-  //   }
-  // }
 
   constructor(
     private commonService: CommonService,
@@ -64,7 +53,7 @@ export class MatTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('myInnvationFlag', this.myInnovationFlag);
+    // console.log('myInnvationFlag', this.myInnovationFlag);
     this.commonService.getUserdetails().subscribe((response) => {
       this.userDetails = response;
     });

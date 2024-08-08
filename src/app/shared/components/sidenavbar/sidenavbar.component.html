@@ -10,11 +10,29 @@
   @for(project of projects; track project;let i=$index){
   <div class="content">
     <div class="link">
-      <div class="content" (click)="navigatingToComponents(i,project)">
-        <mat-icon class="icon">{{ project?.icon }}</mat-icon>
-        <div class="title">{{ project?.project }}</div>
-      </div>
+      @if(!project?.children?.length){
+        <div class="content" (click)="navigatingToComponents(i,project)">
+          <mat-icon class="icon">{{ project?.icon }}</mat-icon>
+          <div class="title">{{ project?.project }}</div>
+        </div>
+      } 
+      @else {
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <div class="content">
+              <mat-icon class="icon">{{ project?.icon }}</mat-icon>
+              <div class="title">{{ project?.project }}</div>
+            </div>
+          </mat-expansion-panel-header>
+          <div *ngFor="let child of project.children" class="content" (click)="navigatingToComponents(i, child)">
+            <mat-icon class="icon">{{ child?.icon }}</mat-icon>
+            <div class="title">{{ child?.project }}</div>
+          </div>
+        </mat-expansion-panel>
+      }
+        
     </div>
   </div>
+ 
   }
 </div>

@@ -3,12 +3,12 @@
     <div class="profile-details">
       @if(userDetails[0]?.length > 0){
       <ng-container>
-        <div *ngIf="userDetails[0]?.avatar; else initials">
-          <img [src]="userDetails[0]?.avatar" alt="Profile Avatar" class="profile-avatar"/>
+        <div *ngIf="userDetails[0].avatar; else initials">
+          <img [src]="userDetails[0].avatar" alt="Profile Avatar" class="profile-avatar"/>
         </div>
         <ng-template #initials>
           <div class="profile-initials">
-            {{ getInitials(userDetails[0]?.emp_fname, userDetails[0]?.emp_lname) }}
+            {{ getInitials(userDetails[0].emp_fname, userDetails[0].emp_lname) }}
           </div>
         </ng-template>
         <mat-icon class="dropdown-icon">{{ dropdownOpen ? 'arrow_drop_up' : 'arrow_drop_down' }}</mat-icon>
@@ -27,11 +27,11 @@
       <div class="profile-text">
         @if(userDetailsq[0] ){ 
           
-          <p>Name : {{userDetailsq[0]?.emp_fname}} {{userDetailsq[0]?.emp_lname}}</p>
-          <p>ID : {{userDetailsq[0]?.emp_id }}</p>
-          <p>Designation : {{userDetailsq[0]?.designation }}</p>
-          <p>Email : {{userDetailsq[0]?.email }}</p>
-          <p>Project : {{userDetailsq[0]?.Project }}</p>
+          <p>Name : {{userDetailsq[0].emp_fname}} {{userDetailsq[0].emp_lname}}</p>
+          <p>ID : {{userDetailsq[0].emp_id }}</p>
+          <p>Designation : {{userDetailsq[0].designation }}</p>
+          <p>Email : {{userDetailsq[0].email }}</p>
+          <p>Project : {{userDetailsq[0].Project }}</p>
         }  
       </div>
     </div>

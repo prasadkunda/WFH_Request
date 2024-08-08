@@ -104,6 +104,10 @@
             background: #27283a;
             // padding-left: 30px;
             padding-left: 10px;
+            padding: 1rem;
+            display: inline-flex;
+            justify-content: space-between;
+            padding-bottom: 0.5rem;
   
             &.active {
               background: #191a27;
@@ -158,4 +162,29 @@
       }
     }
   }
+ ::ng-deep mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+::ng-deep .mat-expansion-panel-header {
+  padding: 0px 13px !important;
+}
+  // .content {
+    
+  //   .link {
+  //     .content {
+       
+  //       .title {
+  //         max-width: 100px;
+  //       }
+  //       .icon {
+  //         margin-right: 3px;
+  //       }
+  //     }
+  //     .children {
+  //       .content {
+  //         padding-left: 30px;
+  //       }
+  //     }
+  //   }
+  // }
   

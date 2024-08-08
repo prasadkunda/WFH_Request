@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule, Router } from '@angular/router';
 
@@ -13,7 +14,7 @@ export interface IMenuItems {
 @Component({
   selector: 'app-sidenavbar',
   standalone: true,
-  imports: [RouterModule, CommonModule, MatIconModule],
+  imports: [RouterModule, CommonModule, MatIconModule,MatExpansionModule],
   templateUrl: './sidenavbar.component.html',
   styleUrl: './sidenavbar.component.scss',
 })
@@ -49,6 +50,14 @@ export class SidenavbarComponent {
       this.router.navigate(['/admin']);
     } else if (value.project === 'Login') {
       this.router.navigate(['/login']);
+    }else if (value.project === 'Innovation') {
+      this.router.navigate(['/innovation-dashboard']);
+    }else if (value.project === 'Training') {
+      this.router.navigate(['/training-dashboard']);
     }
+  }
+
+  navigatingToChildComponent(index: number, child: any) {
+    // Your logic here
   }
 }

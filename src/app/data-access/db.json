@@ -517,19 +517,59 @@
       "sl_no": "1",
       "project": "Home",
       "id": "P_1",
-      "icon": "3p"
+      "icon": "home"
     },
     {
       "sl_no": "2",
-      "project": "TAX",
+      "project": "Projects",
       "id": "P_2",
-      "icon": "3p"
+      "icon": "business_center",
+      "children": [
+        {
+          "sl_no": "1",
+          "project": "TAX",
+          "id": "P_1",
+          "icon": "redeem"
+        },
+        {
+          "sl_no": "2",
+          "project": "Immigration",
+          "id": "P_2",
+          "icon": "airplane_ticket"
+        },
+        {
+          "sl_no": "3",
+          "project": "SWA",
+          "id": "P_3",
+          "icon": "flight_takeoff"
+        }
+      ]
     },
     {
       "sl_no": "3",
-      "project": "Immigration",
+      "project": "Dashboard",
       "id": "P_3",
-      "icon": "3p"
+      "icon": "dashboard",
+      "children": [
+        {
+          "sl_no": "1",
+          "project": "Innovation",
+          "id": "P_1",
+          "icon": "batch_prediction"
+        },
+        {
+          "sl_no": "2",
+          "project": "Training",
+          "id": "P_2",
+          "icon": "move_up"
+        }
+      ]
+    },
+    {
+      "sl_no": "4",
+      "project": "CEO Operations",
+      "id": "P_4",
+      "icon": "person_play"
     }
   ],
   "sidenav_options_employee": [
@@ -544,6 +584,12 @@
       "project": "Trainings",
       "id": "P_2",
       "icon": "model_training"
+    },
+    {
+      "sl_no": "3",
+      "project": "CEO Operations",
+      "id": "P_3",
+      "icon": "person_play"
     }
   ],
   "Project_TAX": [
@@ -829,6 +875,22 @@
       "read": false,
       "project": "TAX",
       "approver": "QE1002"
+    },
+    {
+      "id": "innovation_73",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
+    },
+    {
+      "id": "innovation_86",
+      "emp_id": "QE1001",
+      "message": "New Innovation request has been raised by QE1001 ",
+      "read": false,
+      "project": "TAX",
+      "approver": "QE1002"
     }
   ],
   "innovations": [
@@ -896,16 +958,6 @@
       "emp_id": "QE1003",
       "approver": "QE1002",
       "emp_name": "David Miller"
-    },
-    {
-      "id": "Innovation_91",
-      "sl_no": "",
-      "idea_type": "Innovation",
-      "emp_id": "QE1001",
-      "emp_name": "Davidmiller",
-      "project": "TAX",
-      "approver": "QE1002",
-      "status": "created"
     }
   ],
   "innnovationcards": [
