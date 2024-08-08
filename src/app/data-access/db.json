@@ -573,7 +573,7 @@
       "children": [
         {
           "sl_no": "1",
-          "project": "Innovation",
+          "project": "Admin Innovation",
           "id": "P_1",
           "icon": "batch_prediction",
           "navigation_name": "adminInnovation"

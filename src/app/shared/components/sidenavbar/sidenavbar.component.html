@@ -26,7 +26,7 @@
           </mat-expansion-panel-header>
           <div *ngFor="let child of project.children" class="content" (click)="navigatingToComponents(i, child)">
             <mat-icon class="icon">{{ child?.icon }}</mat-icon>
-            <div class="title">{{ child?.project }}</div>
+            <div class="title">{{ removeAdminKeyword(child?.project)  }}</div>
           </div>
         </mat-expansion-panel>
       }

@@ -36,6 +36,12 @@ export class SidenavbarComponent {
     
   }
 
+  removeAdminKeyword(project: string): string {
+    const obj = "Admin"
+    const regex = new RegExp(`\\b${obj}\\b`, 'gi'); // Create a regex to match the whole word, case insensitive
+    return project.replace(regex, '').trim().replace(/\s+/g, ' '); //
+  }
+
   navigatingToChildComponent(index: number, child: any) {
     // Your logic here
   }
