@@ -1133,10 +1133,10 @@
     }
   ],
   "training_request":[
-    {"emp_name":"David John", "emp_id":"QE1001","trainig":"Angular"},
-    {"emp_name":"David John", "emp_id":"QE1001","trainig":"NodeJS"},
-    {"emp_name":"David John", "emp_id":"QE1001","trainig":"VueJS"},
-    {"emp_name":"David John", "emp_id":"QE1001","trainig":"SQL"}
+    {"emp_name":"David John", "emp_id":"QE1001","training":"Angular"},
+    {"emp_name":"David John", "emp_id":"QE1001","training":"NodeJS"},
+    {"emp_name":"David John", "emp_id":"QE1001","training":"VueJS"},
+    {"emp_name":"David John", "emp_id":"QE1001","training":"SQL"}
   ]
 
 }

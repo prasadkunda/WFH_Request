@@ -25,7 +25,7 @@ export class AdminTrainingDashboardComponent {
   displayedColumns: string[] = [
     'emp_name',
     'emp_id',
-    'trainig',
+    'training',
     'action'
   ];
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
