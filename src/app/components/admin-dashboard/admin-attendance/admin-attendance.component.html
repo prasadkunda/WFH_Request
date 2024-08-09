@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-content>
+    <div class="d-flex justify-content-start align-items-center">
+      <h5>Ongoing Trainings</h5>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="d-flex flex-column justify-content-start align-items-center">
+      @for(button of buttons;track button){
+      <button
+        type="button"
+        class="align-self-start"
+        mat-button
+        (click)="openModal(button)"
+      >
+        {{ button }}
+      </button>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-2">
+    <mat-card-content>
+      <div class="d-flex justify-content-start align-items-center">
+        <h5>Completed Trainings</h5>
+      </div>      
+      <mat-divider></mat-divider>
+      <div class="d-flex flex-column justify-content-start align-items-center">
+        @for(button of buttons;track button){
+        <button
+          type="button"
+          class="align-self-start"
+          mat-button
+          (click)="openAttendanceModal(button)"
+        >
+          {{ button }}
+        </button>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>

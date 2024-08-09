@@ -580,10 +580,17 @@
         },
         {
           "sl_no": "2",
-          "project": "Training",
+          "project": "Admin Training",
           "id": "P_2",
           "icon": "move_up",
           "navigation_name": "adminTraining"
+        },
+        {
+          "sl_no": "3",
+          "project": "Attendance",
+          "id": "P_3",
+          "icon": "groups",
+          "navigation_name": "adminAttendance"
         }
       ]
     },
@@ -1124,5 +1131,12 @@
       "status": "completed",
       "type_of_training": "virtual"
     }
+  ],
+  "training_request":[
+    {"emp_name":"David John", "emp_id":"QE1001","trainig":"Angular"},
+    {"emp_name":"David John", "emp_id":"QE1001","trainig":"NodeJS"},
+    {"emp_name":"David John", "emp_id":"QE1001","trainig":"VueJS"},
+    {"emp_name":"David John", "emp_id":"QE1001","trainig":"SQL"}
   ]
+
 }

@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-admin-innovation-dashboard',
   standalone: true,
-  imports: [MatPaginatorModule,MatSortModule,CommonModule,MatTableComponent,MatTableModule,MatTableComponent,MatCardModule,MatMenuModule,MatButtonModule,MatIconModule],
+  imports: [MatPaginatorModule,MatSortModule,CommonModule,MatTableModule,MatTableComponent,MatCardModule,MatMenuModule,MatButtonModule,MatIconModule],
   templateUrl: './admin-innovation-dashboard.component.html',
   styleUrl: './admin-innovation-dashboard.component.scss'
 })

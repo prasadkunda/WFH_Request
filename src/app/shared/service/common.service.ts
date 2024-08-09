@@ -288,4 +288,15 @@ export class CommonService {
         })
       );
   }
+
+  getTriningRegistration():Observable<any>{
+    return this.http
+    .get<any>('http://localhost:3000/training_request')
+    .pipe(
+      catchError((err) => {
+        
+        throw new Error(err);
+      })
+    );
+  }
 }

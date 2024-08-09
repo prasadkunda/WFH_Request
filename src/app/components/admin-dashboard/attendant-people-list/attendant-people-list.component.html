@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ data?.title }}</h2>
+<mat-dialog-content>
+  <h6 class="people__list">Attended People List</h6>
+  <mat-list role="list">
+    @for (item of data?.users; track item) {
+    <mat-list-item>{{ item?.name }} {{ item?.emp_id }}</mat-list-item>
+    <mat-divider></mat-divider>
+    }
+  </mat-list>
+</mat-dialog-content>

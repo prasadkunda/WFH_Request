@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{data?.title}}</h2>
+<mat-dialog-content>
+    <mat-selection-list (selectionChange)="selectedUserList($event)">
+        @for (item of data?.users; track item) {
+          <mat-list-option [value]="item">{{item?.name}} {{item?.emp_id}}</mat-list-option>
+        }
+      </mat-selection-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button type="button" mat-button cdkFocusInitial (click)="submitForm()">Mark Attendance</button>
+</mat-dialog-actions>
+
+
+

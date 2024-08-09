@@ -26,4 +26,6 @@ export const routes: Routes = [
   {path: 'innovation-dashboard',loadComponent: () => import("../app/components/dashboard/innovation-dashboard/innovation-dashboard.component").then((m) => m.InnovationDashboardComponent)},
   {path: 'training-dashboard',loadComponent: () => import("../app/components/dashboard/training-dashboard/training-dashboard.component").then((m) => m.TrainingDashboardComponent)},
   {path: 'admin-innovation-dashboard',loadComponent: () => import("../app/components/admin-dashboard/admin-innovation-dashboard/admin-innovation-dashboard.component").then((m) => m.AdminInnovationDashboardComponent)},
+  {path: 'admin-attendance',loadComponent: () => import("../app/components/admin-dashboard/admin-attendance/admin-attendance.component").then((m) => m.AdminAttendanceComponent)},
+  {path: 'admin-training-dashboard',loadComponent: () => import("../app/components/admin-dashboard/admin-training-dashboard/admin-training-dashboard.component").then((m) => m.AdminTrainingDashboardComponent)},
 ];
